@@ -80,4 +80,4 @@ class RDFProperty:
 
 
 if __name__ == "__main__":
-    MetadataCSV('csvs/vendor_supplied_map.csv').dump_yaml()
+    MetadataCSV('../csvs/vendor_supplied_map.csv').dump_yaml()
