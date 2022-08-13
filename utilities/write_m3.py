@@ -67,6 +67,18 @@ class RDFProperty:
             cardinality['maximum'] = int(values[1])
         return cardinality
 
+    @staticmethod
+    def __get_classes(data):
+        types = ("GenericWork", "Image", "Video", "Collection", "Audio", "PDF", "Book", "CompoundObject", "Newspaper")
+        available_on = []
+        for value in data.split(','):
+            if value == "All":
+                for work_type in types:
+                    available_on.append(work_type)
+            else:
+                available_on.append(value)
+        return {'class': available_on}
+
     def __build(self, data):
         return {
             'display_label': self.__return_default(data['Display Label']),
@@ -75,9 +87,9 @@ class RDFProperty:
             'requirement': self.__determine_required(data['Required for Migration']),
             'property_uri': data['RDF Property / Predicate'],
             'cardinality': self.__get_cardinality(data['Obligation: Repeatable / Range']),
-            'available_on': { 'class': ["Image"]}
+            'available_on': self.__get_classes(data['Work Type']),
         }
 
 
 if __name__ == "__main__":
-    MetadataCSV('../csvs/vendor_supplied_map.csv').dump_yaml()
+    MetadataCSV('csvs/vendor_supplied_map.csv').dump_yaml()
