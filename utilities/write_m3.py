@@ -50,7 +50,8 @@ class RDFProperty:
 
     @staticmethod
     def __get_sample_values(value):
-        all_values = value.split('|')
+        sample_values = value.split('|')
+        return [value for value in sample_values if value != '']
 
     @staticmethod
     def __get_cardinality(value):
@@ -76,11 +77,11 @@ class RDFProperty:
                 for work_type in types:
                     available_on.append(work_type)
             else:
-                available_on.append(value)
+                available_on.append(value.strip())
         return {'class': available_on}
 
     def __build(self, data):
-        return {
+        final_property = {
             'display_label': self.__return_default(data['Display Label']),
             'definition': self.__return_default(data['Description / Usage Guildeline']),
             'usage_guidelines': self.__return_default(data['Description / Usage Guildeline']),
@@ -89,6 +90,10 @@ class RDFProperty:
             'cardinality': self.__get_cardinality(data['Obligation: Repeatable / Range']),
             'available_on': self.__get_classes(data['Work Type']),
         }
+        sample_values = self.__get_sample_values(data['Example'])
+        if len(sample_values) > 0:
+            final_property['sample_values'] = sample_values
+        return final_property
 
 
 if __name__ == "__main__":
