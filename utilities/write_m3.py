@@ -24,12 +24,13 @@ class MetadataCSV:
 
     def dump_yaml(self, path="maps/test.yml"):
         test = {
+            "m3_version": "1.0.beta1",
             "profile": {
-                "responsibility": "https: // www.lib.utk.edu",
+                "responsibility": "https://www.lib.utk.edu",
                 "responsibility_statement": "University of Tennessee Libraries",
-                "date_modified": arrow.utcnow(),
+                "date_modified": str(arrow.utcnow().format("YYYY-MM-DD")),
                 "type": "base",
-                "version": "0.1"
+                "version": 0.1
             },
             "classes": {
                 "GenericWork": {
