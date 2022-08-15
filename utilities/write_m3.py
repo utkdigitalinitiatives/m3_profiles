@@ -1,5 +1,6 @@
 import csv
 from yaml import dump
+import arrow
 
 
 class MetadataCSV:
@@ -23,6 +24,39 @@ class MetadataCSV:
 
     def dump_yaml(self, path="maps/test.yml"):
         test = {
+            "profile": {
+                "responsibility": "https: // www.lib.utk.edu",
+                "responsibility_statement": "University of Tennessee Libraries",
+                "date_modified": arrow.utcnow(),
+                "type": "base",
+                "version": "0.1"
+            },
+            "classes": {
+                "GenericWork": {
+                    "display_label": "Generic Work"
+                },
+                "Image": {
+                    "display_label": "Image"
+                },
+                "Video": {
+                    "display_label": "Video"
+                },
+                "Audio": {
+                    "display_label": "Audio"
+                },
+                "Pdf": {
+                    "display_label": "PDF"
+                },
+                "Book": {
+                    "display_label": "Book"
+                },
+                "CompoundObject": {
+                    "display_label": "Compound Object"
+                },
+                "Newspaper": {
+                    "display_label": "Newspaper"
+                },
+            },
             "properties": {}
         }
         for rdf_property in self.original_as_dict:
@@ -100,11 +134,17 @@ class RDFProperty:
             'property_uri': data['RDF Property / Predicate'],
             'available_on': self.__get_classes(data['Work Type']),
             'cardinality': self.__get_cardinality(data['Obligation: Repeatable / Range']),
-            'mappings': PropertyMapping(data).build()
+            'mappings': PropertyMapping(data).build(),
         }
         sample_values = self.__get_sample_values(data['Example'])
         if len(sample_values) > 0:
             final_property['sample_values'] = sample_values
+        if data['M3: Range'] != '':
+            final_property['range'] = data['M3: Range']
+        if data['M3: Syntax'] != '':
+            final_property['syntax'] = data['M3: Syntax']
+        if data['M3: Validations'] != '':
+            final_property['validations'] = data['M3: Validations']
         return final_property
 
 
@@ -143,4 +183,4 @@ class PropertyMapping:
 
 
 if __name__ == "__main__":
-    MetadataCSV('csvs/vendor_supplied_map.csv').dump_yaml()
+    MetadataCSV('csvs/vendor_supplied_with_syntax.csv').dump_yaml()
