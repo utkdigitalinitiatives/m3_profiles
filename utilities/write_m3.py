@@ -80,20 +80,66 @@ class RDFProperty:
                 available_on.append(value.strip())
         return {'class': available_on}
 
+    @staticmethod
+    def __get_controlled_values(data):
+        controlled_values = []
+        for value in data.split(','):
+            if value == "n/a".lower() or value == "none".lower().strip():
+                controlled_values.append('null')
+            else:
+                controlled_values.append(value.strip())
+        return {"sources": controlled_values}
+
     def __build(self, data):
         final_property = {
             'display_label': self.__return_default(data['Display Label']),
             'definition': self.__return_default(data['Description / Usage Guildeline']),
             'usage_guidelines': self.__return_default(data['Description / Usage Guildeline']),
             'requirement': self.__determine_required(data['Required for Migration']),
+            'controlled_value': self.__get_controlled_values(data['Vocab']),
             'property_uri': data['RDF Property / Predicate'],
-            'cardinality': self.__get_cardinality(data['Obligation: Repeatable / Range']),
             'available_on': self.__get_classes(data['Work Type']),
+            'cardinality': self.__get_cardinality(data['Obligation: Repeatable / Range']),
+            'mappings': PropertyMapping(data).build()
         }
         sample_values = self.__get_sample_values(data['Example'])
         if len(sample_values) > 0:
             final_property['sample_values'] = sample_values
         return final_property
+
+
+class PropertyMapping:
+    def __init__(self, data):
+        self.data = data
+
+    def __get_blacklight(self):
+        return self.data['Additional Blacklight / Solr Field Expecations']
+
+    def __get_simple_oai_pmh(self):
+        return self.data['OAI_PMH Simple DC']
+
+    def __get_qualified_oai_pmh(self):
+        return self.data['OAI_PMH Qualified DC']
+
+    def __get_oai_pmh_mods(self):
+        return self.data['OAI_PMH MODS']
+
+    def __get_metatags(self):
+        return self.data['Metatags']
+
+    def build(self):
+        mappings = {}
+        if self.__get_blacklight() != '':
+            mappings['blacklight'] = self.__get_blacklight()
+        if self.__get_oai_pmh_mods().lower() != 'n/a' or self.__get_oai_pmh_mods() != '':
+            mappings['mods_oai_pmh'] = self.__get_oai_pmh_mods()
+        if self.__get_simple_oai_pmh().lower() != 'n/a' or self.__get_simple_oai_pmh() != '':
+            mappings['simple_dc_pmh'] = self.__get_simple_oai_pmh()
+        if self.__get_qualified_oai_pmh().lower() != 'n/a' or self.__get_qualified_oai_pmh() != '':
+            mappings['qualifies_dc_pmh'] = self.__get_qualified_oai_pmh()
+        if self.__get_metatags().lower() != 'n/a' or self.__get_metatags() != '':
+            mappings['metatags'] = self.__get_metatags()
+        return mappings
 
 
 if __name__ == "__main__":
