@@ -32,6 +32,23 @@ class MetadataCSV:
                 "type": "base",
                 "version": 0.1
             },
+            "mappings": {
+                "blacklight": {
+                    "name": "Blacklight Solr Mappings"
+                },
+                "metatags": {
+                    "name": "Metatags"
+                },
+                "simple_dc_pmh": {
+                    "name": "Simple DC OAI PMH"
+                },
+                "qualified_dc_pmh": {
+                    "name": "Qualified DC OAI PMH"
+                },
+                "mods_oai_pmh": {
+                    "name": "MODS OAI PMH"
+                },
+            },
             "classes": {
                 "GenericWork": {
                     "display_label": "Generic Work"
@@ -86,7 +103,7 @@ class RDFProperty:
     @staticmethod
     def __get_sample_values(value):
         sample_values = value.split('|')
-        return [value for value in sample_values if value != '']
+        return [value.strip() for value in sample_values if value != '']
 
     @staticmethod
     def __get_cardinality(value):
@@ -132,7 +149,7 @@ class RDFProperty:
             'usage_guidelines': self.__return_default(data['Description / Usage Guildeline']),
             'requirement': self.__determine_required(data['Required for Migration']),
             'controlled_value': self.__get_controlled_values(data['Vocab']),
-            'property_uri': data['RDF Property / Predicate'],
+            'property_uri': data['RDF Property / Predicate'].strip(),
             'available_on': self.__get_classes(data['Work Type']),
             'cardinality': self.__get_cardinality(data['Obligation: Repeatable / Range']),
             'mappings': PropertyMapping(data).build(),
@@ -145,7 +162,7 @@ class RDFProperty:
         if data['M3: Syntax'] != '':
             final_property['syntax'] = data['M3: Syntax']
         if data['M3: Validations'] != '':
-            final_property['validations'] = data['M3: Validations']
+            final_property['validations'] = {"match_regex": data['M3: Validations']}
         return final_property
 
 
@@ -177,11 +194,11 @@ class PropertyMapping:
         if self.__get_simple_oai_pmh().lower() != 'n/a' or self.__get_simple_oai_pmh() != '':
             mappings['simple_dc_pmh'] = self.__get_simple_oai_pmh()
         if self.__get_qualified_oai_pmh().lower() != 'n/a' or self.__get_qualified_oai_pmh() != '':
-            mappings['qualifies_dc_pmh'] = self.__get_qualified_oai_pmh()
+            mappings['qualified_dc_pmh'] = self.__get_qualified_oai_pmh()
         if self.__get_metatags().lower() != 'n/a' or self.__get_metatags() != '':
             mappings['metatags'] = self.__get_metatags()
         return mappings
 
 
 if __name__ == "__main__":
-    MetadataCSV('csvs/vendor_supplied_with_syntax.csv').dump_yaml()
+    MetadataCSV('csvs/vendor_supplied_with_syntax.csv').dump_yaml('maps/utk.yml')
