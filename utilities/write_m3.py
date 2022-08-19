@@ -32,6 +32,11 @@ class MetadataCSV:
                 "type": "base",
                 "version": 0.1
             },
+            "contexts": {
+                "flexible_context": {
+                    "display_label": "Flexible Metadata Example"
+                }
+            },
             "mappings": {
                 "blacklight": {
                     "name": "Blacklight Solr Mappings"
@@ -133,14 +138,17 @@ class RDFProperty:
         return {'class': available_on}
 
     @staticmethod
-    def __get_controlled_values(data):
+    def __get_controlled_values(data, range):
         controlled_values = []
         for value in data.split(','):
             if value == "n/a".lower() or value == "none".lower().strip():
                 controlled_values.append('null')
             else:
                 controlled_values.append(value.strip())
-        return {"sources": controlled_values}
+        return {
+            "format": range.strip(),
+            "sources": controlled_values
+        }
 
     def __build(self, data):
         final_property = {
@@ -148,7 +156,7 @@ class RDFProperty:
             'definition': self.__return_default(data['Description / Usage Guildeline']),
             'usage_guidelines': self.__return_default(data['Description / Usage Guildeline']),
             'requirement': self.__determine_required(data['Required for Migration']),
-            'controlled_value': self.__get_controlled_values(data['Vocab']),
+            'controlled_values': self.__get_controlled_values(data['Vocab'], data['M3: Range']),
             'property_uri': data['RDF Property / Predicate'].strip(),
             'available_on': self.__get_classes(data['Work Type']),
             'cardinality': self.__get_cardinality(data['Obligation: Repeatable / Range']),
