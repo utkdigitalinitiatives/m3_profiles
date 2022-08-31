@@ -150,17 +150,29 @@ class RDFProperty:
             "sources": controlled_values
         }
 
+    @staticmethod
+    def __get_solr_specific_things(solr_fields, facets):
+        values = []
+        for value in solr_fields.split(','):
+            if value != "":
+                values.append(value.strip())
+        for value in facets.split(','):
+            if value != "":
+                values.append(value.strip())
+        return values
+
     def __build(self, data):
         final_property = {
             'display_label': self.__return_default(data['Display Label']),
-            'definition': self.__return_default(data['Description / Usage Guildeline']),
-            'usage_guidelines': self.__return_default(data['Description / Usage Guildeline']),
+            'definition': self.__return_default(data['Usage Guidelines']),
+            'usage_guidelines': self.__return_default(data['Usage Guidelines']),
             'requirement': self.__determine_required(data['Required for Migration']),
             'controlled_values': self.__get_controlled_values(data['Vocab'], data['M3: Range']),
             'property_uri': data['RDF Property / Predicate'].strip(),
             'available_on': self.__get_classes(data['Work Type']),
             'cardinality': self.__get_cardinality(data['Obligation: Repeatable / Range']),
             'mappings': PropertyMapping(data).build(),
+            'indexing': self.__get_solr_specific_things(data['solr_field'], data['facet'])
         }
         sample_values = self.__get_sample_values(data['Example'])
         if len(sample_values) > 0:
@@ -209,4 +221,4 @@ class PropertyMapping:
 
 
 if __name__ == "__main__":
-    MetadataCSV('csvs/vendor_supplied_with_syntax.csv').dump_yaml('maps/utk.yml')
+    MetadataCSV('csvs/testing_indexing2.csv').dump_yaml('maps/utk_test_indexing.yml')
