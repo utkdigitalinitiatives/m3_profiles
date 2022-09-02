@@ -39,7 +39,7 @@ class MetadataCSV:
             },
             "mappings": {
                 "blacklight": {
-                    "name": "Blacklight Solr Mappings"
+                    "name": "Additional Blacklight Solr Mappings"
                 },
                 "metatags": {
                     "name": "Metatags"
@@ -161,6 +161,10 @@ class RDFProperty:
                 values.append(value.strip())
         return values
 
+    @staticmethod
+    def __get_indexing(data):
+        return [field.strip() for field in data.split(',')]
+
     def __build(self, data):
         final_property = {
             'display_label': self.__return_default(data['Display Label']),
@@ -172,7 +176,7 @@ class RDFProperty:
             'available_on': self.__get_classes(data['Work Type']),
             'cardinality': self.__get_cardinality(data['Obligation: Repeatable / Range']),
             'mappings': PropertyMapping(data).build(),
-            'indexing': self.__get_solr_specific_things(data['solr_field'], data['facet'])
+            'indexing': self.__get_indexing(data['indexing'])
         }
         sample_values = self.__get_sample_values(data['Example'])
         if len(sample_values) > 0:
@@ -183,6 +187,8 @@ class RDFProperty:
             final_property['syntax'] = data['M3: Syntax']
         if data['M3: Validations'] != '':
             final_property['validations'] = {"match_regex": data['M3: Validations']}
+        if data['index_documentation'] != '':
+            final_property['index_documentation'] = data['index_documentation']
         return final_property
 
 
