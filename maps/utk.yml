@@ -1,0 +1,4030 @@
+---
+#-------------------
+# M3 Metadata Model
+#-------------------
+
+m3_version: 1.0.beta2
+
+profile:
+  date_modified: '2022-08-17'
+  responsibility: https://www.lib.utk.edu
+  responsibility_statement: University of Tennessee Libraries
+  type: base
+  version: 0.2
+
+mappings:
+  blacklight:
+    name: Blacklight Solr Mappings
+  metatags:
+    name: Metatags
+  mods_oai_pmh:
+    name: MODS OAI PMH
+  qualified_dc_pmh:
+    name: Qualified DC OAI PMH
+  simple_dc_pmh:
+    name: Simple DC OAI PMH
+
+contexts:
+  flexible_context:
+    display_label: Flexible Metadata Example
+
+classes:
+  Audio:
+    display_label: Audio
+  Book:
+    display_label: Book
+  CompoundObject:
+    display_label: Compound Object
+  GenericWork:
+    display_label: Generic Work
+  Image:
+    display_label: Image
+  Newspaper:
+    display_label: Newspaper
+  Pdf:
+    display_label: PDF
+  Video:
+    display_label: Video
+
+properties:
+  abstract:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter a summary of the resource. End this field with a period.
+    display_label:
+      default: Abstract
+    mappings:
+      blacklight: abstract
+      metatags: og:description
+      mods_oai_pmh: mods:abstract
+      qualified_dc_pmh: dcterms:abstract
+      simple_dc_pmh: dc:description
+    property_uri: http://purl.org/dc/terms/abstract
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Prosecutor John Keker gives his closing statement to the jury, explaining Col.
+      John North's involvement in the Iran-Contra affair even though the majority
+      of his statement is censored due to classified information.
+    usage_guidelines:
+      default: Enter a summary of the resource. End this field with a period.
+  acquisition_identifier:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter an identifier assigned by a museum for acquisition. Values typically
+        start with a year (e.g. 1996.10.1)
+    display_label:
+      default: Acquisition Identifier
+    mappings:
+      blacklight: acquisition_identifier
+      metatags: N/A
+      mods_oai_pmh: mods:identifier[@type='acquisition']
+      qualified_dc_pmh: dcterms:identifier
+      simple_dc_pmh: dc:identifier
+    property_uri: http://opaquenamespace.org/ns/accessionNumber
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - 1996.10.1
+    usage_guidelines:
+      default: Enter an identifier assigned by a museum for acquisition. Values typically
+        start with a year (e.g. 1996.10.1)
+  addressee:
+    available_on:
+      class:
+      - Book
+      - Compound Object
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name (last, first) to whom the correspondence in a work is
+        addressed.
+    display_label:
+      default: Addressee
+    mappings:
+      blacklight: name, addressee
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Addressee')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/rcp
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name (last, first) to whom the correspondence in a work is
+        addressed.
+  alternative_title:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter any alternate titles used to identify the source. If the source
+        is a serial publication, this could include a transcribed title. If the title
+        is written in more than one language, this title could include a foreign language
+        (parallel) title.
+    display_label:
+      default: Alternative Title
+    mappings:
+      blacklight: alternative_title
+      metatags: N/A
+      mods_oai_pmh: modstitleInfo[@type="alternative"]/mods:title
+      qualified_dc_pmh: dcterms:alternative
+      simple_dc_pmh: N/A
+    property_uri: http://purl.org/dc/terms/alternative
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - 'Swimming 1969: The University of Tennessee'
+    usage_guidelines:
+      default: Enter any alternate titles used to identify the source. If the source
+        is a serial publication, this could include a transcribed title. If the title
+        is written in more than one language, this title could include a foreign language
+        (parallel) title.
+  architect:
+    available_on:
+      class:
+      - Book
+      - Image
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for creating an architectural design, including a pictorial representation
+        intended to show how a building, etc., will look when completed.
+    display_label:
+      default: Architect
+    mappings:
+      blacklight: name, architect
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Architect')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/arc
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for creating an architectural design, including a pictorial representation
+        intended to show how a building, etc., will look when completed.
+  archival_collection:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter the name of the physical archival collection (e.g. "Virginia
+        P. Moore Collection") the resource belongs to. Match how the name is represented
+        in ArchivesSpace.
+    display_label:
+      default: Archival Collection
+    mappings:
+      blacklight: archival_collection
+      metatags: N/A
+      mods_oai_pmh: mods:relatedItem[@type="host"][@displayLabel="Collection"]/mods:titleInfo/mods:title
+      qualified_dc_pmh: dc:source
+      simple_dc_pmh: dc:source
+    property_uri: http://dbpedia.org/ontology/collection
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    usage_guidelines:
+      default: Enter the name of the physical archival collection (e.g. "Virginia
+        P. Moore Collection") the resource belongs to. Match how the name is represented
+        in ArchivesSpace.
+  ark:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      maximum: 1
+      minimum: 1
+    controlled_values:
+      format: ''
+      sources:
+      - N/A
+    definition:
+      default: Should not appear in metadata form.  This field should be autopopulated
+        on a pcdmworks:Work and presented to users in the metadata, but should never
+        be editable by a user or admin.
+    display_label:
+      default: ARK
+    mappings:
+      blacklight: ark
+      metatags: n/a
+      mods_oai_pmh: mods:location/mods:url[access="object in context"]
+      qualified_dc_pmh: dcterms:identifier
+      simple_dc_pmh: dc:identifier
+    property_uri: http://id.loc.gov/vocabulary/identifiers/ark
+    requirement: optional
+    sample_values:
+    - '[http://path/]ark:/NAAN/Name[Qualifier]'
+    usage_guidelines:
+      default: Should not appear in metadata form.  This field should be autopopulated
+        on a pcdmworks:Work and presented to users in the metadata, but should never
+        be editable by a user or admin.
+  arranger:
+    available_on:
+      class:
+      - Audio
+      - Book
+      - Video
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization contributing
+        to a musical work by rewriting the composition for a medium of performance
+        different from that for which the work was originally intended, or modifying
+        the work for the same medium of performance, etc., such that the musical substance
+        of the original composition remains essentially unchanged. For extensive modification
+        that effectively results in the creation of a new musical work, use Composer.
+    display_label:
+      default: Arranger
+    mappings:
+      blacklight: name, arranger
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Arranger')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/arr
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization contributing
+        to a musical work by rewriting the composition for a medium of performance
+        different from that for which the work was originally intended, or modifying
+        the work for the same medium of performance, etc., such that the musical substance
+        of the original composition remains essentially unchanged. For extensive modification
+        that effectively results in the creation of a new musical work, use Composer.
+  artist:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) family, or organization responsible
+        for creating a work by conceiving, and implementing, an original graphic design,
+        drawing, painting, etc.
+    display_label:
+      default: Artist
+    mappings:
+      blacklight: name, artist
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Artist')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/art
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) family, or organization responsible
+        for creating a work by conceiving, and implementing, an original graphic design,
+        drawing, painting, etc.
+  associated_name:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name a person (last, first) or organization associated with
+        or found in an item or collection, which cannot be determined to be that of
+        a Former owner [fmo] or other designated relationship indicative of provenance.
+        Use this field as a last resort. If the source is about this person/organization,
+        use subject instead.
+    display_label:
+      default: Associated name
+    mappings:
+      blacklight: name, associated_name
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Associated name')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/asn
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name a person (last, first) or organization associated with
+        or found in an item or collection, which cannot be determined to be that of
+        a Former owner [fmo] or other designated relationship indicative of provenance.
+        Use this field as a last resort. If the source is about this person/organization,
+        use subject instead.
+  attributed_name:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), particularly an author or
+        artist, for which there is or once was substantial authority for designating
+        that person as author, creator, etc. of the work indicative of provenance.
+    display_label:
+      default: Attributed name
+    mappings:
+      blacklight: name, attributed_name
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Attributed name')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/att
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), particularly an author or
+        artist, for which there is or once was substantial authority for designating
+        that person as author, creator, etc. of the work indicative of provenance.
+  author:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for creating a work that is primarily textual in content, regardless of media
+        type (e.g., printed text, spoken word, electronic text, tactile text) or genre
+        (e.g., poems, novels, screenplays, blogs). Use also for persons, etc., creating
+        a new work by paraphrasing, rewriting, or adapting works by another creator
+        such that the modification has substantially changed the nature and content
+        of the original or changed the medium of expression.
+    display_label:
+      default: Author
+    mappings:
+      blacklight: name, author
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Author')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/aut
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for creating a work that is primarily textual in content, regardless of media
+        type (e.g., printed text, spoken word, electronic text, tactile text) or genre
+        (e.g., poems, novels, screenplays, blogs). Use also for persons, etc., creating
+        a new work by paraphrasing, rewriting, or adapting works by another creator
+        such that the modification has substantially changed the nature and content
+        of the original or changed the medium of expression.
+  autographer:
+    available_on:
+      class:
+      - Book
+      - Compound Object
+      - Image
+      - PDF
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) whose written signature appears
+        on an item.
+    display_label:
+      default: Autographer
+    mappings:
+      blacklight: name, autographer
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Autographer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/ato
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) whose written signature appears
+        on an item.
+  bibliographic_citation:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter a bibliographic reference for the resource.
+    display_label:
+      default: Bibliographic Citation
+    mappings:
+      blacklight: bibliographic_citation
+      metatags: N/A
+      mods_oai_pmh: ''
+      qualified_dc_pmh: ''
+      simple_dc_pmh: ''
+    property_uri: http://purl.org/dc/terms/bibliographicCitation
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    usage_guidelines:
+      default: Enter a bibliographic reference for the resource.
+  binding_designer:
+    available_on:
+      class:
+      - Book
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) or organization responsible
+        for the binding design of a book, including the type of binding, the type
+        of materials used, and any decorative aspects of the binding.
+    display_label:
+      default: Binding designer
+    mappings:
+      blacklight: name, binding_designer
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Binding designer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/bdd
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) or organization responsible
+        for the binding design of a book, including the type of binding, the type
+        of materials used, and any decorative aspects of the binding.
+  call_number:
+    available_on:
+      class:
+      - Book
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter the base call number of cataloged resources (written on resource
+        or present in the catalog). Do not include the year or author (e.g. for "LD5296
+        .W6 2001" should be "LD5296 .W6").
+    display_label:
+      default: Library of Congress Classification
+    mappings:
+      blacklight: call_number
+      metatags: N/A
+      mods_oai_pmh: mods:classification[@authority="lcc"]
+      qualified_dc_pmh: n/a
+      simple_dc_pmh: n/a
+    property_uri: http://id.loc.gov/vocabulary/classSchemes/lcc
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - LD5296 .W6
+    usage_guidelines:
+      default: Enter the base call number of cataloged resources (written on resource
+        or present in the catalog). Do not include the year or author (e.g. for "LD5296
+        .W6 2001" should be "LD5296 .W6").
+  cartographer:
+    available_on:
+      class:
+      - Image
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) family, or organization responsible
+        for creating a map, atlas, globe, or other cartographic work.
+    display_label:
+      default: Cartographer
+    mappings:
+      blacklight: name, cartographer
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Cartographer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/ctg
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) family, or organization responsible
+        for creating a map, atlas, globe, or other cartographic work.
+  censor:
+    available_on:
+      class:
+      - Book
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) or organization who examines
+        bibliographic resources for the purpose of suppressing parts deemed objectionable
+        on moral, political, military, or other grounds.
+    display_label:
+      default: Censor
+    mappings:
+      blacklight: name, censor
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Censor')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/cns
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) or organization who examines
+        bibliographic resources for the purpose of suppressing parts deemed objectionable
+        on moral, political, military, or other grounds.
+  choreographer:
+    available_on:
+      class:
+      - Book
+      - Video
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) responsible for creating or
+        contributing to a work of movement.
+    display_label:
+      default: Choreographer
+    mappings:
+      blacklight: name, choreographer
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Choreographer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/chr
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) responsible for creating or
+        contributing to a work of movement.
+  client:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) or organization for whom another
+        person or organization is acting.
+    display_label:
+      default: Client
+    mappings:
+      blacklight: name, client
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Client')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/cli
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) or organization for whom another
+        person or organization is acting.
+  compiler:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for creating a new work (e.g., a bibliography, a directory) through the act
+        of compilation, e.g., selecting, arranging, aggregating, and editing data,
+        information, etc.
+    display_label:
+      default: Compiler
+    mappings:
+      blacklight: name, compiler
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Compiler')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/com
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for creating a new work (e.g., a bibliography, a directory) through the act
+        of compilation, e.g., selecting, arranging, aggregating, and editing data,
+        information, etc.
+  composer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for creating or contributing to a musical resource by adding music to a work
+        that originally lacked it or supplements it.
+    display_label:
+      default: Composer
+    mappings:
+      blacklight: name, composer
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Composer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/cmp
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for creating or contributing to a musical resource by adding music to a work
+        that originally lacked it or supplements it.
+  contractor:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) or organization relevant to
+        a resource, who enters into a contract with another person or organization
+        to perform a specific task.
+    display_label:
+      default: Contractor
+    mappings:
+      blacklight: name, contractor
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Contractor')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/ctr
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) or organization relevant to
+        a resource, who enters into a contract with another person or organization
+        to perform a specific task.
+  contributor:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family or organization responsible
+        for making contributions to the resource. This includes those whose work has
+        been contributed to a larger work, such as an anthology, serial publication,
+        or other compilation of individual works. If a more specific role is available,
+        prefer that, e.g. editor, compiler, illustrator.
+    display_label:
+      default: Contributor
+    mappings:
+      blacklight: name, contributor
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Contributor')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/ctb
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family or organization responsible
+        for making contributions to the resource. This includes those whose work has
+        been contributed to a larger work, such as an anthology, serial publication,
+        or other compilation of individual works. If a more specific role is available,
+        prefer that, e.g. editor, compiler, illustrator.
+  copyright_holder:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) or organization to whom copy
+        and legal rights have been granted or transferred for the intellectual content
+        of a work. The copyright holder, although not necessarily the creator of the
+        work, usually has the exclusive right to benefit financially from the sale
+        and use of the work to which the associated copyright protection applies.
+    display_label:
+      default: Copyright holder
+    mappings:
+      blacklight: name, copyright_holder
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Copyright holder')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/cph
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) or organization to whom copy
+        and legal rights have been granted or transferred for the intellectual content
+        of a work. The copyright holder, although not necessarily the creator of the
+        work, usually has the exclusive right to benefit financially from the sale
+        and use of the work to which the associated copyright protection applies.
+  correspondent:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) or organization who was the
+        writer of a letter or other communication.
+    display_label:
+      default: Correspondent
+    mappings:
+      blacklight: name, correspondent
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Correspondent')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/crp
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) or organization who was the
+        writer of a letter or other communication.
+  costumer_designer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization that
+        designs the costumes for a moving image production or for a musical or dramatic
+        presentation or entertainment.
+    display_label:
+      default: Costume designer
+    mappings:
+      blacklight: name, costume_designer
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Costume designer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/cst
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization that
+        designs the costumes for a moving image production or for a musical or dramatic
+        presentation or entertainment.
+  creator:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) or organization responsible
+        for the intellectual or artistic content of a resource. Use when a suitable
+        more granular term cannot be identified.
+    display_label:
+      default: Creator
+    mappings:
+      blacklight: name, creator
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Creator')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/cre
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) or organization responsible
+        for the intellectual or artistic content of a resource. Use when a suitable
+        more granular term cannot be identified.
+  date_created:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      maximum: 2
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#date
+      sources:
+      - 'null'
+    definition:
+      default: Enter the date a work was created. If this is a published work, use
+        "Date Issued."
+    display_label:
+      default: Date Created
+    mappings:
+      blacklight: date_created
+      metatags: N/A
+      mods_oai_pmh: mods:originInfo/mods:dateCreated
+      qualified_dc_pmh: dcterms:created
+      simple_dc_pmh: dc:date
+    property_uri: http://purl.org/dc/terms/created
+    range: http://www.w3.org/2001/XMLSchema#date
+    requirement: optional
+    sample_values:
+    - '"approximately between 1940 and 1950", "1940~/1950"'
+    syntax: EDTF
+    usage_guidelines:
+      default: Enter the date a work was created. If this is a published work, use
+        "Date Issued."
+  date_issued:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      maximum: 2
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#date
+      sources:
+      - 'null'
+    definition:
+      default: Enter the date a work was published.
+    display_label:
+      default: Date Issued
+    mappings:
+      blacklight: date_issued
+      metatags: N/A
+      mods_oai_pmh: mods:originInfo/mods:dateIssued
+      qualified_dc_pmh: dcterms:issued
+      simple_dc_pmh: dc:date
+    property_uri: http://purl.org/dc/terms/issued
+    range: http://www.w3.org/2001/XMLSchema#date
+    requirement: optional
+    syntax: EDTF
+    usage_guidelines:
+      default: Enter the date a work was published.
+  date_other:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      maximum: 2
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#date
+      sources:
+      - 'null'
+    definition:
+      default: Enter a date of importance to the work that is neither the date it
+        was created nor the date it was published.
+    display_label:
+      default: Date Other
+    mappings:
+      blacklight: date_other
+      metatags: N/A
+      mods_oai_pmh: mods:originInfo/mods:dateOther
+      qualified_dc_pmh: dcterms:date
+      simple_dc_pmh: dc:date
+    property_uri: http://purl.org/dc/terms/date
+    range: http://www.w3.org/2001/XMLSchema#date
+    requirement: optional
+    syntax: EDTF
+    usage_guidelines:
+      default: Enter a date of importance to the work that is neither the date it
+        was created nor the date it was published.
+  dedicatee:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization to
+        whom a resource is dedicated.
+    display_label:
+      default: Dedicatee
+    mappings:
+      blacklight: name, dedicatee
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Dedicatee')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/dte
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization to
+        whom a resource is dedicated.
+  depicted:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of an entity (e.g. person (last, first)) depicted or
+        portrayed in a work, particularly in a work of art. Use subject when a person
+        is depicted in a photograph.
+    display_label:
+      default: Depicted
+    mappings:
+      blacklight: name, depicted
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Depicted')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/dpc
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of an entity (e.g. person (last, first)) depicted or
+        portrayed in a work, particularly in a work of art. Use subject when a person
+        is depicted in a photograph.
+  designer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for creating a design for an object.
+    display_label:
+      default: Designer
+    mappings:
+      blacklight: name, designer
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Designer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/dsr
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for creating a design for an object.
+  distributor:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) or organization that has exclusive
+        or shared marketing rights for a resource.
+    display_label:
+      default: Distributor
+    mappings:
+      blacklight: name, distributor
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Distributor')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/dst
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) or organization that has exclusive
+        or shared marketing rights for a resource.
+  donor:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name (last, first - if person) of a former owner of an item
+        who donated that item to another owner.
+    display_label:
+      default: Donor
+    mappings:
+      blacklight: name, donor
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Donor')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/dnr
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name (last, first - if person) of a former owner of an item
+        who donated that item to another owner.
+  duration:
+    available_on:
+      class:
+      - Audio
+      - Video
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: ''
+      sources:
+      - N/A
+    definition:
+      default: This property describes the total duration of an A/V work or an A/V
+        file. In the case where an A/V work consists of multiple files being served
+        to a single canvas, it is critical that the file metadata is leveraged and
+        passed to the viewer according to IIIF presentation v3 to ensure good user
+        experience (add example using World War II Oral Histories).
+    display_label:
+      default: Duration
+    mappings:
+      blacklight: duration
+      metatags: N/A
+      mods_oai_pmh: N/A
+      qualified_dc_pmh: N/A
+      simple_dc_pmh: N/A
+    property_uri: http://id.loc.gov/ontologies/bibframe/duration
+    requirement: optional
+    sample_values:
+    - '0:57:15.904000'
+    usage_guidelines:
+      default: This property describes the total duration of an A/V work or an A/V
+        file. In the case where an A/V work consists of multiple files being served
+        to a single canvas, it is critical that the file metadata is leveraged and
+        passed to the viewer according to IIIF presentation v3 to ensure good user
+        experience (add example using World War II Oral Histories).
+  editor:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization contributing
+        to a resource by revising or elucidating the content, e.g., adding an introduction,
+        notes, or other critical matter.
+    display_label:
+      default: Editor
+    mappings:
+      blacklight: name, editor
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Editor')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/edt
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization contributing
+        to a resource by revising or elucidating the content, e.g., adding an introduction,
+        notes, or other critical matter.
+  editor_of_compilation:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization contributing
+        to a collective or aggregate work by selecting and putting together works,
+        or parts of works, by one or more creators. For compilations of data, information,
+        etc., that result in new works, use Compiler.
+    display_label:
+      default: Editor of compilation
+    mappings:
+      blacklight: name, editor_of_compilation
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Editor of compilation')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/edc
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization contributing
+        to a collective or aggregate work by selecting and putting together works,
+        or parts of works, by one or more creators. For compilations of data, information,
+        etc., that result in new works, use Compiler.
+  engraver:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) or organization who cuts letters,
+        figures, etc. on a surface, such as a wooden or metal plate used for printing.
+    display_label:
+      default: Engraver
+    mappings:
+      blacklight: name, engraver
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Engraver')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/egr
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) or organization who cuts letters,
+        figures, etc. on a surface, such as a wooden or metal plate used for printing.
+  extent:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter the dimensions (if a photograph, artwork, etc.), the total number
+        of digital pages of the resource, or time duration (if audiovisual content)
+        of the resource. Units should be included as text within the field (e.g. "8x10
+        inches", "6 pages", or "1 hour, 2 minutes").
+    display_label:
+      default: Extent
+    mappings:
+      blacklight: extent
+      metatags: N/A
+      mods_oai_pmh: mods:physicalDescription/mods:extent
+      qualified_dc_pmh: dcterms:extent
+      simple_dc_pmh: dc:format
+    property_uri: http://rdaregistry.info/Elements/u/P60550
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    usage_guidelines:
+      default: Enter the dimensions (if a photograph, artwork, etc.), the total number
+        of digital pages of the resource, or time duration (if audiovisual content)
+        of the resource. Units should be included as text within the field (e.g. "8x10
+        inches", "6 pages", or "1 hour, 2 minutes").
+  first_line:
+    available_on:
+      class:
+      - Book
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N
+    definition:
+      default: Use for sheet music that has lyrics. Enter the first complete phrase
+        of the lyrics. Note that the phrase may exceed or fall short of the first
+        full line. No quotation marks are needed.
+    display_label:
+      default: First Line
+    mappings:
+      blacklight: first_line
+      metatags: N/A
+      mods_oai_pmh: n/a
+      qualified_dc_pmh: n/a
+      simple_dc_pmh: n/a
+    property_uri: http://opaquenamespace.org/ns/sheetmusic_firstLine
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    usage_guidelines:
+      default: Use for sheet music that has lyrics. Enter the first complete phrase
+        of the lyrics. Note that the phrase may exceed or fall short of the first
+        full line. No quotation marks are needed.
+  form:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: ''
+      sources:
+      - Art and Architecture Thesaurus
+      - LCGFT
+    definition:
+      default: Enter a term that describes the type of work, including the physical
+        form or medium of material for the work.
+    display_label:
+      default: Form
+    mappings:
+      blacklight: form
+      metatags: N/A
+      mods_oai_pmh: mods:physicalDescription/mods:form
+      qualified_dc_pmh: dcterms:medium
+      simple_dc_pmh: dc:format
+    property_uri: http://www.europeana.eu/schemas/edm/hasType
+    requirement: optional
+    sample_values:
+    - photographs
+    usage_guidelines:
+      default: Enter a term that describes the type of work, including the physical
+        form or medium of material for the work.
+  former_owner:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization formerly
+        having legal possession of an item.
+    display_label:
+      default: Former owner
+    mappings:
+      blacklight: name, former_owner
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Former owner')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/fmo
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization formerly
+        having legal possession of an item.
+  honoree:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization honored
+        by a work or item (e.g., the honoree of a festschrift, a person to whom a
+        copy is presented).
+    display_label:
+      default: Honoree
+    mappings:
+      blacklight: name, honoree
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Honoree')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/hnr
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization honored
+        by a work or item (e.g., the honoree of a festschrift, a person to whom a
+        copy is presented).
+  host_institution:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of an organization hosting an event, exhibit, conference,
+        etc., which gave rise to a resource, but has little or no responsibility for
+        the content of the resource.
+    display_label:
+      default: Host institution
+    mappings:
+      blacklight: name, host_institution
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Host institution')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/his
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of an organization hosting an event, exhibit, conference,
+        etc., which gave rise to a resource, but has little or no responsibility for
+        the content of the resource.
+  illustrator:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization contributing
+        to a resource by supplementing the primary content with drawings, diagrams,
+        photographs, etc. If the work is primarily the artistic content created by
+        this entity, use Artist or Photographer.
+    display_label:
+      default: Illustrator
+    mappings:
+      blacklight: name, illustrator
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Illustrator')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/ill
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization contributing
+        to a resource by supplementing the primary content with drawings, diagrams,
+        photographs, etc. If the work is primarily the artistic content created by
+        this entity, use Artist or Photographer.
+  instrumentalist:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) who contributed to a resource
+        by playing a musical instrument.
+    display_label:
+      default: Instrumentalist
+    mappings:
+      blacklight: name, instrumentalist
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Instrumentalist')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/itr
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) who contributed to a resource
+        by playing a musical instrument.
+  instrumentation:
+    available_on:
+      class:
+      - Audio
+      - Book
+      - Video
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N
+    definition:
+      default: 'Enter the voices and external instruments used to perform a piece
+        of music along with the number of each (e.g. "For piccolo, 2 flutes, 2 oboes,
+        and English horn.") Follow score order for listing the voices/instruments
+        - https://jirautk.atlassian.net/wiki/spaces/DLP/pages/3047434. Names of instruments
+        should follow the Library of Congress Medium of Performance Thesaurus (lcmpt). '
+    display_label:
+      default: Instrumentation
+    mappings:
+      blacklight: instrumentation
+      metatags: N/A
+      mods_oai_pmh: mods:abstract
+      qualified_dc_pmh: dcterms:abstract
+      simple_dc_pmh: dc:description
+    property_uri: http://opaquenamespace.org/ns/sheetmusic_instrumentation
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    usage_guidelines:
+      default: 'Enter the voices and external instruments used to perform a piece
+        of music along with the number of each (e.g. "For piccolo, 2 flutes, 2 oboes,
+        and English horn.") Follow score order for listing the voices/instruments
+        - https://jirautk.atlassian.net/wiki/spaces/DLP/pages/3047434. Names of instruments
+        should follow the Library of Congress Medium of Performance Thesaurus (lcmpt). '
+  intended_audience:
+    available_on:
+      class:
+      - Book
+      - PDF
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter the grade level (e.g. "Second Grade") that a resource was created
+        to be used by. Note that this field is not applicable to primary sources,
+        but is instead for curriculum resources created to aid with interpretation
+        and understanding context.
+    display_label:
+      default: Intended Audience
+    mappings:
+      blacklight: intended_audience
+      metatags: N/A
+      mods_oai_pmh: mods:targetAudience
+      qualified_dc_pmh: dcterms:audience
+      simple_dc_pmh: n/a
+    property_uri: http://id.loc.gov/ontologies/bibframe/IntendedAudience
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    usage_guidelines:
+      default: Enter the grade level (e.g. "Second Grade") that a resource was created
+        to be used by. Note that this field is not applicable to primary sources,
+        but is instead for curriculum resources created to aid with interpretation
+        and understanding context.
+  intermediate_provider:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - naf
+      - none
+    definition:
+      default: Enter the name of the institution that owns or has provided access
+        to the digitized resource. When possible, use the Library of Congress Name
+        Authority File.
+    display_label:
+      default: Intermediate Provider
+    mappings:
+      blacklight: intermediate_provider
+      metatags: N/A
+      mods_oai_pmh: mods:location/mods:physicalLocation
+      qualified_dc_pmh: dcterms:publisher
+      simple_dc_pmh: dc:publisher
+    property_uri: http://www.europeana.eu/schemas/edm/dataProvider
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Langston Hughes Library (Children's Defense Fund Haley Farm)
+    usage_guidelines:
+      default: Enter the name of the institution that owns or has provided access
+        to the digitized resource. When possible, use the Library of Congress Name
+        Authority File.
+  interviewee:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: 'Enter the name of a person (last, first), family or organization responsible
+        for creating or contributing to a resource by responding to an interviewer,
+        usually a reporter, pollster, or some other information gathering agent.
+
+        '
+    display_label:
+      default: Interviewee
+    mappings:
+      blacklight: name, interviewee
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Interviewee')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/ive
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: 'Enter the name of a person (last, first), family or organization responsible
+        for creating or contributing to a resource by responding to an interviewer,
+        usually a reporter, pollster, or some other information gathering agent.
+
+        '
+  interviewer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for creating or contributing to a resource by acting as an interviewer, reporter,
+        pollster, or some other information gathering agent.
+    display_label:
+      default: Interviewer
+    mappings:
+      blacklight: name, interviewer
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Interviewer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/ivr
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for creating or contributing to a resource by acting as an interviewer, reporter,
+        pollster, or some other information gathering agent.
+  is_part_of:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: Should not appear in metadata form.  This field should be autopopulated
+        with ARKs for all ArchivesSpace Finding Aids and presented to users in the
+        metadata, but should never be editable by a user or admin.
+    display_label:
+      default: Is Part Of
+    mappings:
+      blacklight: is_part_of
+      metatags: N/A
+      mods_oai_pmh: mods:relatedItem[@type="host"][@displayLabel="Collection"]/mods:location/mods:url
+      qualified_dc_pmh: dcterms:isPartOf
+      simple_dc_pmh: dc:source
+    property_uri: http://purl.org/dc/terms/isPartOf
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - https://n2t.net/ark:/87290/v8pz5703
+    syntax: IETF ARK 18
+    usage_guidelines:
+      default: Should not appear in metadata form.  This field should be autopopulated
+        with ARKs for all ArchivesSpace Finding Aids and presented to users in the
+        metadata, but should never be editable by a user or admin.
+  isbn:
+    available_on:
+      class:
+      - Book
+      - PDF
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2000/01/rdf-schema#Literal
+      sources:
+      - 'null'
+    definition:
+      default: Enter the ISBN for the resource.
+    display_label:
+      default: ISBN
+    mappings:
+      blacklight: isbn
+      metatags: N/A
+      mods_oai_pmh: mods:identifier[@type='isbn']
+      qualified_dc_pmh: dcterms:identifier
+      simple_dc_pmh: dc:identifier
+    property_uri: http://dbpedia.org/ontology/isbn
+    range: http://www.w3.org/2000/01/rdf-schema#Literal
+    requirement: optional
+    sample_values:
+    - '1881985202'
+    - '938008692'
+    - '18819859105'
+    usage_guidelines:
+      default: Enter the ISBN for the resource.
+  issn:
+    available_on:
+      class:
+      - Book
+      - Newspaper
+      - PDF
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2000/01/rdf-schema#Literal
+      sources:
+      - 'null'
+    definition:
+      default: Enter the ISSN for a serial resource (e.g. 2687-9875)
+    display_label:
+      default: ISSN
+    mappings:
+      blacklight: issn
+      metatags: N/A
+      mods_oai_pmh: mods:identifier[@type='issn']
+      qualified_dc_pmh: dcterms:identifier
+      simple_dc_pmh: dc:identifier
+    property_uri: http://dbpedia.org/ontology/issn
+    range: http://www.w3.org/2000/01/rdf-schema#Literal
+    requirement: optional
+    sample_values:
+    - 2687-9875
+    usage_guidelines:
+      default: Enter the ISSN for a serial resource (e.g. 2687-9875)
+    validations:
+      match_regex: ^[0-9]{4}-[0-9]{3}[0-9xX]$.
+  issuing_body:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family or organization issuing
+        a work, such as an official organ of the body.
+    display_label:
+      default: Issuing body
+    mappings:
+      blacklight: name, issuing_body
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Issuing body')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/isb
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family or organization issuing
+        a work, such as an official organ of the body.
+  language:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 1
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - iso639-2b
+    definition:
+      default: Enter a language used in the resource as text (e.g. English). When
+        multiple languages are present, use multiple fields. If no language is present,
+        enter "No linguistic content."
+    display_label:
+      default: Language
+    mappings:
+      blacklight: language
+      metatags: og:locale
+      mods_oai_pmh: mods:language/mods:languageTerm
+      qualified_dc_pmh: dcterms:language
+      simple_dc_pmh: dc:language
+    property_uri: http://purl.org/dc/terms/language
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    usage_guidelines:
+      default: Enter a language used in the resource as text (e.g. English). When
+        multiple languages are present, use multiple fields. If no language is present,
+        enter "No linguistic content."
+  lithographer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) or organization who prepares
+        the stone or plate for lithographic printing, including a graphic artist creating
+        a design directly on the surface from which printing will be done.
+    display_label:
+      default: Lithographer
+    mappings:
+      blacklight: name, lithographer
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Lithographer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/ltg
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) or organization who prepares
+        the stone or plate for lithographic printing, including a graphic artist creating
+        a design directly on the surface from which printing will be done.
+  local_identifier:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 1
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter a local identifier. This can be the identifier created by Digital
+        Production or another identifier found on the source (but not the ISSN, ISBN,
+        or OCLC number).
+    display_label:
+      default: Local Identifier
+    mappings:
+      blacklight: local_identifier
+      metatags: N/A
+      mods_oai_pmh: mods:identifier[@type='local']
+      qualified_dc_pmh: dcterms:identifier
+      simple_dc_pmh: dc:identifier
+    property_uri: http://id.loc.gov/vocabulary/identifiers/local
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - csboyd_0014
+    usage_guidelines:
+      default: Enter a local identifier. This can be the identifier created by Digital
+        Production or another identifier found on the source (but not the ISSN, ISBN,
+        or OCLC number).
+  lyricist:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) who authored of the words
+        of a non-dramatic musical work (e.g. the text of a song), except for oratorios.
+    display_label:
+      default: Lyricist
+    mappings:
+      blacklight: name, lyricist
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Lyricist')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/lyr
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) who authored of the words
+        of a non-dramatic musical work (e.g. the text of a song), except for oratorios.
+  music_copyist:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) who transcribes or copies
+        musical notation.
+    display_label:
+      default: Music copyist
+    mappings:
+      blacklight: name, music_copyist
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Music copyist')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/mcp
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) who transcribes or copies
+        musical notation.
+  musical_director:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) who coordinates the activities
+        of the composer, the sound editor, and sound mixers for a moving image production
+        or for a musical or dramatic presentation or entertainment.
+    display_label:
+      default: Musical director
+    mappings:
+      blacklight: name, musical_director
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Musical director')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/msd
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) who coordinates the activities
+        of the composer, the sound editor, and sound mixers for a moving image production
+        or for a musical or dramatic presentation or entertainment.
+  note:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter any general textual information relating to a resource that does
+        not belong in an abstract and shouldn't display in the brief results. This
+        could include the physical condition of a resource (if an artwork has foxing
+        etc.) or it could be used to clarify the source of information entered elsewhere
+        in the record. End this field with a period.
+    display_label:
+      default: Note
+    mappings:
+      blacklight: note
+      metatags: N/A
+      mods_oai_pmh: mods:note
+      qualified_dc_pmh: n/a
+      simple_dc_pmh: n/a
+    property_uri: http://www.w3.org/2004/02/skos/core#note
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    usage_guidelines:
+      default: Enter any general textual information relating to a resource that does
+        not belong in an abstract and shouldn't display in the brief results. This
+        could include the physical condition of a resource (if an artwork has foxing
+        etc.) or it could be used to clarify the source of information entered elsewhere
+        in the record. End this field with a period.
+  object_link:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      maximum: 1
+      minimum: 1
+    controlled_values:
+      format: ''
+      sources:
+      - N/A
+    definition:
+      default: Should not appear in metadata form. This value is generated upon ingest.
+    display_label:
+      default: Object Link
+    mappings:
+      metatags: og:url, twitter:image
+      mods_oai_pmh: mods:location/mods:url[access="object in context"]
+      qualified_dc_pmh: dcterms:identifier
+      simple_dc_pmh: dc:identifier
+    property_uri: http://purl.org/dc/terms/identifier
+    requirement: optional
+    usage_guidelines:
+      default: Should not appear in metadata form. This value is generated upon ingest.
+  oclc:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2000/01/rdf-schema#Literal
+      sources:
+      - 'null'
+    definition:
+      default: Enter the 8 or 9 digit OCLC identifier (e.g. 50008789).
+    display_label:
+      default: OCLC Number
+    mappings:
+      blacklight: oclc
+      metatags: N/A
+      mods_oai_pmh: mods:identifier[@type='oclc']
+      qualified_dc_pmh: dcterms:identifier
+      simple_dc_pmh: dc:identifier
+    property_uri: http://dbpedia.org/ontology/oclc
+    range: http://www.w3.org/2000/01/rdf-schema#Literal
+    requirement: optional
+    sample_values:
+    - '44394278'
+    usage_guidelines:
+      default: Enter the 8 or 9 digit OCLC identifier (e.g. 50008789).
+  organizer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization organizing
+        the exhibit, event, conference, etc., which gave rise to a resource.
+    display_label:
+      default: Organizer
+    mappings:
+      blacklight: name, organizer
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Organizer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/orm
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization organizing
+        the exhibit, event, conference, etc., which gave rise to a resource.
+  originator:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) or organization performing
+        the work, i.e., the name of a person or organization associated with the intellectual
+        content of the work. This category does not include the publisher or personal
+        affiliation, or sponsor except where it is also the corporate author.
+    display_label:
+      default: Originator
+    mappings:
+      blacklight: name, originator
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Originator')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/org
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) or organization performing
+        the work, i.e., the name of a person or organization associated with the intellectual
+        content of the work. This category does not include the publisher or personal
+        affiliation, or sponsor except where it is also the corporate author.
+  other_version:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+    definition:
+      default: Enter a link to a related resource that is a version, edition, or adaptation
+        of the described resource.
+    display_label:
+      default: Other Version
+    mappings:
+      blacklight: other_version
+      metatags: N/A
+      mods_oai_pmh: mods:relatedItem[@type="otherVersion"]/mods:location/mods:url
+      qualified_dc_pmh: dcterms:relation
+      simple_dc_pmh: dc:relation
+    property_uri: http://purl.org/dc/terms/hasVersion
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Links to Arrowmont scrapbooks from individual photos
+    usage_guidelines:
+      default: Enter a link to a related resource that is a version, edition, or adaptation
+        of the described resource.
+  owner:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization that
+        currently owns an item or collection, i.e.has legal possession of a resource
+    display_label:
+      default: Owner
+    mappings:
+      blacklight: owner, name
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Owner')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/own
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization that
+        currently owns an item or collection, i.e.has legal possession of a resource
+  performer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) contributing to a resource
+        by performing music, acting, dancing, speaking, etc., often in a musical or
+        dramatic presentation, etc. (esp. if the more specific role of actor or dancer
+        is not clear).
+    display_label:
+      default: Performer
+    mappings:
+      blacklight: performer, name
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Performer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/prf
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) contributing to a resource
+        by performing music, acting, dancing, speaking, etc., often in a musical or
+        dramatic presentation, etc. (esp. if the more specific role of actor or dancer
+        is not clear).
+  photographer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for creating a photographic work.
+    display_label:
+      default: Photographer
+    mappings:
+      blacklight: name, photographer
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Photographer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/pht
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for creating a photographic work.
+  place_of_publication:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: ''
+      sources:
+      - naf
+    definition:
+      default: For published works, enter the place of publication. This should be
+        a city (with state/country info).
+    display_label:
+      default: Place of Publication
+    mappings:
+      blacklight: place_of_publication
+      metatags: N/A
+      mods_oai_pmh: mods:originInfo/place/placeTerm
+      qualified_dc_pmh: n/a
+      simple_dc_pmh: n/a
+    property_uri: https://id.loc.gov/vocabulary/relators/pup
+    requirement: optional
+    sample_values:
+    - Knoxville (Tenn.)
+    usage_guidelines:
+      default: For published works, enter the place of publication. This should be
+        a city (with state/country info).
+  printer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization involved
+        in manufacturing a manifestation of printed text, notated music, etc., from
+        type or plates, such as a book, newspaper, magazine, broadside, score, etc.
+    display_label:
+      default: Printer
+    mappings:
+      blacklight: name, printer
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Printer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/prt
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization involved
+        in manufacturing a manifestation of printed text, notated music, etc., from
+        type or plates, such as a book, newspaper, magazine, broadside, score, etc.
+  printer_of_plates:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) or organization who prints
+        illustrations from plates.
+    display_label:
+      default: Printer of plates
+    mappings:
+      blacklight: name, printer_of_plates
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Printer of plates')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/pop
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) or organization who prints
+        illustrations from plates.
+  producer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for most of the business aspects of a production for screen, audio recording,
+        television, webcast, etc. The producer is generally responsible for fund raising,
+        managing the production, hiring key personnel, arranging for distributors,
+        etc.
+    display_label:
+      default: Producer
+    mappings:
+      blacklight: name, producer
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Producer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/pro
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for most of the business aspects of a production for screen, audio recording,
+        television, webcast, etc. The producer is generally responsible for fund raising,
+        managing the production, hiring key personnel, arranging for distributors,
+        etc.
+  production_company:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of organization that is responsible for financial, technical,
+        and organizational management of a production for stage, screen, audio recording,
+        television, webcast, etc.
+    display_label:
+      default: Production company
+    mappings:
+      blacklight: name, production_company
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Production company')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/prn
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of organization that is responsible for financial, technical,
+        and organizational management of a production for stage, screen, audio recording,
+        television, webcast, etc.
+  provider:
+    available_on:
+      class:
+      - ''
+    cardinality:
+      maximum: 1
+      minimum: 1
+    controlled_values:
+      format: ''
+      sources:
+      - naf
+      - none
+    definition:
+      default: Enter the name of the institution hosting the content online.
+    display_label:
+      default: Provider
+    mappings:
+      blacklight: provider
+      metatags: N/A
+      mods_oai_pmh: mods:location/mods:physicalLocation
+      qualified_dc_pmh: dcterms:publisher
+      simple_dc_pmh: dc:publisher
+    property_uri: http://www.europeana.eu/schemas/edm/provider
+    requirement: required
+    usage_guidelines:
+      default: Enter the name of the institution hosting the content online.
+  publisher:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) or organization responsible
+        for publishing, releasing, or issuing a resource.
+    display_label:
+      default: Publisher
+    mappings:
+      blacklight: name, publisher
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Publisher')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/pbl
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) or organization responsible
+        for publishing, releasing, or issuing a resource.
+  repository:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - naf
+      - none
+    definition:
+      default: Enter the name of the institution that physically holds the materials.
+    display_label:
+      default: Repository
+    mappings:
+      blacklight: repository
+      metatags: N/A
+      mods_oai_pmh: ''
+      qualified_dc_pmh: ''
+      simple_dc_pmh: ''
+    property_uri: http://id.loc.gov/vocabulary/relators/rps
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    usage_guidelines:
+      default: Enter the name of the institution that physically holds the materials.
+  resource_type:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - ''
+    definition:
+      default: Enter broad term(s) that describe the general format of the resource
+        (Text, Cartographic, Notated music, Audio non-musical, Audio, Still image,
+        Moving image, Artifact, Collection). Note that more than one term can be used
+        if the resource is dominated by more than one resource type.
+    display_label:
+      default: Resource Type
+    mappings:
+      blacklight: resource_type
+      metatags: N/A
+      mods_oai_pmh: mods:typeOfResource
+      qualified_dc_pmh: dcterms:type
+      simple_dc_pmh: dc:type
+    property_uri: http://purl.org/dc/terms/type
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    usage_guidelines:
+      default: Enter broad term(s) that describe the general format of the resource
+        (Text, Cartographic, Notated music, Audio non-musical, Audio, Still image,
+        Moving image, Artifact, Collection). Note that more than one term can be used
+        if the resource is dominated by more than one resource type.
+  restorationist:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for the set of technical, editorial, and intellectual procedures aimed at
+        compensating for the degradation of an item by bringing it back to a state
+        as close as possible to its original condition.
+    display_label:
+      default: Restorationist
+    mappings:
+      blacklight: name, restorationist
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Restorationist')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/rsr
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization responsible
+        for the set of technical, editorial, and intellectual procedures aimed at
+        compensating for the degradation of an item by bringing it back to a state
+        as close as possible to its original condition.
+  rights:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 1
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - rightsstatements
+      - Creative Commons
+    definition:
+      default: Enter the rights statement and/or license that applies to the resource.
+        Every resource needs a rights statement. Some resources may have both a rights
+        statement and a Creative Commons license.
+    display_label:
+      default: Rights
+    mappings:
+      blacklight: rights
+      metatags: N/A
+      mods_oai_pmh: mods:accessCondition[@type="use and reproduction"]
+      qualified_dc_pmh: dcterms:rights
+      simple_dc_pmh: dc:rights
+    property_uri: http://www.europeana.eu/schemas/edm/rights
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: required
+    usage_guidelines:
+      default: Enter the rights statement and/or license that applies to the resource.
+        Every resource needs a rights statement. Some resources may have both a rights
+        statement and a Creative Commons license.
+  set_designer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) who translates the rough sketches
+        of the art director into actual architectural structures for a theatrical
+        presentation, entertainment, motion picture, etc. Set designers draw the detailed
+        guides and specifications for building the set.
+    display_label:
+      default: Set designer
+    mappings:
+      blacklight: name, set_designer
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Set designer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/std
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) who translates the rough sketches
+        of the art director into actual architectural structures for a theatrical
+        presentation, entertainment, motion picture, etc. Set designers draw the detailed
+        guides and specifications for building the set.
+  signer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) whose signature appears without
+        a presentation or other statement indicative of provenance. When there is
+        a presentation statement, use Inscriber.
+    display_label:
+      default: Signer
+    mappings:
+      blacklight: name, signer
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Signer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/sgn
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) whose signature appears without
+        a presentation or other statement indicative of provenance. When there is
+        a presentation statement, use Inscriber.
+  spatial:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - geonames
+      - naf
+      - coordinates
+    definition:
+      default: Enter the name and/or coordinates of a place with which the resource
+        is associated. Coordinates and names should be entered in separate fields.
+    display_label:
+      default: Spatial Coverage
+    mappings:
+      blacklight: spatial
+      metatags: N/A
+      mods_oai_pmh: mods:subject/mods:geographic
+      qualified_dc_pmh: dcterms:spatial
+      simple_dc_pmh: dc:coverage
+    property_uri: http://purl.org/dc/terms/spatial
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    usage_guidelines:
+      default: Enter the name and/or coordinates of a place with which the resource
+        is associated. Coordinates and names should be entered in separate fields.
+  speaker:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) contributing to a resource
+        by speaking words, such as a lecture, speech, etc.
+    display_label:
+      default: Speaker
+    mappings:
+      blacklight: name, speaker
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Speaker')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/spk
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) contributing to a resource
+        by speaking words, such as a lecture, speech, etc.
+  stage_director:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) or organization contributing
+        to a stage resource through the overall management and supervision of a performance.
+    display_label:
+      default: Stage director
+    mappings:
+      blacklight: name, stage_director
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Stage director')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/sgd
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) or organization contributing
+        to a stage resource through the overall management and supervision of a performance.
+  stage_manager:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) who is in charge of everything
+        that occurs on a performance stage, and who acts as chief of all crews and
+        assistant to a director during rehearsals.
+    display_label:
+      default: Stage manager
+    mappings:
+      blacklight: name, stage_manager
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Stage manager')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/stm
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) who is in charge of everything
+        that occurs on a performance stage, and who acts as chief of all crews and
+        assistant to a director during rehearsals.
+  standards_body:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of an organization responsible for the development or
+        enforcement of a standard.
+    display_label:
+      default: Standards body
+    mappings:
+      blacklight: name, standards_body
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Standards body')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/stn
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of an organization responsible for the development or
+        enforcement of a standard.
+  subject:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - Multiple (none
+      - naf
+      - agrovoc
+      - dots
+      - fast
+      - geonames
+      - lcsh
+      - local
+      - tgm
+      - wikidata)
+    definition:
+      default: Enter a topic covered by the resource or that the resource is about.
+        Topics include broad concepts (e.g. "Agriculture") and the names of people
+        (last, first) depicted in or written about in the resource.
+    display_label:
+      default: Subject
+    mappings:
+      blacklight: subject
+      metatags: N/A
+      mods_oai_pmh: mods:subject/mods:topic
+      qualified_dc_pmh: dcterms:subject
+      simple_dc_pmh: dc:subject
+    property_uri: http://purl.org/dc/terms/subject
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    usage_guidelines:
+      default: Enter a topic covered by the resource or that the resource is about.
+        Topics include broad concepts (e.g. "Agriculture") and the names of people
+        (last, first) depicted in or written about in the resource.
+  surveyor:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first), family, or organization contributing
+        to a cartographic resource by providing measurements or dimensional relationships
+        for the geographic area represented.
+    display_label:
+      default: Surveyor
+    mappings:
+      blacklight: name, surveyor
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Surveyor')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/srv
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first), family, or organization contributing
+        to a cartographic resource by providing measurements or dimensional relationships
+        for the geographic area represented.
+  table_of_contents:
+    available_on:
+      class:
+      - AllButImage
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: 'Enter a list of subunits of the resource (chapters, etc.). Separate '
+    display_label:
+      default: Table of Contents
+    mappings:
+      blacklight: table_of_contents
+      metatags: N/A
+      mods_oai_pmh: mods:tableOfContents
+      qualified_dc_pmh: dcterms:tableOfContents
+      simple_dc_pmh: dc:description
+    property_uri: http://purl.org/dc/terms/tableOfContents
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - "Snap beans: machine vs. hand harvest - New bulletins - Protein with high silage\
+      \ rations -- dairy\n - Pepper yields and fertility, plant spacing - Stripping\
+      \ vs. spindle picking of 4 cottons - Personnel changes -\n Soybean irrigation\
+      \ - Alfalfa crown rot - Bedding for better cotton stands - Controlling bagworms\
+      \ -\n Nitrogen on shade trees"
+    usage_guidelines:
+      default: 'Enter a list of subunits of the resource (chapters, etc.). Separate '
+  temporal:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: 'Enter a date range or phrase that captures the time period the resource
+        is about. '
+    display_label:
+      default: Temporal Coverage
+    mappings:
+      blacklight: temporal
+      metatags: N/A
+      mods_oai_pmh: mods:subject/mods:temporal
+      qualified_dc_pmh: dcterms:temporal
+      simple_dc_pmh: dc:coverage
+    property_uri: http://purl.org/dc/terms/temporal
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    usage_guidelines:
+      default: 'Enter a date range or phrase that captures the time period the resource
+        is about. '
+  title:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      maximum: 1
+      minimum: 1
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter a standardized title for display. If only one title is needed,
+        transcribe the title from the source itself.
+    display_label:
+      default: Title
+    mappings:
+      blacklight: title
+      metatags: twitter:title, og:title
+      mods_oai_pmh: mods:titleInfo/mods:title
+      qualified_dc_pmh: dcterms:title
+      simple_dc_pmh: dc:title
+    property_uri: http://purl.org/dc/terms/title
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: required
+    sample_values:
+    - Pencil drawn portrait study of woman
+    usage_guidelines:
+      default: Enter a standardized title for display. If only one title is needed,
+        transcribe the title from the source itself.
+  translator:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) or organization who renders
+        a text from one language into another, or from an older form of a language
+        into the modern form.
+    display_label:
+      default: Translator
+    mappings:
+      blacklight: name, translator
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Translator')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/trl
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) or organization who renders
+        a text from one language into another, or from an older form of a language
+        into the modern form.
+  videographer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) in charge of a video production,
+        e.g. the video recording of a stage production as opposed to a commercial
+        motion picture. The videographer may be the camera operator or may supervise
+        one or more camera operators. Do not confuse with cinematographer.
+    display_label:
+      default: Videographer
+    mappings:
+      blacklight: name, videographer
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Videographer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/vdg
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) in charge of a video production,
+        e.g. the video recording of a stage production as opposed to a commercial
+        motion picture. The videographer may be the camera operator or may supervise
+        one or more camera operators. Do not confuse with cinematographer.
+  witness:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+      - Wikidata
+      - naf
+      - ulan
+      - grove
+    definition:
+      default: Enter the name of a person (last, first) who verifies the truthfulness
+        of an event or action.
+    display_label:
+      default: Witness
+    mappings:
+      blacklight: name, witness
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Witness')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/wit
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - Browder, Boyd
+    - http://id.loc.gov/authorities/names/n2017180154
+    usage_guidelines:
+      default: Enter the name of a person (last, first) who verifies the truthfulness
+        of an event or action.
