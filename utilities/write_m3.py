@@ -168,8 +168,6 @@ class RDFProperty:
     def __build(self, data):
         final_property = {
             'display_label': self.__return_default(data['Display Label']),
-            'definition': self.__return_default(data['Usage Guidelines']),
-            'usage_guidelines': self.__return_default(data['Usage Guidelines']),
             'requirement': self.__determine_required(data['Required for Migration']),
             'controlled_values': self.__get_controlled_values(data['Vocab'], data['M3: Range']),
             'property_uri': data['RDF Property / Predicate'].strip(),
@@ -181,6 +179,10 @@ class RDFProperty:
         sample_values = self.__get_sample_values(data['Example'])
         if len(sample_values) > 0:
             final_property['sample_values'] = sample_values
+        if data['Definition'] != "":
+            final_property['definition'] self.__return_default(data['Definition'])
+        if data['Usage Guidelines'] != "":
+            final_property['usage_guidelines'] self.__return_default(data['Usage Guidelines'])
         if data['M3: Range'] != '':
             final_property['range'] = data['M3: Range']
         if data['M3: Syntax'] != '':
