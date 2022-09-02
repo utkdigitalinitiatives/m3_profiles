@@ -6,27 +6,11 @@
 m3_version: 1.0.beta2
 
 profile:
-  date_modified: '2022-08-17'
+  date_modified: '2022-09-02'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
   type: base
-  version: 0.2
-
-mappings:
-  blacklight:
-    name: Blacklight Solr Mappings
-  metatags:
-    name: Metatags
-  mods_oai_pmh:
-    name: MODS OAI PMH
-  qualified_dc_pmh:
-    name: Qualified DC OAI PMH
-  simple_dc_pmh:
-    name: Simple DC OAI PMH
-
-contexts:
-  flexible_context:
-    display_label: Flexible Metadata Example
+  version: 0.3
 
 classes:
   Audio:
@@ -46,6 +30,22 @@ classes:
   Video:
     display_label: Video
 
+contexts:
+  flexible_context:
+    display_label: Flexible Metadata Example
+
+mappings:
+  blacklight:
+    name: Additional Blacklight Solr Mappings
+  metatags:
+    name: Metatags
+  mods_oai_pmh:
+    name: MODS OAI PMH
+  qualified_dc_pmh:
+    name: Qualified DC OAI PMH
+  simple_dc_pmh:
+    name: Simple DC OAI PMH
+
 properties:
   abstract:
     available_on:
@@ -60,18 +60,20 @@ properties:
       - CompoundObject
       - Newspaper
     cardinality:
-      maximum: 1
       minimum: 0
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
       - 'null'
     definition:
-      default: Enter a summary of the resource. End this field with a period.
+      default: ''
     display_label:
       default: Abstract
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: abstract
       metatags: og:description
       mods_oai_pmh: mods:abstract
       qualified_dc_pmh: dcterms:abstract
@@ -84,7 +86,7 @@ properties:
       John North's involvement in the Iran-Contra affair even though the majority
       of his statement is censored due to classified information.
     usage_guidelines:
-      default: Enter a summary of the resource. End this field with a period.
+      default: ''
   acquisition_identifier:
     available_on:
       class:
@@ -105,12 +107,15 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter an identifier assigned by a museum for acquisition. Values typically
-        start with a year (e.g. 1996.10.1)
+      default: ''
     display_label:
       default: Acquisition Identifier
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: acquisition_identifier
+      blacklight: identifier_ssi
       metatags: N/A
       mods_oai_pmh: mods:identifier[@type='acquisition']
       qualified_dc_pmh: dcterms:identifier
@@ -121,8 +126,7 @@ properties:
     sample_values:
     - 1996.10.1
     usage_guidelines:
-      default: Enter an identifier assigned by a museum for acquisition. Values typically
-        start with a year (e.g. 1996.10.1)
+      default: ''
   addressee:
     available_on:
       class:
@@ -133,18 +137,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name (last, first) to whom the correspondence in a work is
-        addressed.
+      default: ''
     display_label:
       default: Addressee
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, addressee
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Addressee')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -156,8 +160,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name (last, first) to whom the correspondence in a work is
-        addressed.
+      default: ''
   alternative_title:
     available_on:
       class:
@@ -177,14 +180,14 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter any alternate titles used to identify the source. If the source
-        is a serial publication, this could include a transcribed title. If the title
-        is written in more than one language, this title could include a foreign language
-        (parallel) title.
+      default: ''
     display_label:
       default: Alternative Title
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: alternative_title
       metatags: N/A
       mods_oai_pmh: modstitleInfo[@type="alternative"]/mods:title
       qualified_dc_pmh: dcterms:alternative
@@ -195,10 +198,7 @@ properties:
     sample_values:
     - 'Swimming 1969: The University of Tennessee'
     usage_guidelines:
-      default: Enter any alternate titles used to identify the source. If the source
-        is a serial publication, this could include a transcribed title. If the title
-        is written in more than one language, this title could include a foreign language
-        (parallel) title.
+      default: ''
   architect:
     available_on:
       class:
@@ -209,19 +209,19 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for creating an architectural design, including a pictorial representation
-        intended to show how a building, etc., will look when completed.
+      default: ''
     display_label:
       default: Architect
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, architect
+      blacklight: creator_sim
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Architect')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -233,9 +233,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for creating an architectural design, including a pictorial representation
-        intended to show how a building, etc., will look when completed.
+      default: ''
   archival_collection:
     available_on:
       class:
@@ -256,13 +254,14 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter the name of the physical archival collection (e.g. "Virginia
-        P. Moore Collection") the resource belongs to. Match how the name is represented
-        in ArchivesSpace.
+      default: ''
     display_label:
       default: Archival Collection
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: archival_collection
       metatags: N/A
       mods_oai_pmh: mods:relatedItem[@type="host"][@displayLabel="Collection"]/mods:titleInfo/mods:title
       qualified_dc_pmh: dc:source
@@ -271,9 +270,7 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     usage_guidelines:
-      default: Enter the name of the physical archival collection (e.g. "Virginia
-        P. Moore Collection") the resource belongs to. Match how the name is represented
-        in ArchivesSpace.
+      default: ''
   ark:
     available_on:
       class:
@@ -294,13 +291,14 @@ properties:
       sources:
       - N/A
     definition:
-      default: Should not appear in metadata form.  This field should be autopopulated
-        on a pcdmworks:Work and presented to users in the metadata, but should never
-        be editable by a user or admin.
+      default: ''
     display_label:
       default: ARK
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: ark
       metatags: n/a
       mods_oai_pmh: mods:location/mods:url[access="object in context"]
       qualified_dc_pmh: dcterms:identifier
@@ -310,9 +308,7 @@ properties:
     sample_values:
     - '[http://path/]ark:/NAAN/Name[Qualifier]'
     usage_guidelines:
-      default: Should not appear in metadata form.  This field should be autopopulated
-        on a pcdmworks:Work and presented to users in the metadata, but should never
-        be editable by a user or admin.
+      default: ''
   arranger:
     available_on:
       class:
@@ -324,22 +320,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization contributing
-        to a musical work by rewriting the composition for a medium of performance
-        different from that for which the work was originally intended, or modifying
-        the work for the same medium of performance, etc., such that the musical substance
-        of the original composition remains essentially unchanged. For extensive modification
-        that effectively results in the creation of a new musical work, use Composer.
+      default: ''
     display_label:
       default: Arranger
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, arranger
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Arranger')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -351,12 +343,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization contributing
-        to a musical work by rewriting the composition for a medium of performance
-        different from that for which the work was originally intended, or modifying
-        the work for the same medium of performance, etc., such that the musical substance
-        of the original composition remains essentially unchanged. For extensive modification
-        that effectively results in the creation of a new musical work, use Composer.
+      default: ''
   artist:
     available_on:
       class:
@@ -374,19 +361,19 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) family, or organization responsible
-        for creating a work by conceiving, and implementing, an original graphic design,
-        drawing, painting, etc.
+      default: ''
     display_label:
       default: Artist
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, artist
+      blacklight: creator_sim
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Artist')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -398,9 +385,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) family, or organization responsible
-        for creating a work by conceiving, and implementing, an original graphic design,
-        drawing, painting, etc.
+      default: ''
   associated_name:
     available_on:
       class:
@@ -418,21 +403,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name a person (last, first) or organization associated with
-        or found in an item or collection, which cannot be determined to be that of
-        a Former owner [fmo] or other designated relationship indicative of provenance.
-        Use this field as a last resort. If the source is about this person/organization,
-        use subject instead.
+      default: ''
     display_label:
-      default: Associated name
+      default: Associated Name
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, associated_name
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Associated name')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -444,11 +426,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name a person (last, first) or organization associated with
-        or found in an item or collection, which cannot be determined to be that of
-        a Former owner [fmo] or other designated relationship indicative of provenance.
-        Use this field as a last resort. If the source is about this person/organization,
-        use subject instead.
+      default: ''
   attributed_name:
     available_on:
       class:
@@ -466,19 +444,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), particularly an author or
-        artist, for which there is or once was substantial authority for designating
-        that person as author, creator, etc. of the work indicative of provenance.
+      default: ''
     display_label:
-      default: Attributed name
+      default: Attributed Name
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, attributed_name
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Attributed name')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -490,9 +467,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), particularly an author or
-        artist, for which there is or once was substantial authority for designating
-        that person as author, creator, etc. of the work indicative of provenance.
+      default: ''
   author:
     available_on:
       class:
@@ -510,23 +485,19 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for creating a work that is primarily textual in content, regardless of media
-        type (e.g., printed text, spoken word, electronic text, tactile text) or genre
-        (e.g., poems, novels, screenplays, blogs). Use also for persons, etc., creating
-        a new work by paraphrasing, rewriting, or adapting works by another creator
-        such that the modification has substantially changed the nature and content
-        of the original or changed the medium of expression.
+      default: ''
     display_label:
       default: Author
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, author
+      blacklight: creator_sim
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Author')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -538,13 +509,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for creating a work that is primarily textual in content, regardless of media
-        type (e.g., printed text, spoken word, electronic text, tactile text) or genre
-        (e.g., poems, novels, screenplays, blogs). Use also for persons, etc., creating
-        a new work by paraphrasing, rewriting, or adapting works by another creator
-        such that the modification has substantially changed the nature and content
-        of the original or changed the medium of expression.
+      default: ''
   autographer:
     available_on:
       class:
@@ -557,18 +522,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) whose written signature appears
-        on an item.
+      default: ''
     display_label:
       default: Autographer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, autographer
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Autographer')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -580,8 +545,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) whose written signature appears
-        on an item.
+      default: ''
   bibliographic_citation:
     available_on:
       class:
@@ -601,11 +565,14 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter a bibliographic reference for the resource.
+      default: ''
     display_label:
       default: Bibliographic Citation
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: bibliographic_citation
       metatags: N/A
       mods_oai_pmh: ''
       qualified_dc_pmh: ''
@@ -614,7 +581,7 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     usage_guidelines:
-      default: Enter a bibliographic reference for the resource.
+      default: ''
   binding_designer:
     available_on:
       class:
@@ -624,19 +591,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) or organization responsible
-        for the binding design of a book, including the type of binding, the type
-        of materials used, and any decorative aspects of the binding.
+      default: ''
     display_label:
-      default: Binding designer
+      default: Binding Designer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, binding_designer
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Binding designer')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -648,9 +614,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) or organization responsible
-        for the binding design of a book, including the type of binding, the type
-        of materials used, and any decorative aspects of the binding.
+      default: ''
   call_number:
     available_on:
       class:
@@ -663,13 +627,14 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter the base call number of cataloged resources (written on resource
-        or present in the catalog). Do not include the year or author (e.g. for "LD5296
-        .W6 2001" should be "LD5296 .W6").
+      default: ''
     display_label:
       default: Library of Congress Classification
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: call_number
       metatags: N/A
       mods_oai_pmh: mods:classification[@authority="lcc"]
       qualified_dc_pmh: n/a
@@ -680,9 +645,7 @@ properties:
     sample_values:
     - LD5296 .W6
     usage_guidelines:
-      default: Enter the base call number of cataloged resources (written on resource
-        or present in the catalog). Do not include the year or author (e.g. for "LD5296
-        .W6 2001" should be "LD5296 .W6").
+      default: ''
   cartographer:
     available_on:
       class:
@@ -692,18 +655,19 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) family, or organization responsible
-        for creating a map, atlas, globe, or other cartographic work.
+      default: ''
     display_label:
       default: Cartographer
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, cartographer
+      blacklight: creator_sim
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Cartographer')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -715,8 +679,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) family, or organization responsible
-        for creating a map, atlas, globe, or other cartographic work.
+      default: ''
   censor:
     available_on:
       class:
@@ -726,19 +689,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) or organization who examines
-        bibliographic resources for the purpose of suppressing parts deemed objectionable
-        on moral, political, military, or other grounds.
+      default: ''
     display_label:
       default: Censor
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, censor
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Censor')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -750,9 +712,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) or organization who examines
-        bibliographic resources for the purpose of suppressing parts deemed objectionable
-        on moral, political, military, or other grounds.
+      default: ''
   choreographer:
     available_on:
       class:
@@ -763,18 +723,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) responsible for creating or
-        contributing to a work of movement.
+      default: ''
     display_label:
       default: Choreographer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, choreographer
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Choreographer')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -786,8 +746,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) responsible for creating or
-        contributing to a work of movement.
+      default: ''
   client:
     available_on:
       class:
@@ -805,18 +764,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) or organization for whom another
-        person or organization is acting.
+      default: ''
     display_label:
       default: Client
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, client
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Client')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -828,8 +787,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) or organization for whom another
-        person or organization is acting.
+      default: ''
   compiler:
     available_on:
       class:
@@ -847,20 +805,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for creating a new work (e.g., a bibliography, a directory) through the act
-        of compilation, e.g., selecting, arranging, aggregating, and editing data,
-        information, etc.
+      default: ''
     display_label:
       default: Compiler
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, compiler
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Compiler')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -872,10 +828,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for creating a new work (e.g., a bibliography, a directory) through the act
-        of compilation, e.g., selecting, arranging, aggregating, and editing data,
-        information, etc.
+      default: ''
   composer:
     available_on:
       class:
@@ -893,19 +846,19 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for creating or contributing to a musical resource by adding music to a work
-        that originally lacked it or supplements it.
+      default: ''
     display_label:
       default: Composer
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, composer
+      blacklight: creator_sim
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Composer')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -917,9 +870,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for creating or contributing to a musical resource by adding music to a work
-        that originally lacked it or supplements it.
+      default: ''
   contractor:
     available_on:
       class:
@@ -937,19 +888,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) or organization relevant to
-        a resource, who enters into a contract with another person or organization
-        to perform a specific task.
+      default: ''
     display_label:
       default: Contractor
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, contractor
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Contractor')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -961,9 +911,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) or organization relevant to
-        a resource, who enters into a contract with another person or organization
-        to perform a specific task.
+      default: ''
   contributor:
     available_on:
       class:
@@ -981,21 +929,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family or organization responsible
-        for making contributions to the resource. This includes those whose work has
-        been contributed to a larger work, such as an anthology, serial publication,
-        or other compilation of individual works. If a more specific role is available,
-        prefer that, e.g. editor, compiler, illustrator.
+      default: ''
     display_label:
       default: Contributor
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, contributor
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Contributor')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -1007,11 +952,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family or organization responsible
-        for making contributions to the resource. This includes those whose work has
-        been contributed to a larger work, such as an anthology, serial publication,
-        or other compilation of individual works. If a more specific role is available,
-        prefer that, e.g. editor, compiler, illustrator.
+      default: ''
   copyright_holder:
     available_on:
       class:
@@ -1029,21 +970,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) or organization to whom copy
-        and legal rights have been granted or transferred for the intellectual content
-        of a work. The copyright holder, although not necessarily the creator of the
-        work, usually has the exclusive right to benefit financially from the sale
-        and use of the work to which the associated copyright protection applies.
+      default: ''
     display_label:
-      default: Copyright holder
+      default: Copyright Holder
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, copyright_holder
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Copyright holder')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -1055,11 +993,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) or organization to whom copy
-        and legal rights have been granted or transferred for the intellectual content
-        of a work. The copyright holder, although not necessarily the creator of the
-        work, usually has the exclusive right to benefit financially from the sale
-        and use of the work to which the associated copyright protection applies.
+      default: ''
   correspondent:
     available_on:
       class:
@@ -1077,18 +1011,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) or organization who was the
-        writer of a letter or other communication.
+      default: ''
     display_label:
       default: Correspondent
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, correspondent
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Correspondent')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -1100,8 +1034,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) or organization who was the
-        writer of a letter or other communication.
+      default: ''
   costumer_designer:
     available_on:
       class:
@@ -1119,19 +1052,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization that
-        designs the costumes for a moving image production or for a musical or dramatic
-        presentation or entertainment.
+      default: ''
     display_label:
-      default: Costume designer
+      default: Costume Designer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, costume_designer
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Costume designer')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -1143,9 +1075,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization that
-        designs the costumes for a moving image production or for a musical or dramatic
-        presentation or entertainment.
+      default: ''
   creator:
     available_on:
       class:
@@ -1163,19 +1093,19 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) or organization responsible
-        for the intellectual or artistic content of a resource. Use when a suitable
-        more granular term cannot be identified.
+      default: ''
     display_label:
       default: Creator
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, creator
+      blacklight: creator_sim
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Creator')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -1187,9 +1117,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) or organization responsible
-        for the intellectual or artistic content of a resource. Use when a suitable
-        more granular term cannot be identified.
+      default: ''
   date_created:
     available_on:
       class:
@@ -1210,12 +1138,13 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter the date a work was created. If this is a published work, use
-        "Date Issued."
+      default: ''
     display_label:
       default: Date Created
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: date_created
       metatags: N/A
       mods_oai_pmh: mods:originInfo/mods:dateCreated
       qualified_dc_pmh: dcterms:created
@@ -1227,8 +1156,7 @@ properties:
     - '"approximately between 1940 and 1950", "1940~/1950"'
     syntax: EDTF
     usage_guidelines:
-      default: Enter the date a work was created. If this is a published work, use
-        "Date Issued."
+      default: ''
   date_issued:
     available_on:
       class:
@@ -1249,11 +1177,13 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter the date a work was published.
+      default: ''
     display_label:
       default: Date Issued
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: date_issued
       metatags: N/A
       mods_oai_pmh: mods:originInfo/mods:dateIssued
       qualified_dc_pmh: dcterms:issued
@@ -1263,7 +1193,7 @@ properties:
     requirement: optional
     syntax: EDTF
     usage_guidelines:
-      default: Enter the date a work was published.
+      default: ''
   date_other:
     available_on:
       class:
@@ -1284,12 +1214,13 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter a date of importance to the work that is neither the date it
-        was created nor the date it was published.
+      default: ''
     display_label:
       default: Date Other
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: date_other
       metatags: N/A
       mods_oai_pmh: mods:originInfo/mods:dateOther
       qualified_dc_pmh: dcterms:date
@@ -1299,8 +1230,7 @@ properties:
     requirement: optional
     syntax: EDTF
     usage_guidelines:
-      default: Enter a date of importance to the work that is neither the date it
-        was created nor the date it was published.
+      default: ''
   dedicatee:
     available_on:
       class:
@@ -1318,18 +1248,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization to
-        whom a resource is dedicated.
+      default: ''
     display_label:
       default: Dedicatee
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, dedicatee
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Dedicatee')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -1341,8 +1271,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization to
-        whom a resource is dedicated.
+      default: ''
   depicted:
     available_on:
       class:
@@ -1360,19 +1289,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of an entity (e.g. person (last, first)) depicted or
-        portrayed in a work, particularly in a work of art. Use subject when a person
-        is depicted in a photograph.
+      default: ''
     display_label:
       default: Depicted
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, depicted
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Depicted')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -1384,9 +1312,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of an entity (e.g. person (last, first)) depicted or
-        portrayed in a work, particularly in a work of art. Use subject when a person
-        is depicted in a photograph.
+      default: ''
   designer:
     available_on:
       class:
@@ -1404,18 +1330,19 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for creating a design for an object.
+      default: ''
     display_label:
       default: Designer
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, designer
+      blacklight: creator_sim
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Designer')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -1427,8 +1354,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for creating a design for an object.
+      default: ''
   distributor:
     available_on:
       class:
@@ -1446,18 +1372,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) or organization that has exclusive
-        or shared marketing rights for a resource.
+      default: ''
     display_label:
       default: Distributor
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, distributor
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Distributor')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -1469,8 +1395,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) or organization that has exclusive
-        or shared marketing rights for a resource.
+      default: ''
   donor:
     available_on:
       class:
@@ -1488,18 +1413,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name (last, first - if person) of a former owner of an item
-        who donated that item to another owner.
+      default: ''
     display_label:
       default: Donor
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, donor
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Donor')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -1511,8 +1436,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name (last, first - if person) of a former owner of an item
-        who donated that item to another owner.
+      default: ''
   duration:
     available_on:
       class:
@@ -1526,15 +1450,14 @@ properties:
       sources:
       - N/A
     definition:
-      default: This property describes the total duration of an A/V work or an A/V
-        file. In the case where an A/V work consists of multiple files being served
-        to a single canvas, it is critical that the file metadata is leveraged and
-        passed to the viewer according to IIIF presentation v3 to ensure good user
-        experience (add example using World War II Oral Histories).
+      default: ''
     display_label:
       default: Duration
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: duration
       metatags: N/A
       mods_oai_pmh: N/A
       qualified_dc_pmh: N/A
@@ -1544,11 +1467,7 @@ properties:
     sample_values:
     - '0:57:15.904000'
     usage_guidelines:
-      default: This property describes the total duration of an A/V work or an A/V
-        file. In the case where an A/V work consists of multiple files being served
-        to a single canvas, it is critical that the file metadata is leveraged and
-        passed to the viewer according to IIIF presentation v3 to ensure good user
-        experience (add example using World War II Oral Histories).
+      default: ''
   editor:
     available_on:
       class:
@@ -1566,19 +1485,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization contributing
-        to a resource by revising or elucidating the content, e.g., adding an introduction,
-        notes, or other critical matter.
+      default: ''
     display_label:
       default: Editor
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, editor
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Editor')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -1590,9 +1508,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization contributing
-        to a resource by revising or elucidating the content, e.g., adding an introduction,
-        notes, or other critical matter.
+      default: ''
   editor_of_compilation:
     available_on:
       class:
@@ -1610,20 +1526,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization contributing
-        to a collective or aggregate work by selecting and putting together works,
-        or parts of works, by one or more creators. For compilations of data, information,
-        etc., that result in new works, use Compiler.
+      default: ''
     display_label:
-      default: Editor of compilation
+      default: Editor of Compilation
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, editor_of_compilation
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Editor of compilation')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -1635,10 +1549,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization contributing
-        to a collective or aggregate work by selecting and putting together works,
-        or parts of works, by one or more creators. For compilations of data, information,
-        etc., that result in new works, use Compiler.
+      default: ''
   engraver:
     available_on:
       class:
@@ -1656,18 +1567,19 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) or organization who cuts letters,
-        figures, etc. on a surface, such as a wooden or metal plate used for printing.
+      default: ''
     display_label:
       default: Engraver
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, engraver
+      blacklight: creator_sim
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Engraver')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -1679,8 +1591,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) or organization who cuts letters,
-        figures, etc. on a surface, such as a wooden or metal plate used for printing.
+      default: ''
   extent:
     available_on:
       class:
@@ -1700,14 +1611,14 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter the dimensions (if a photograph, artwork, etc.), the total number
-        of digital pages of the resource, or time duration (if audiovisual content)
-        of the resource. Units should be included as text within the field (e.g. "8x10
-        inches", "6 pages", or "1 hour, 2 minutes").
+      default: ''
     display_label:
       default: Extent
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: extent
       metatags: N/A
       mods_oai_pmh: mods:physicalDescription/mods:extent
       qualified_dc_pmh: dcterms:extent
@@ -1716,10 +1627,7 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     usage_guidelines:
-      default: Enter the dimensions (if a photograph, artwork, etc.), the total number
-        of digital pages of the resource, or time duration (if audiovisual content)
-        of the resource. Units should be included as text within the field (e.g. "8x10
-        inches", "6 pages", or "1 hour, 2 minutes").
+      default: ''
   first_line:
     available_on:
       class:
@@ -1732,13 +1640,14 @@ properties:
       sources:
       - N
     definition:
-      default: Use for sheet music that has lyrics. Enter the first complete phrase
-        of the lyrics. Note that the phrase may exceed or fall short of the first
-        full line. No quotation marks are needed.
+      default: ''
     display_label:
       default: First Line
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: first_line
       metatags: N/A
       mods_oai_pmh: n/a
       qualified_dc_pmh: n/a
@@ -1747,9 +1656,7 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     usage_guidelines:
-      default: Use for sheet music that has lyrics. Enter the first complete phrase
-        of the lyrics. Note that the phrase may exceed or fall short of the first
-        full line. No quotation marks are needed.
+      default: ''
   form:
     available_on:
       class:
@@ -1770,12 +1677,15 @@ properties:
       - Art and Architecture Thesaurus
       - LCGFT
     definition:
-      default: Enter a term that describes the type of work, including the physical
-        form or medium of material for the work.
+      default: ''
     display_label:
       default: Form
+    index_documentation: displayable, searchable, form facet
+    indexing:
+    - displayable
+    - stored_searchable
+    - facetable
     mappings:
-      blacklight: form
       metatags: N/A
       mods_oai_pmh: mods:physicalDescription/mods:form
       qualified_dc_pmh: dcterms:medium
@@ -1785,8 +1695,7 @@ properties:
     sample_values:
     - photographs
     usage_guidelines:
-      default: Enter a term that describes the type of work, including the physical
-        form or medium of material for the work.
+      default: ''
   former_owner:
     available_on:
       class:
@@ -1804,18 +1713,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization formerly
-        having legal possession of an item.
+      default: ''
     display_label:
-      default: Former owner
+      default: Former Owner
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, former_owner
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Former owner')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -1827,8 +1736,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization formerly
-        having legal possession of an item.
+      default: ''
   honoree:
     available_on:
       class:
@@ -1846,19 +1754,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization honored
-        by a work or item (e.g., the honoree of a festschrift, a person to whom a
-        copy is presented).
+      default: ''
     display_label:
       default: Honoree
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, honoree
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Honoree')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -1870,9 +1777,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization honored
-        by a work or item (e.g., the honoree of a festschrift, a person to whom a
-        copy is presented).
+      default: ''
   host_institution:
     available_on:
       class:
@@ -1890,19 +1795,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of an organization hosting an event, exhibit, conference,
-        etc., which gave rise to a resource, but has little or no responsibility for
-        the content of the resource.
+      default: ''
     display_label:
-      default: Host institution
+      default: Host Institution
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, host_institution
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Host institution')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -1914,9 +1818,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of an organization hosting an event, exhibit, conference,
-        etc., which gave rise to a resource, but has little or no responsibility for
-        the content of the resource.
+      default: ''
   illustrator:
     available_on:
       class:
@@ -1934,20 +1836,19 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization contributing
-        to a resource by supplementing the primary content with drawings, diagrams,
-        photographs, etc. If the work is primarily the artistic content created by
-        this entity, use Artist or Photographer.
+      default: ''
     display_label:
       default: Illustrator
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, illustrator
+      blacklight: creator_sim
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Illustrator')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -1959,10 +1860,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization contributing
-        to a resource by supplementing the primary content with drawings, diagrams,
-        photographs, etc. If the work is primarily the artistic content created by
-        this entity, use Artist or Photographer.
+      default: ''
   instrumentalist:
     available_on:
       class:
@@ -1980,18 +1878,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) who contributed to a resource
-        by playing a musical instrument.
+      default: ''
     display_label:
       default: Instrumentalist
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, instrumentalist
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Instrumentalist')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -2003,8 +1901,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) who contributed to a resource
-        by playing a musical instrument.
+      default: ''
   instrumentation:
     available_on:
       class:
@@ -2019,15 +1916,14 @@ properties:
       sources:
       - N
     definition:
-      default: 'Enter the voices and external instruments used to perform a piece
-        of music along with the number of each (e.g. "For piccolo, 2 flutes, 2 oboes,
-        and English horn.") Follow score order for listing the voices/instruments
-        - https://jirautk.atlassian.net/wiki/spaces/DLP/pages/3047434. Names of instruments
-        should follow the Library of Congress Medium of Performance Thesaurus (lcmpt). '
+      default: ''
     display_label:
       default: Instrumentation
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: instrumentation
       metatags: N/A
       mods_oai_pmh: mods:abstract
       qualified_dc_pmh: dcterms:abstract
@@ -2036,11 +1932,7 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     usage_guidelines:
-      default: 'Enter the voices and external instruments used to perform a piece
-        of music along with the number of each (e.g. "For piccolo, 2 flutes, 2 oboes,
-        and English horn.") Follow score order for listing the voices/instruments
-        - https://jirautk.atlassian.net/wiki/spaces/DLP/pages/3047434. Names of instruments
-        should follow the Library of Congress Medium of Performance Thesaurus (lcmpt). '
+      default: ''
   intended_audience:
     available_on:
       class:
@@ -2053,14 +1945,14 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter the grade level (e.g. "Second Grade") that a resource was created
-        to be used by. Note that this field is not applicable to primary sources,
-        but is instead for curriculum resources created to aid with interpretation
-        and understanding context.
+      default: ''
     display_label:
       default: Intended Audience
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: intended_audience
       metatags: N/A
       mods_oai_pmh: mods:targetAudience
       qualified_dc_pmh: dcterms:audience
@@ -2069,10 +1961,7 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     usage_guidelines:
-      default: Enter the grade level (e.g. "Second Grade") that a resource was created
-        to be used by. Note that this field is not applicable to primary sources,
-        but is instead for curriculum resources created to aid with interpretation
-        and understanding context.
+      default: ''
   intermediate_provider:
     available_on:
       class:
@@ -2094,13 +1983,15 @@ properties:
       - naf
       - none
     definition:
-      default: Enter the name of the institution that owns or has provided access
-        to the digitized resource. When possible, use the Library of Congress Name
-        Authority File.
+      default: ''
     display_label:
       default: Intermediate Provider
+    index_documentation: displayable, searchable, intermediate provider facet
+    indexing:
+    - displayable
+    - stored_searchable
+    - facetable
     mappings:
-      blacklight: intermediate_provider
       metatags: N/A
       mods_oai_pmh: mods:location/mods:physicalLocation
       qualified_dc_pmh: dcterms:publisher
@@ -2111,9 +2002,7 @@ properties:
     sample_values:
     - Langston Hughes Library (Children's Defense Fund Haley Farm)
     usage_guidelines:
-      default: Enter the name of the institution that owns or has provided access
-        to the digitized resource. When possible, use the Library of Congress Name
-        Authority File.
+      default: ''
   interviewee:
     available_on:
       class:
@@ -2131,21 +2020,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: 'Enter the name of a person (last, first), family or organization responsible
-        for creating or contributing to a resource by responding to an interviewer,
-        usually a reporter, pollster, or some other information gathering agent.
-
-        '
+      default: ''
     display_label:
       default: Interviewee
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, interviewee
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Interviewee')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -2157,11 +2043,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: 'Enter the name of a person (last, first), family or organization responsible
-        for creating or contributing to a resource by responding to an interviewer,
-        usually a reporter, pollster, or some other information gathering agent.
-
-        '
+      default: ''
   interviewer:
     available_on:
       class:
@@ -2179,19 +2061,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for creating or contributing to a resource by acting as an interviewer, reporter,
-        pollster, or some other information gathering agent.
+      default: ''
     display_label:
       default: Interviewer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, interviewer
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Interviewer')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -2203,9 +2084,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for creating or contributing to a resource by acting as an interviewer, reporter,
-        pollster, or some other information gathering agent.
+      default: ''
   is_part_of:
     available_on:
       class:
@@ -2226,13 +2105,14 @@ properties:
       sources:
       - N/A
     definition:
-      default: Should not appear in metadata form.  This field should be autopopulated
-        with ARKs for all ArchivesSpace Finding Aids and presented to users in the
-        metadata, but should never be editable by a user or admin.
+      default: ''
     display_label:
       default: Is Part Of
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: is_part_of
       metatags: N/A
       mods_oai_pmh: mods:relatedItem[@type="host"][@displayLabel="Collection"]/mods:location/mods:url
       qualified_dc_pmh: dcterms:isPartOf
@@ -2244,9 +2124,7 @@ properties:
     - https://n2t.net/ark:/87290/v8pz5703
     syntax: IETF ARK 18
     usage_guidelines:
-      default: Should not appear in metadata form.  This field should be autopopulated
-        with ARKs for all ArchivesSpace Finding Aids and presented to users in the
-        metadata, but should never be editable by a user or admin.
+      default: ''
   isbn:
     available_on:
       class:
@@ -2260,11 +2138,15 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter the ISBN for the resource.
+      default: ''
     display_label:
       default: ISBN
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: isbn
+      blacklight: identifier_ssi
       metatags: N/A
       mods_oai_pmh: mods:identifier[@type='isbn']
       qualified_dc_pmh: dcterms:identifier
@@ -2277,7 +2159,7 @@ properties:
     - '938008692'
     - '18819859105'
     usage_guidelines:
-      default: Enter the ISBN for the resource.
+      default: ''
   issn:
     available_on:
       class:
@@ -2292,11 +2174,15 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter the ISSN for a serial resource (e.g. 2687-9875)
+      default: ''
     display_label:
       default: ISSN
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: issn
+      blacklight: identifier_ssi
       metatags: N/A
       mods_oai_pmh: mods:identifier[@type='issn']
       qualified_dc_pmh: dcterms:identifier
@@ -2307,7 +2193,7 @@ properties:
     sample_values:
     - 2687-9875
     usage_guidelines:
-      default: Enter the ISSN for a serial resource (e.g. 2687-9875)
+      default: ''
     validations:
       match_regex: ^[0-9]{4}-[0-9]{3}[0-9xX]$.
   issuing_body:
@@ -2327,18 +2213,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family or organization issuing
-        a work, such as an official organ of the body.
+      default: ''
     display_label:
-      default: Issuing body
+      default: Issuing Body
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, issuing_body
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Issuing body')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -2350,8 +2236,38 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family or organization issuing
-        a work, such as an official organ of the body.
+      default: ''
+  keyword:
+    available_on:
+      class:
+      - ''
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - dots
+      - local
+    definition:
+      default: ''
+    display_label:
+      default: Keyword
+    index_documentation: displayable, searchable, subject facet
+    indexing:
+    - displayable
+    - stored_searchable
+    - facetable
+    mappings:
+      blacklight: subject_sim
+      metatags: ''
+      mods_oai_pmh: ''
+      qualified_dc_pmh: ''
+      simple_dc_pmh: ''
+    property_uri: https://w3id.org/idsa/core/keyword
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    usage_guidelines:
+      default: ''
   language:
     available_on:
       class:
@@ -2371,13 +2287,15 @@ properties:
       sources:
       - iso639-2b
     definition:
-      default: Enter a language used in the resource as text (e.g. English). When
-        multiple languages are present, use multiple fields. If no language is present,
-        enter "No linguistic content."
+      default: ''
     display_label:
       default: Language
+    index_documentation: displayable, searchable, language facet
+    indexing:
+    - displayable
+    - stored_searchable
+    - facetable
     mappings:
-      blacklight: language
       metatags: og:locale
       mods_oai_pmh: mods:language/mods:languageTerm
       qualified_dc_pmh: dcterms:language
@@ -2386,9 +2304,7 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     usage_guidelines:
-      default: Enter a language used in the resource as text (e.g. English). When
-        multiple languages are present, use multiple fields. If no language is present,
-        enter "No linguistic content."
+      default: ''
   lithographer:
     available_on:
       class:
@@ -2406,19 +2322,19 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) or organization who prepares
-        the stone or plate for lithographic printing, including a graphic artist creating
-        a design directly on the surface from which printing will be done.
+      default: ''
     display_label:
       default: Lithographer
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, lithographer
+      blacklight: creator_sim
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Lithographer')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -2430,9 +2346,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) or organization who prepares
-        the stone or plate for lithographic printing, including a graphic artist creating
-        a design directly on the surface from which printing will be done.
+      default: ''
   local_identifier:
     available_on:
       class:
@@ -2452,13 +2366,16 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter a local identifier. This can be the identifier created by Digital
-        Production or another identifier found on the source (but not the ISSN, ISBN,
-        or OCLC number).
+      default: This can be the identifier created by Digital Production or another
+        identifier found on the source (but not the ISSN, ISBN, or OCLC number).
     display_label:
       default: Local Identifier
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: local_identifier
+      blacklight: identifier_ssi
       metatags: N/A
       mods_oai_pmh: mods:identifier[@type='local']
       qualified_dc_pmh: dcterms:identifier
@@ -2469,9 +2386,8 @@ properties:
     sample_values:
     - csboyd_0014
     usage_guidelines:
-      default: Enter a local identifier. This can be the identifier created by Digital
-        Production or another identifier found on the source (but not the ISSN, ISBN,
-        or OCLC number).
+      default: This can be the identifier created by Digital Production or another
+        identifier found on the source (but not the ISSN, ISBN, or OCLC number).
   lyricist:
     available_on:
       class:
@@ -2489,18 +2405,19 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) who authored of the words
-        of a non-dramatic musical work (e.g. the text of a song), except for oratorios.
+      default: ''
     display_label:
       default: Lyricist
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, lyricist
+      blacklight: creator_sim
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Lyricist')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -2512,8 +2429,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) who authored of the words
-        of a non-dramatic musical work (e.g. the text of a song), except for oratorios.
+      default: ''
   music_copyist:
     available_on:
       class:
@@ -2531,18 +2447,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) who transcribes or copies
-        musical notation.
+      default: ''
     display_label:
-      default: Music copyist
+      default: Music Copyist
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, music_copyist
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Music copyist')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -2554,8 +2470,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) who transcribes or copies
-        musical notation.
+      default: ''
   musical_director:
     available_on:
       class:
@@ -2573,19 +2488,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) who coordinates the activities
-        of the composer, the sound editor, and sound mixers for a moving image production
-        or for a musical or dramatic presentation or entertainment.
+      default: ''
     display_label:
-      default: Musical director
+      default: Musical Director
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, musical_director
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Musical director')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -2597,9 +2511,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) who coordinates the activities
-        of the composer, the sound editor, and sound mixers for a moving image production
-        or for a musical or dramatic presentation or entertainment.
+      default: ''
   note:
     available_on:
       class:
@@ -2619,15 +2531,14 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter any general textual information relating to a resource that does
-        not belong in an abstract and shouldn't display in the brief results. This
-        could include the physical condition of a resource (if an artwork has foxing
-        etc.) or it could be used to clarify the source of information entered elsewhere
-        in the record. End this field with a period.
+      default: ''
     display_label:
       default: Note
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: note
       metatags: N/A
       mods_oai_pmh: mods:note
       qualified_dc_pmh: n/a
@@ -2636,11 +2547,7 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     usage_guidelines:
-      default: Enter any general textual information relating to a resource that does
-        not belong in an abstract and shouldn't display in the brief results. This
-        could include the physical condition of a resource (if an artwork has foxing
-        etc.) or it could be used to clarify the source of information entered elsewhere
-        in the record. End this field with a period.
+      default: ''
   object_link:
     available_on:
       class:
@@ -2661,9 +2568,13 @@ properties:
       sources:
       - N/A
     definition:
-      default: Should not appear in metadata form. This value is generated upon ingest.
+      default: ''
     display_label:
       default: Object Link
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
       metatags: og:url, twitter:image
       mods_oai_pmh: mods:location/mods:url[access="object in context"]
@@ -2672,7 +2583,7 @@ properties:
     property_uri: http://purl.org/dc/terms/identifier
     requirement: optional
     usage_guidelines:
-      default: Should not appear in metadata form. This value is generated upon ingest.
+      default: ''
   oclc:
     available_on:
       class:
@@ -2693,11 +2604,15 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter the 8 or 9 digit OCLC identifier (e.g. 50008789).
+      default: ''
     display_label:
       default: OCLC Number
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: oclc
+      blacklight: identifier_ssi
       metatags: N/A
       mods_oai_pmh: mods:identifier[@type='oclc']
       qualified_dc_pmh: dcterms:identifier
@@ -2708,7 +2623,7 @@ properties:
     sample_values:
     - '44394278'
     usage_guidelines:
-      default: Enter the 8 or 9 digit OCLC identifier (e.g. 50008789).
+      default: ''
   organizer:
     available_on:
       class:
@@ -2726,18 +2641,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization organizing
-        the exhibit, event, conference, etc., which gave rise to a resource.
+      default: ''
     display_label:
       default: Organizer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, organizer
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Organizer')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -2749,8 +2664,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization organizing
-        the exhibit, event, conference, etc., which gave rise to a resource.
+      default: ''
   originator:
     available_on:
       class:
@@ -2768,20 +2682,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) or organization performing
-        the work, i.e., the name of a person or organization associated with the intellectual
-        content of the work. This category does not include the publisher or personal
-        affiliation, or sponsor except where it is also the corporate author.
+      default: ''
     display_label:
       default: Originator
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, originator
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Originator')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -2793,10 +2705,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) or organization performing
-        the work, i.e., the name of a person or organization associated with the intellectual
-        content of the work. This category does not include the publisher or personal
-        affiliation, or sponsor except where it is also the corporate author.
+      default: ''
   other_version:
     available_on:
       class:
@@ -2816,12 +2725,14 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter a link to a related resource that is a version, edition, or adaptation
-        of the described resource.
+      default: ''
     display_label:
       default: Other Version
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: other_version
       metatags: N/A
       mods_oai_pmh: mods:relatedItem[@type="otherVersion"]/mods:location/mods:url
       qualified_dc_pmh: dcterms:relation
@@ -2832,8 +2743,7 @@ properties:
     sample_values:
     - Links to Arrowmont scrapbooks from individual photos
     usage_guidelines:
-      default: Enter a link to a related resource that is a version, edition, or adaptation
-        of the described resource.
+      default: ''
   owner:
     available_on:
       class:
@@ -2851,18 +2761,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization that
-        currently owns an item or collection, i.e.has legal possession of a resource
+      default: ''
     display_label:
       default: Owner
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: owner, name
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Owner')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -2874,8 +2784,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization that
-        currently owns an item or collection, i.e.has legal possession of a resource
+      default: ''
   performer:
     available_on:
       class:
@@ -2893,20 +2802,19 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) contributing to a resource
-        by performing music, acting, dancing, speaking, etc., often in a musical or
-        dramatic presentation, etc. (esp. if the more specific role of actor or dancer
-        is not clear).
+      default: ''
     display_label:
       default: Performer
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: performer, name
+      blacklight: creator_sim
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Performer')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -2918,10 +2826,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) contributing to a resource
-        by performing music, acting, dancing, speaking, etc., often in a musical or
-        dramatic presentation, etc. (esp. if the more specific role of actor or dancer
-        is not clear).
+      default: ''
   photographer:
     available_on:
       class:
@@ -2939,18 +2844,19 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for creating a photographic work.
+      default: ''
     display_label:
       default: Photographer
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, photographer
+      blacklight: creator_sim
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Photographer')]]/mods:namePart
       qualified_dc_pmh: dcterms:creator
@@ -2962,44 +2868,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for creating a photographic work.
-  place_of_publication:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Collection
-      - Audio
-      - PDF
-      - Book
-      - CompoundObject
-      - Newspaper
-    cardinality:
-      minimum: 0
-    controlled_values:
-      format: ''
-      sources:
-      - naf
-    definition:
-      default: For published works, enter the place of publication. This should be
-        a city (with state/country info).
-    display_label:
-      default: Place of Publication
-    mappings:
-      blacklight: place_of_publication
-      metatags: N/A
-      mods_oai_pmh: mods:originInfo/place/placeTerm
-      qualified_dc_pmh: n/a
-      simple_dc_pmh: n/a
-    property_uri: https://id.loc.gov/vocabulary/relators/pup
-    requirement: optional
-    sample_values:
-    - Knoxville (Tenn.)
-    usage_guidelines:
-      default: For published works, enter the place of publication. This should be
-        a city (with state/country info).
+      default: ''
   printer:
     available_on:
       class:
@@ -3017,19 +2886,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization involved
-        in manufacturing a manifestation of printed text, notated music, etc., from
-        type or plates, such as a book, newspaper, magazine, broadside, score, etc.
+      default: ''
     display_label:
       default: Printer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, printer
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Printer')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -3041,9 +2909,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization involved
-        in manufacturing a manifestation of printed text, notated music, etc., from
-        type or plates, such as a book, newspaper, magazine, broadside, score, etc.
+      default: ''
   printer_of_plates:
     available_on:
       class:
@@ -3061,18 +2927,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) or organization who prints
-        illustrations from plates.
+      default: ''
     display_label:
-      default: Printer of plates
+      default: Printer of Plates
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, printer_of_plates
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Printer of plates')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -3084,8 +2950,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) or organization who prints
-        illustrations from plates.
+      default: ''
   producer:
     available_on:
       class:
@@ -3103,21 +2968,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for most of the business aspects of a production for screen, audio recording,
-        television, webcast, etc. The producer is generally responsible for fund raising,
-        managing the production, hiring key personnel, arranging for distributors,
-        etc.
+      default: ''
     display_label:
       default: Producer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, producer
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Producer')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -3129,11 +2991,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for most of the business aspects of a production for screen, audio recording,
-        television, webcast, etc. The producer is generally responsible for fund raising,
-        managing the production, hiring key personnel, arranging for distributors,
-        etc.
+      default: ''
   production_company:
     available_on:
       class:
@@ -3151,19 +3009,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of organization that is responsible for financial, technical,
-        and organizational management of a production for stage, screen, audio recording,
-        television, webcast, etc.
+      default: ''
     display_label:
-      default: Production company
+      default: Production Company
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, production_company
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Production company')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -3175,9 +3032,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of organization that is responsible for financial, technical,
-        and organizational management of a production for stage, screen, audio recording,
-        television, webcast, etc.
+      default: ''
   provider:
     available_on:
       class:
@@ -3191,11 +3046,14 @@ properties:
       - naf
       - none
     definition:
-      default: Enter the name of the institution hosting the content online.
+      default: ''
     display_label:
       default: Provider
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: provider
       metatags: N/A
       mods_oai_pmh: mods:location/mods:physicalLocation
       qualified_dc_pmh: dcterms:publisher
@@ -3203,7 +3061,45 @@ properties:
     property_uri: http://www.europeana.eu/schemas/edm/provider
     requirement: required
     usage_guidelines:
-      default: Enter the name of the institution hosting the content online.
+      default: ''
+  publication_place:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - naf
+    definition:
+      default: ''
+    display_label:
+      default: Publication Place
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:originInfo/place/placeTerm
+      qualified_dc_pmh: n/a
+      simple_dc_pmh: n/a
+    property_uri: https://id.loc.gov/vocabulary/relators/pup
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - http://id.loc.gov/authorities/names/n79109786
+    usage_guidelines:
+      default: ''
   publisher:
     available_on:
       class:
@@ -3221,18 +3117,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) or organization responsible
-        for publishing, releasing, or issuing a resource.
+      default: ''
     display_label:
       default: Publisher
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, publisher
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Publisher')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -3244,8 +3140,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) or organization responsible
-        for publishing, releasing, or issuing a resource.
+      default: ''
   repository:
     available_on:
       class:
@@ -3267,11 +3162,14 @@ properties:
       - naf
       - none
     definition:
-      default: Enter the name of the institution that physically holds the materials.
+      default: ''
     display_label:
       default: Repository
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: repository
       metatags: N/A
       mods_oai_pmh: ''
       qualified_dc_pmh: ''
@@ -3280,7 +3178,7 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     usage_guidelines:
-      default: Enter the name of the institution that physically holds the materials.
+      default: ''
   resource_type:
     available_on:
       class:
@@ -3300,14 +3198,15 @@ properties:
       sources:
       - ''
     definition:
-      default: Enter broad term(s) that describe the general format of the resource
-        (Text, Cartographic, Notated music, Audio non-musical, Audio, Still image,
-        Moving image, Artifact, Collection). Note that more than one term can be used
-        if the resource is dominated by more than one resource type.
+      default: ''
     display_label:
       default: Resource Type
+    index_documentation: displayable, searchable, resource type facet
+    indexing:
+    - displayable
+    - stored_searchable
+    - facetable
     mappings:
-      blacklight: resource_type
       metatags: N/A
       mods_oai_pmh: mods:typeOfResource
       qualified_dc_pmh: dcterms:type
@@ -3316,10 +3215,7 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     usage_guidelines:
-      default: Enter broad term(s) that describe the general format of the resource
-        (Text, Cartographic, Notated music, Audio non-musical, Audio, Still image,
-        Moving image, Artifact, Collection). Note that more than one term can be used
-        if the resource is dominated by more than one resource type.
+      default: ''
   restorationist:
     available_on:
       class:
@@ -3337,20 +3233,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for the set of technical, editorial, and intellectual procedures aimed at
-        compensating for the degradation of an item by bringing it back to a state
-        as close as possible to its original condition.
+      default: ''
     display_label:
       default: Restorationist
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, restorationist
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Restorationist')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -3362,10 +3256,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization responsible
-        for the set of technical, editorial, and intellectual procedures aimed at
-        compensating for the degradation of an item by bringing it back to a state
-        as close as possible to its original condition.
+      default: ''
   rights:
     available_on:
       class:
@@ -3386,13 +3277,15 @@ properties:
       - rightsstatements
       - Creative Commons
     definition:
-      default: Enter the rights statement and/or license that applies to the resource.
-        Every resource needs a rights statement. Some resources may have both a rights
-        statement and a Creative Commons license.
+      default: ''
     display_label:
       default: Rights
+    index_documentation: displayable, searchable, rights facet
+    indexing:
+    - displayable
+    - stored_searchable
+    - facetable
     mappings:
-      blacklight: rights
       metatags: N/A
       mods_oai_pmh: mods:accessCondition[@type="use and reproduction"]
       qualified_dc_pmh: dcterms:rights
@@ -3401,9 +3294,7 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: required
     usage_guidelines:
-      default: Enter the rights statement and/or license that applies to the resource.
-        Every resource needs a rights statement. Some resources may have both a rights
-        statement and a Creative Commons license.
+      default: ''
   set_designer:
     available_on:
       class:
@@ -3421,20 +3312,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) who translates the rough sketches
-        of the art director into actual architectural structures for a theatrical
-        presentation, entertainment, motion picture, etc. Set designers draw the detailed
-        guides and specifications for building the set.
+      default: ''
     display_label:
-      default: Set designer
+      default: Set Designer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, set_designer
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Set designer')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -3446,10 +3335,45 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) who translates the rough sketches
-        of the art director into actual architectural structures for a theatrical
-        presentation, entertainment, motion picture, etc. Set designers draw the detailed
-        guides and specifications for building the set.
+      default: ''
+  sheetmusic_hostitem:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Host Item
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: N/A
+      qualified_dc_pmh: N/A
+      simple_dc_pmh: N/A
+    property_uri: http://opaquenamespace.org/ns/sheetmusic_hostItem
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Three songs for soprano, alto flute, English horn, and bass clarinet
+    usage_guidelines:
+      default: ''
   signer:
     available_on:
       class:
@@ -3467,19 +3391,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) whose signature appears without
-        a presentation or other statement indicative of provenance. When there is
-        a presentation statement, use Inscriber.
+      default: ''
     display_label:
       default: Signer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, signer
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Signer')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -3491,9 +3414,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) whose signature appears without
-        a presentation or other statement indicative of provenance. When there is
-        a presentation statement, use Inscriber.
+      default: ''
   spatial:
     available_on:
       class:
@@ -3515,12 +3436,15 @@ properties:
       - naf
       - coordinates
     definition:
-      default: Enter the name and/or coordinates of a place with which the resource
-        is associated. Coordinates and names should be entered in separate fields.
+      default: ''
     display_label:
       default: Spatial Coverage
+    index_documentation: displayable, searchable, spatial facet
+    indexing:
+    - displayable
+    - stored_searchable
+    - facetable
     mappings:
-      blacklight: spatial
       metatags: N/A
       mods_oai_pmh: mods:subject/mods:geographic
       qualified_dc_pmh: dcterms:spatial
@@ -3529,8 +3453,7 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     usage_guidelines:
-      default: Enter the name and/or coordinates of a place with which the resource
-        is associated. Coordinates and names should be entered in separate fields.
+      default: ''
   speaker:
     available_on:
       class:
@@ -3548,18 +3471,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) contributing to a resource
-        by speaking words, such as a lecture, speech, etc.
+      default: ''
     display_label:
       default: Speaker
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, speaker
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Speaker')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -3571,8 +3494,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) contributing to a resource
-        by speaking words, such as a lecture, speech, etc.
+      default: ''
   stage_director:
     available_on:
       class:
@@ -3590,18 +3512,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) or organization contributing
-        to a stage resource through the overall management and supervision of a performance.
+      default: ''
     display_label:
-      default: Stage director
+      default: Stage Director
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, stage_director
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Stage director')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -3613,8 +3535,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) or organization contributing
-        to a stage resource through the overall management and supervision of a performance.
+      default: ''
   stage_manager:
     available_on:
       class:
@@ -3632,19 +3553,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) who is in charge of everything
-        that occurs on a performance stage, and who acts as chief of all crews and
-        assistant to a director during rehearsals.
+      default: ''
     display_label:
-      default: Stage manager
+      default: Stage Manager
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, stage_manager
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Stage manager')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -3656,9 +3576,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) who is in charge of everything
-        that occurs on a performance stage, and who acts as chief of all crews and
-        assistant to a director during rehearsals.
+      default: ''
   standards_body:
     available_on:
       class:
@@ -3676,18 +3594,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of an organization responsible for the development or
-        enforcement of a standard.
+      default: ''
     display_label:
-      default: Standards body
+      default: Standards Body
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, standards_body
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Standards body')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -3699,8 +3617,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of an organization responsible for the development or
-        enforcement of a standard.
+      default: ''
   subject:
     available_on:
       class:
@@ -3718,24 +3635,23 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Multiple (none
       - naf
       - agrovoc
-      - dots
       - fast
       - geonames
       - lcsh
-      - local
       - tgm
-      - wikidata)
+      - wikidata
     definition:
-      default: Enter a topic covered by the resource or that the resource is about.
-        Topics include broad concepts (e.g. "Agriculture") and the names of people
-        (last, first) depicted in or written about in the resource.
+      default: ''
     display_label:
       default: Subject
+    index_documentation: displayable, searchable, subject facet
+    indexing:
+    - displayable
+    - stored_searchable
+    - facetable
     mappings:
-      blacklight: subject
       metatags: N/A
       mods_oai_pmh: mods:subject/mods:topic
       qualified_dc_pmh: dcterms:subject
@@ -3744,9 +3660,7 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     usage_guidelines:
-      default: Enter a topic covered by the resource or that the resource is about.
-        Topics include broad concepts (e.g. "Agriculture") and the names of people
-        (last, first) depicted in or written about in the resource.
+      default: ''
   surveyor:
     available_on:
       class:
@@ -3764,19 +3678,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first), family, or organization contributing
-        to a cartographic resource by providing measurements or dimensional relationships
-        for the geographic area represented.
+      default: ''
     display_label:
       default: Surveyor
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, surveyor
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Surveyor')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -3788,9 +3701,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first), family, or organization contributing
-        to a cartographic resource by providing measurements or dimensional relationships
-        for the geographic area represented.
+      default: ''
   table_of_contents:
     available_on:
       class:
@@ -3803,11 +3714,14 @@ properties:
       sources:
       - 'null'
     definition:
-      default: 'Enter a list of subunits of the resource (chapters, etc.). Separate '
+      default: ''
     display_label:
       default: Table of Contents
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: table_of_contents
       metatags: N/A
       mods_oai_pmh: mods:tableOfContents
       qualified_dc_pmh: dcterms:tableOfContents
@@ -3816,13 +3730,13 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     sample_values:
-    - "Snap beans: machine vs. hand harvest - New bulletins - Protein with high silage\
-      \ rations -- dairy\n - Pepper yields and fertility, plant spacing - Stripping\
-      \ vs. spindle picking of 4 cottons - Personnel changes -\n Soybean irrigation\
-      \ - Alfalfa crown rot - Bedding for better cotton stands - Controlling bagworms\
-      \ -\n Nitrogen on shade trees"
+    - 'Snap beans: machine vs. hand harvest - New bulletins - Protein with high silage
+      rations -- dairy - Pepper yields and fertility, plant spacing - Stripping vs.
+      spindle picking of 4 cottons - Personnel changes - Soybean irrigation - Alfalfa
+      crown rot - Bedding for better cotton stands - Controlling bagworms - Nitrogen
+      on shade trees'
     usage_guidelines:
-      default: 'Enter a list of subunits of the resource (chapters, etc.). Separate '
+      default: ''
   temporal:
     available_on:
       class:
@@ -3842,12 +3756,15 @@ properties:
       sources:
       - 'null'
     definition:
-      default: 'Enter a date range or phrase that captures the time period the resource
-        is about. '
+      default: ''
     display_label:
       default: Temporal Coverage
+    index_documentation: displayable, searchable, temporal facet
+    indexing:
+    - displayable
+    - stored_searchable
+    - facetable
     mappings:
-      blacklight: temporal
       metatags: N/A
       mods_oai_pmh: mods:subject/mods:temporal
       qualified_dc_pmh: dcterms:temporal
@@ -3856,8 +3773,7 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     usage_guidelines:
-      default: 'Enter a date range or phrase that captures the time period the resource
-        is about. '
+      default: ''
   title:
     available_on:
       class:
@@ -3878,12 +3794,14 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter a standardized title for display. If only one title is needed,
-        transcribe the title from the source itself.
+      default: ''
     display_label:
       default: Title
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: title
       metatags: twitter:title, og:title
       mods_oai_pmh: mods:titleInfo/mods:title
       qualified_dc_pmh: dcterms:title
@@ -3894,8 +3812,7 @@ properties:
     sample_values:
     - Pencil drawn portrait study of woman
     usage_guidelines:
-      default: Enter a standardized title for display. If only one title is needed,
-        transcribe the title from the source itself.
+      default: ''
   translator:
     available_on:
       class:
@@ -3913,19 +3830,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) or organization who renders
-        a text from one language into another, or from an older form of a language
-        into the modern form.
+      default: ''
     display_label:
       default: Translator
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, translator
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Translator')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -3937,9 +3853,2360 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) or organization who renders
-        a text from one language into another, or from an older form of a language
-        into the modern form.
+      default: ''
+  utk_addressee:
+    available_on:
+      class:
+      - Book
+      - Compound Object
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Addressee
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Addressee')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#crp
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_architect:
+    available_on:
+      class:
+      - Book
+      - Image
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Architect
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: creator_sim
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Architect')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#arc
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_arranger:
+    available_on:
+      class:
+      - Audio
+      - Book
+      - Video
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Arranger
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Arranger')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#arr
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_artist:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Artist
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: creator_sim
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Artist')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#art
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_associated_name:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Associated Name
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Associated name')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#asn
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_attributed_name:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Attributed Name
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Attributed name')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#att
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_author:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Author
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: creator_sim
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Author')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#aut
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_autographer:
+    available_on:
+      class:
+      - Book
+      - Compound Object
+      - Image
+      - PDF
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Autographer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Autographer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#ato
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_binding_designer:
+    available_on:
+      class:
+      - Book
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Binding Designer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Binding designer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#bdd
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_cartographer:
+    available_on:
+      class:
+      - Image
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Cartographer
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: creator_sim
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Cartographer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#ctg
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_censor:
+    available_on:
+      class:
+      - Book
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Censor
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Censor')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#cns
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_choreographer:
+    available_on:
+      class:
+      - Book
+      - Video
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Choreographer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Choreographer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#chr
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_client:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Client
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Client')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#cli
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_compiler:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Compiler
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Compiler')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#com
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_composer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Composer
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: creator_sim
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Composer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#cmp
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_contractor:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Contractor
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Contractor')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#ctr
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_contributor:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Contributor
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Contributor')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#ctb
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_copyright_holder:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Copyright Holder
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Copyright holder')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#cph
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_correspondent:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Correspondent
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Correspondent')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#crp
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_costumer_designer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Costume Designer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Costume designer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#cst
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_creator:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Creator
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: creator_sim
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Creator')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#cre
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_dedicatee:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Dedicatee
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Dedicatee')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#dte
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_depicted:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Depicted
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Depicted')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#dpc
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_designer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Designer
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: creator_sim
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Designer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#dsr
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_distributor:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Distributor
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Distributor')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#dst
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_donor:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Donor
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Donor')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#dnr
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_editor:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Editor
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Editor')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#edt
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_editor_of_compilation:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Editor of Compilation
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Editor of compilation')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#edc
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_engraver:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Engraver
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: creator_sim
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Engraver')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#egr
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_former_owner:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Former Owner
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Former owner')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#fmo
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_honoree:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Honoree
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Honoree')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#hnr
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_host_institution:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Host Institution
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Host institution')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#his
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_illustrator:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Illustrator
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: creator_sim
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Illustrator')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#ill
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_instrumentalist:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Instrumentalist
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Instrumentalist')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#itr
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_interviewee:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Interviewee
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: creator_sim
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Interviewee')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#ive
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_interviewer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Interviewer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Interviewer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#ivr
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_issuing_body:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Issuing Body
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Issuing body')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#isb
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_lithographer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Lithographer
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: creator_sim
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Lithographer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#ltg
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_lyricist:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Lyricist
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: creator_sim
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Lyricist')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#lyr
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_music_copyist:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Music Copyist
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Music copyist')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#mcp
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_musical_director:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Musical Director
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Musical director')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#msd
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_organizer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Organizer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Organizer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#orm
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_originator:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Originator
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Originator')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#org
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_owner:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Owner
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Owner')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#own
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_performer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Performer
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: creator_sim
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Performer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#prf
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_photographer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Photographer
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: creator_sim
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Photographer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: https://ontology.lib.utk.edu/roles#pht
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_place_of_publication:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Publication Place
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:originInfo/place/placeTerm
+      qualified_dc_pmh: N/A
+      simple_dc_pmh: N/A
+    property_uri: https://ontology.lib.utk.edu/roles#pup
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Knoxville
+    usage_guidelines:
+      default: ''
+  utk_printer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Printer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Printer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#prt
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_printer_of_plates:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Printer of Plates
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Printer of plates')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#pop
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_producer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Producer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Producer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#pro
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_production_company:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Production Company
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Production company')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#prn
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_publisher:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Publisher
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Publisher')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#pbl
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_restorationist:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Restorationist
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Restorationist')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#rsr
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_set_designer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Set Designer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Set designer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#std
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_signer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Signer
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Signer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#sgn
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_speaker:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Speaker
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Speaker')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#spk
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_stage_director:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Stage Director
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Stage director')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#sgd
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_stage_manager:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Stage Manager
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Stage manager')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#stm
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_standards_body:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Standards Body
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Standards body')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#stn
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_surveyor:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Surveyor
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Surveyor')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#srv
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_translator:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Translator
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Translator')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#trl
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_videographer:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Videographer
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: creator_sim
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Videographer')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#vdg
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
+  utk_witness:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - N/A
+    definition:
+      default: ''
+    display_label:
+      default: Local Witness
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: N/A
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Witness')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: https://ontology.lib.utk.edu/roles#wit
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - Manetti, Antonio
+    usage_guidelines:
+      default: ''
   videographer:
     available_on:
       class:
@@ -3957,20 +6224,19 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) in charge of a video production,
-        e.g. the video recording of a stage production as opposed to a commercial
-        motion picture. The videographer may be the camera operator or may supervise
-        one or more camera operators. Do not confuse with cinematographer.
+      default: ''
     display_label:
       default: Videographer
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, videographer
+      blacklight: creator_sim
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Videographer')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -3982,10 +6248,7 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) in charge of a video production,
-        e.g. the video recording of a stage production as opposed to a commercial
-        motion picture. The videographer may be the camera operator or may supervise
-        one or more camera operators. Do not confuse with cinematographer.
+      default: ''
   witness:
     available_on:
       class:
@@ -4003,18 +6266,18 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - 'null'
       - Wikidata
       - naf
       - ulan
-      - grove
     definition:
-      default: Enter the name of a person (last, first) who verifies the truthfulness
-        of an event or action.
+      default: ''
     display_label:
       default: Witness
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
     mappings:
-      blacklight: name, witness
       metatags: N/A
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Witness')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
@@ -4026,5 +6289,4 @@ properties:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
     usage_guidelines:
-      default: Enter the name of a person (last, first) who verifies the truthfulness
-        of an event or action.
+      default: ''
