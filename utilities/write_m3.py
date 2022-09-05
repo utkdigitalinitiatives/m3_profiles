@@ -141,7 +141,7 @@ class RDFProperty:
     def __get_controlled_values(data, range):
         controlled_values = []
         for value in data.split(','):
-            if value == "n/a".lower() or value == "none".lower().strip():
+            if value.lower() == "n/a" or value.lower().strip() == "none":
                 controlled_values.append('null')
             else:
                 controlled_values.append(value.strip())
@@ -180,9 +180,9 @@ class RDFProperty:
         if len(sample_values) > 0:
             final_property['sample_values'] = sample_values
         if data['Definition'] != "":
-            final_property['definition'] self.__return_default(data['Definition'])
+            final_property['definition'] = self.__return_default(data['Definition'])
         if data['Usage Guidelines'] != "":
-            final_property['usage_guidelines'] self.__return_default(data['Usage Guidelines'])
+            final_property['usage_guidelines'] = self.__return_default(data['Usage Guidelines'])
         if data['M3: Range'] != '':
             final_property['range'] = data['M3: Range']
         if data['M3: Syntax'] != '':
@@ -217,16 +217,16 @@ class PropertyMapping:
         mappings = {}
         if self.__get_blacklight() != '':
             mappings['blacklight'] = self.__get_blacklight()
-        if self.__get_oai_pmh_mods().lower() != 'n/a' or self.__get_oai_pmh_mods() != '':
+        if self.__get_oai_pmh_mods().lower() != 'n/a' and self.__get_oai_pmh_mods() != '':
             mappings['mods_oai_pmh'] = self.__get_oai_pmh_mods()
-        if self.__get_simple_oai_pmh().lower() != 'n/a' or self.__get_simple_oai_pmh() != '':
+        if self.__get_simple_oai_pmh().lower() != 'n/a' and self.__get_simple_oai_pmh() != '':
             mappings['simple_dc_pmh'] = self.__get_simple_oai_pmh()
-        if self.__get_qualified_oai_pmh().lower() != 'n/a' or self.__get_qualified_oai_pmh() != '':
+        if self.__get_qualified_oai_pmh().lower() != 'n/a' and self.__get_qualified_oai_pmh() != '':
             mappings['qualified_dc_pmh'] = self.__get_qualified_oai_pmh()
-        if self.__get_metatags().lower() != 'n/a' or self.__get_metatags() != '':
+        if self.__get_metatags().lower() != 'n/a' and self.__get_metatags() != '':
             mappings['metatags'] = self.__get_metatags()
         return mappings
 
 
 if __name__ == "__main__":
-    MetadataCSV('csvs/testing_indexing2.csv').dump_yaml('maps/utk_test_indexing.yml')
+    MetadataCSV('csvs/testing_indexing2.csv').dump_yaml('maps/utk_test_files.yml')
