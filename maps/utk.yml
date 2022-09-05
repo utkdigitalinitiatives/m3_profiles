@@ -10,7 +10,7 @@ profile:
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
   type: base
-  version: 0.4
+  version: 0.5
 
 classes:
   Audio:
@@ -19,6 +19,8 @@ classes:
     display_label: Book
   CompoundObject:
     display_label: Compound Object
+  FileSet:
+    display_label: File Set
   GenericWork:
     display_label: Generic Work
   Image:
@@ -59,6 +61,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - FileSet
     cardinality:
       minimum: 0
     controlled_values:
@@ -1397,6 +1400,7 @@ properties:
       class:
       - Audio
       - Video
+      - FileSet
     cardinality:
       maximum: 1
       minimum: 0
@@ -5823,3 +5827,329 @@ properties:
     sample_values:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
+  behavior:
+    available_on:
+      class:
+      - FileSet
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+    definition:
+      default: Links a file to a specific IIIF presentation behavior.
+    display_label:
+      default: Behavior
+    index_documentation: displayable
+    indexing:
+    - displayable
+    mappings: {}
+    property_uri: https://ontology.lib.utk.edu/works#hasBehavior
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+  bits_per_sample:
+    available_on:
+      class:
+      - FileSet
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: The number of bits per image component. In this standard each component
+        of the image is 8 bits, so the value for this tag is 8. See also SamplesPerPixel.
+        In JPEG compressed data a JPEG marker is used instead of this tag.
+    display_label:
+      default: Bits Per Sample
+    index_documentation: displayable
+    indexing:
+    - displayable
+    mappings: {}
+    property_uri: http://www.w3.org/2003/12/exif/ns#bitsPerSample
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+  capture_software:
+    available_on:
+      class:
+      - FileSet
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: The name and version of the software or firmware of the camera or image
+        input device used to generate the image.
+    display_label:
+      default: Capture Software
+    index_documentation: displayable
+    indexing:
+    - displayable
+    mappings: {}
+    property_uri: http://www.w3.org/2003/12/exif/ns#software
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+  color_profile:
+    available_on:
+      class:
+      - FileSet
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: The name of the color profile used when capturing an image.
+    display_label:
+      default: Color Profile Name
+    index_documentation: displayable
+    indexing:
+    - displayable
+    mappings: {}
+    property_uri: http://projecthydra.org/ns/mix/colorProfileName
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+  color_space:
+    available_on:
+      class:
+      - FileSet
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: The color space information tag (ColorSpace) is always recorded as
+        the color space specifier. Normally sRGB (=1) is used to define the color
+        space based on the PC monitor conditions and environment.
+    display_label:
+      default: Color Space
+    index_documentation: displayable
+    indexing:
+    - displayable
+    mappings: {}
+    property_uri: http://www.w3.org/2003/12/exif/ns#colorSpace
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+  compression_scheme:
+    available_on:
+      class:
+      - FileSet
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: The compression scheme used for the image data. When a primary image
+        is JPEG compressed, this designation is not necessary and is omitted. When
+        thumbnails use JPEG compression, this tag value is set to 6.
+    display_label:
+      default: Compression Scheme
+    index_documentation: displayable
+    indexing:
+    - displayable
+    mappings: {}
+    property_uri: http://www.w3.org/2003/12/exif/ns#compression
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+  file_language:
+    available_on:
+      class:
+      - FileSet
+    cardinality:
+      maximum: 1
+      minimum: 1
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: The language associated with a specific file or fileset.
+    display_label:
+      default: Language
+    index_documentation: displayable
+    indexing:
+    - displayable
+    mappings: {}
+    property_uri: http://purl.org/dc/terms/language
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - https://gist.github.com/markpbaggett/763205cd38d382eff3d0db20a265fe0e
+    syntax: BCP-47
+  file_size:
+    available_on:
+      class:
+      - FileSet
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Provides the size of a MediaResource in bytes.
+    display_label:
+      default: File Size
+    index_documentation: displayable
+    indexing:
+    - displayable
+    mappings: {}
+    property_uri: http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#fileSize
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+  format_name:
+    available_on:
+      class:
+      - FileSet
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: A designation of the format of the file or bitstream.
+    display_label:
+      default: Format Name
+    index_documentation: displayable
+    indexing:
+    - displayable
+    mappings: {}
+    property_uri: http://www.loc.gov/premis/rdf/v1#hasFormatName
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+  frame_height:
+    available_on:
+      class:
+      - FileSet
+    cardinality:
+      maximum: 1
+      minimum: 1
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#integer
+      sources:
+      - 'null'
+    definition:
+      default: Should not appear in metadata form.  This field should be autopopulated
+        on a pcdm:File and added to the IIIF presentation manifest as height / width
+        data, but should never be editable by a user or admin.
+    display_label:
+      default: Frame Height
+    index_documentation: displayable
+    indexing:
+    - displayable
+    mappings: {}
+    property_uri: http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#height
+    range: http://www.w3.org/2001/XMLSchema#integer
+    requirement: optional
+  frame_width:
+    available_on:
+      class:
+      - FileSet
+    cardinality:
+      maximum: 1
+      minimum: 1
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#integer
+      sources:
+      - 'null'
+    definition:
+      default: Should not appear in metadata form.  This field should be autopopulated
+        on a pcdm:File and added to the IIIF presentation manifest as height / width
+        data, but should never be editable by a user or admin.
+    display_label:
+      default: Frame Width
+    index_documentation: displayable
+    indexing:
+    - displayable
+    mappings: {}
+    property_uri: http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#width
+    range: http://www.w3.org/2001/XMLSchema#integer
+    requirement: optional
+  hash_value:
+    available_on:
+      class:
+      - FileSet
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: The actual value of a hash checksum.
+    display_label:
+      default: Hash Value
+    index_documentation: displayable
+    indexing:
+    - displayable
+    mappings: {}
+    property_uri: http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#hashValue
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+  rdf_type:
+    available_on:
+      class:
+      - FileSet
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - pcdm
+      - pcdmuse
+      - pcdmff
+    definition:
+      default: The subject (file or file set) is an instance of this rdf class.
+    display_label:
+      default: Type of File
+    index_documentation: displayable
+    indexing:
+    - displayable
+    mappings: {}
+    property_uri: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - http://pcdm.org/use#PreservationFile
+    - http://pcdm.org/use#IntermediateFile
+  xresolution:
+    available_on:
+      class:
+      - FileSet
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#integer
+      sources:
+      - 'null'
+    definition:
+      default: The number of pixels per ResolutionUnit in the ImageWidth direction.
+        When the image resolution is unknown, 72 [dpi] is designated.
+    display_label:
+      default: XResolution
+    index_documentation: displayable
+    indexing:
+    - displayable
+    mappings: {}
+    property_uri: http://www.w3.org/2003/12/exif/ns#xResolution
+    range: http://www.w3.org/2001/XMLSchema#integer
+    requirement: optional
