@@ -1,5 +1,7 @@
 vocabs:
   naf:
     dereferenceable_ontology: http://id.loc.gov/authorities/names
+    label_property: http://www.w3.org/2004/02/skos/core#prefLabel
   rightsstatements:
     dereferenceable_ontology: http://rightsstatements.org/vocab/1.0/
+    label_property: http://www.w3.org/2004/02/skos/core#prefLabel
