@@ -1,4 +1,9 @@
 vocabs:
+  agrovoc:
+    dereferenceable_ontology: http://aims.fao.org/aos/agrovoc/void.ttl#Agrovoc
+    label_property: http://www.w3.org/2008/05/skos-xl#prefLabel
+    properties:
+      - subject
   naf:
     dereferenceable_ontology: http://id.loc.gov/authorities/names
     label_property: http://www.w3.org/2004/02/skos/core#prefLabel
