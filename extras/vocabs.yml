@@ -2,37 +2,249 @@ vocabs:
   naf:
     dereferenceable_ontology: http://id.loc.gov/authorities/names
     label_property: http://www.w3.org/2004/02/skos/core#prefLabel
+    properties:
+      - subject
+      - publication_place
+      - spatial
+      - addressee
+      - architect
+      - arranger
+      - artist
+      - associated_name
+      - attributed_name
+      - author
+      - autographer
+      - binding_designer
+      - cartographer
+      - censor
+      - choreographer
+      - client
+      - compiler
+      - composer
+      - contractor
+      - contributor
+      - copyright_holder
+      - correspondent
+      - costumer_designer
+      - creator
+      - dedicatee
+      - depicted
+      - designer
+      - distributor
+      - donor
+      - editor
+      - editor_of_compilation
+      - engraver
+      - former_owner
+      - honoree
+      - host_institution
+      - illustrator
+      - instrumentalist
+      - interviewee
+      - interviewer
+      - issuing_body
+      - lithographer
+      - lyricist
+      - music_copyist
+      - musical_director
+      - organizer
+      - originator
+      - owner
+      - performer
+      - photographer
+      - printer
+      - printer_of_plates
+      - producer
+      - production_company
+      - publisher
+      - restorationist
+      - set_designer
+      - signer
+      - speaker
+      - stage_director
+      - stage_manager
+      - standards_body
+      - surveyor
+      - translator
+      - videographer
+      - witness
   rightsstatements:
     dereferenceable_ontology: http://rightsstatements.org/vocab/1.0/
     label_property: http://www.w3.org/2004/02/skos/core#prefLabel
+    properties:
+      - rights_statement
   wikidata:
     dereferenceable_ontology: https://query.wikidata.org/
     label_property: http://www.w3.org/2004/02/skos/core#prefLabel
+    properties:
+      - subject
+      - addressee
+      - architect
+      - arranger
+      - artist
+      - associated_name
+      - attributed_name
+      - author
+      - autographer
+      - binding_designer
+      - cartographer
+      - censor
+      - choreographer
+      - client
+      - compiler
+      - composer
+      - contractor
+      - contributor
+      - copyright_holder
+      - correspondent
+      - costumer_designer
+      - creator
+      - dedicatee
+      - depicted
+      - designer
+      - distributor
+      - donor
+      - editor
+      - editor_of_compilation
+      - engraver
+      - former_owner
+      - honoree
+      - host_institution
+      - illustrator
+      - instrumentalist
+      - interviewee
+      - interviewer
+      - issuing_body
+      - lithographer
+      - lyricist
+      - music_copyist
+      - musical_director
+      - organizer
+      - originator
+      - owner
+      - performer
+      - photographer
+      - printer
+      - printer_of_plates
+      - producer
+      - production_company
+      - publisher
+      - restorationist
+      - set_designer
+      - signer
+      - speaker
+      - stage_director
+      - stage_manager
+      - standards_body
+      - surveyor
+      - translator
+      - videographer
+      - witness
   ulan:
     dereferenceable_ontology: http://vocab.getty.edu/ulan/
     label_property: http://www.w3.org/2004/02/skos/core#prefLabel
+    properties:
+      - subject
+      - addressee
+      - architect
+      - arranger
+      - artist
+      - associated_name
+      - attributed_name
+      - author
+      - autographer
+      - binding_designer
+      - cartographer
+      - censor
+      - choreographer
+      - client
+      - compiler
+      - composer
+      - contractor
+      - contributor
+      - copyright_holder
+      - correspondent
+      - costumer_designer
+      - creator
+      - dedicatee
+      - depicted
+      - designer
+      - distributor
+      - donor
+      - editor
+      - editor_of_compilation
+      - engraver
+      - former_owner
+      - honoree
+      - host_institution
+      - illustrator
+      - instrumentalist
+      - interviewee
+      - interviewer
+      - issuing_body
+      - lithographer
+      - lyricist
+      - music_copyist
+      - musical_director
+      - organizer
+      - originator
+      - owner
+      - performer
+      - photographer
+      - printer
+      - printer_of_plates
+      - producer
+      - production_company
+      - publisher
+      - restorationist
+      - set_designer
+      - signer
+      - speaker
+      - stage_director
+      - stage_manager
+      - standards_body
+      - surveyor
+      - translator
+      - videographer
+      - witness
   aat:
     dereferenceable_ontology: http://vocab.getty.edu/aat/
     label_property: http://www.w3.org/2004/02/skos/core#prefLabel
+    properties:
+      - form
   lcgft:
     dereferenceable_ontology: http://id.loc.gov/authorities/genreForms
     label_property: http://www.w3.org/2004/02/skos/core#prefLabel
+    properties:
+      - form
   fast:
     dereferenceable_ontology: http://id.worldcat.org/fast/ontology/1.0/#fast
     label_property: http://schema.org/name
+    properties:
+      - subject
   geonames:
     dereferenceable_ontology: https://www.geonames.org/ontology
     label_property: http://www.geonames.org/ontology#name
+    properties:
+     - spatial
   lcsh:
     dereferenceable_ontology: http://id.loc.gov/authorities/subjects
     label_property: http://www.w3.org/2004/02/skos/core#prefLabel
+    properties:
+      - subject
+      - form
   tgm:
     dereferenceable_ontology: http://id.loc.gov/vocabulary/graphicMaterials
     label_property: http://www.w3.org/2004/02/skos/core#prefLabel
+    properties: 
+      - subject
   iso639-2b:
     dereferenceable_ontology: http://id.loc.gov/vocabulary/iso639-2
     label_property: http://www.w3.org/2004/02/skos/core#prefLabel
+    properties:
+      - language
   creativecommons:
     dereferenceable_ontology: https://api.creativecommons.org/rest/1.5/details?license-uri=
     label_property: http://creativecommons.org/ns#license-name
-   
+    properties:
+      - license
