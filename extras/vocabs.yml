@@ -18,8 +18,8 @@ vocabs:
     dereferenceable_ontology: http://id.loc.gov/authorities/genreForms
     label_property: http://www.w3.org/2004/02/skos/core#prefLabel
   fast:
-    dereferenceable_ontology:
-    label_property:
+    dereferenceable_ontology: https://researchworks.oclc.org/researchdata/fast/FASTAll.nt.zip
+    label_property: http://www.w3.org/2004/02/skos/core#prefLabel
   geonames:
     dereferenceable_ontology: https://www.geonames.org/ontology
     label_property: http://www.geonames.org/ontology#name
@@ -33,6 +33,6 @@ vocabs:
     dereferenceable_ontology: http://id.loc.gov/vocabulary/iso639-2
     label_property: http://www.w3.org/2004/02/skos/core#prefLabel
   creativecommons:
-    dereferenceable_ontology:
-    label_property:
+    dereferenceable_ontology: https://api.creativecommons.org/rest/1.5/details?license-uri=
+    label_property: http://www.w3.org/2004/02/skos/core#prefLabel
    
