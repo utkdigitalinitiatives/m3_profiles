@@ -34,5 +34,5 @@ vocabs:
     label_property: http://www.w3.org/2004/02/skos/core#prefLabel
   creativecommons:
     dereferenceable_ontology: https://api.creativecommons.org/rest/1.5/details?license-uri=
-    label_property: http://www.w3.org/2004/02/skos/core#prefLabel
+    label_property: http://creativecommons.org/ns#license-name
    
