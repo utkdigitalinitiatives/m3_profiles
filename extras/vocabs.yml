@@ -18,8 +18,8 @@ vocabs:
     dereferenceable_ontology: http://id.loc.gov/authorities/genreForms
     label_property: http://www.w3.org/2004/02/skos/core#prefLabel
   fast:
-    dereferenceable_ontology: https://researchworks.oclc.org/researchdata/fast/FASTAll.nt.zip
-    label_property: http://www.w3.org/2004/02/skos/core#prefLabel
+    dereferenceable_ontology: http://id.worldcat.org/fast/ontology/1.0/#fast
+    label_property: http://schema.org/name
   geonames:
     dereferenceable_ontology: https://www.geonames.org/ontology
     label_property: http://www.geonames.org/ontology#name
