@@ -231,7 +231,7 @@ vocabs:
     dereferenceable_ontology: https://www.geonames.org/ontology
     label_property: http://www.geonames.org/ontology#name
     properties:
-     - spatial
+      - spatial
   lcsh:
     dereferenceable_ontology: http://id.loc.gov/authorities/subjects
     label_property: http://www.w3.org/2004/02/skos/core#prefLabel
