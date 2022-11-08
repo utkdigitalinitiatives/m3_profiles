@@ -10,7 +10,7 @@ profile:
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
   type: base
-  version: 0.1
+  version: 0.6
 
 classes:
   Audio:
@@ -19,6 +19,8 @@ classes:
     display_label: Book
   CompoundObject:
     display_label: Compound Object
+  FileSet:
+    display_label: File Set
   GenericWork:
     display_label: Generic Work
   Image:
@@ -59,6 +61,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - FileSet
     cardinality:
       minimum: 0
     controlled_values:
