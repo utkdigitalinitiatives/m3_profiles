@@ -18,5 +18,7 @@ jobs:
         uses: abatilo/actions-poetry@v2
         with:
           poetry-version: ${{ matrix.poetry-version }}
+      - name: Install application
+        run: poetry install
       - name: Validate our m3 profile
         run: poetry run python utilities/validate.py
