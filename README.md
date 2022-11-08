@@ -1,5 +1,8 @@
 # UTK Cartography
 
+![example workflow](https://github.com/markpbaggett/cartography/actions/workflows/validate.yml/badge.svg)
+
+
 This repository contains mappings and utilities used to generate our M3 profiles.
 
 ## Maps
