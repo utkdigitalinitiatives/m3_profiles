@@ -1,4 +1,4 @@
-name: Build and Run Integration Tests
+name: Validate All Yamls Versus m3 Schema
 on: [push, pull_request]
 jobs:
   ci:
