@@ -8,6 +8,7 @@ authors = ["Mark Baggett <mbagget1@utk.edu>"]
 python = "^3.10"
 PyYAML = "^6.0"
 arrow = "^1.2.2"
+jsonschema = "^4.17.0"
 
 [tool.poetry.dev-dependencies]
 
