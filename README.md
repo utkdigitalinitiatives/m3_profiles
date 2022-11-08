@@ -1,14 +1,23 @@
-# UTK Cartography
+# UTK m3 Profiles
 
-![example workflow](https://github.com/markpbaggett/cartography/actions/workflows/validate.yml/badge.svg)
+![example workflow](https://github.com/utkdigitalinitiatives/m3_profiles/actions/workflows/validate.yml/badge.svg)
 
 
-This repository contains mappings and utilities used to generate our M3 profiles.
+This repository contains our m3 profiles and utilities used to generate them.
 
-## Maps
+### Maps
 
-This section includes current versions of our M3 profiles.
+All current m3 profiles are contained here.
 
-## Extras
+### Extras
 
-This section includes various mappings between our source data.
+This section includes various mappings between our source data and the m3 profiles themselves but are not used by the
+m3 profile explicitly.
+
+### Utilities
+
+Scripts used to generate or validate profiles are kept here.
+
+### Schemas
+
+The current m3 schema we are using for validation is kept here.
