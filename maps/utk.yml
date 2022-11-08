@@ -3115,40 +3115,6 @@ properties:
     sample_values:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
-  properties.[property]:
-    available_on:
-      class:
-      - properties.[property].available_on.class
-    cardinality:
-      maximum: 1
-      minimum: 1
-    controlled_values:
-      format: properties.[property].controlled_values.format
-      sources:
-      - properties.[property].controlled_values.sources
-    definition:
-      default: properties.[property].definition.default
-    display_label:
-      default: properties.[property].displayLabel
-    index_documentation: properties.[property].index_documentation
-    indexing:
-    - properties.[property].indexing
-    mappings:
-      blacklight: properties.[property].mappings.blacklight
-      metatags: properties.[property].mappings.metatags
-      mods_oai_pmh: properties.[property].mappings.mods_oai_pmh
-      qualified_dc_pmh: properties.[property].mappings.qualified_dc_pmh
-      simple_dc_pmh: properties.[property].mappings.simple_dc_pmh
-    property_uri: properties.[property].property_uri
-    range: properties.[property].controlled_values.format
-    requirement: required
-    sample_values:
-    - properties.[property].sample_values
-    syntax: properties.[property].syntax
-    usage_guidelines:
-      default: properties.[property].usage_guidelines.default
-    validations:
-      match_regex: properties.[property].validations.match_regex
   provider:
     available_on:
       class:
