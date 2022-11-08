@@ -6,11 +6,11 @@
 m3_version: 1.0.beta2
 
 profile:
-  date_modified: '2022-09-05'
+  date_modified: '2022-11-08'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
   type: base
-  version: 0.5
+  version: 0.1
 
 classes:
   Audio:
@@ -19,8 +19,6 @@ classes:
     display_label: Book
   CompoundObject:
     display_label: Compound Object
-  FileSet:
-    display_label: File Set
   GenericWork:
     display_label: Generic Work
   Image:
@@ -61,7 +59,6 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
-      - FileSet
     cardinality:
       minimum: 0
     controlled_values:
@@ -136,7 +133,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -205,7 +202,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -281,7 +278,7 @@ properties:
       maximum: 1
       minimum: 1
     controlled_values:
-      format: ''
+      format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
       - 'null'
     definition:
@@ -299,9 +296,11 @@ properties:
       qualified_dc_pmh: dcterms:identifier
       simple_dc_pmh: dc:identifier
     property_uri: http://id.loc.gov/vocabulary/identifiers/ark
+    range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
     - '[http://path/]ark:/NAAN/Name[Qualifier]'
+    syntax: IETF ARK 18
   arranger:
     available_on:
       class:
@@ -313,7 +312,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -356,7 +355,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -397,7 +396,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -439,7 +438,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -479,7 +478,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -519,7 +518,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -580,7 +579,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -640,7 +639,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -672,7 +671,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -705,7 +704,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -744,7 +743,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -783,7 +782,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -824,7 +823,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -865,7 +864,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -905,7 +904,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -930,6 +929,35 @@ properties:
     sample_values:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
+  coordinates:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter the coordinates of a place with which the resource is associated.
+    display_label:
+      default: Coordinates
+    indexing:
+    - ''
+    mappings:
+      mods_oai_pmh: mods:subject/mods:cartographics/mods:coordinates
+    property_uri: https://www.w3.org/2003/01/geo/wgs84_pos#lat_long
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
   copyright_holder:
     available_on:
       class:
@@ -947,7 +975,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -989,7 +1017,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -1028,7 +1056,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -1068,7 +1096,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -1105,10 +1133,10 @@ properties:
       - CompoundObject
       - Newspaper
     cardinality:
-      maximum: 2
+      maximum: 1
       minimum: 0
     controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#date
+      format: http://www.w3.org/2001/XMLSchema#string
       sources:
       - 'null'
     definition:
@@ -1124,10 +1152,44 @@ properties:
       qualified_dc_pmh: dcterms:created
       simple_dc_pmh: dc:date
     property_uri: http://purl.org/dc/terms/created
-    range: http://www.w3.org/2001/XMLSchema#date
+    range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     sample_values:
     - '"approximately between 1940 and 1950", "1940~/1950"'
+  date_created_d:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#date
+      sources:
+      - 'null'
+    definition:
+      default: Machine readable date for creation date.
+    display_label:
+      default: Machine Readable Creation Date
+    indexing:
+    - ''
+    mappings:
+      mods_oai_pmh: mods:originInfo/mods:dateCreated
+      qualified_dc_pmh: dcterms:created
+      simple_dc_pmh: dc:date
+    property_uri: https://dbpedia.org/ontology/completionDate
+    range: http://www.w3.org/2001/XMLSchema#date
+    requirement: optional
+    sample_values:
+    - '1999-09-09'
     syntax: EDTF
   date_issued:
     available_on:
@@ -1142,14 +1204,14 @@ properties:
       - CompoundObject
       - Newspaper
     cardinality:
-      maximum: 2
+      maximum: 1
       minimum: 0
     controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#date
+      format: http://www.w3.org/2001/XMLSchema#string
       sources:
       - 'null'
     definition:
-      default: Enter the date a work was published.
+      default: Enter the date a work was published as a string.
     display_label:
       default: Date Issued
     indexing:
@@ -1160,8 +1222,44 @@ properties:
       qualified_dc_pmh: dcterms:issued
       simple_dc_pmh: dc:date
     property_uri: http://purl.org/dc/terms/issued
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - '1999'
+  date_issued_d:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#date
+      sources:
+      - 'null'
+    definition:
+      default: Machine readable date for publication date.
+    display_label:
+      default: Machine Readable Publication Date
+    indexing:
+    - ''
+    mappings:
+      mods_oai_pmh: mods:originInfo/mods:dateIssued
+      qualified_dc_pmh: dcterms:issued
+      simple_dc_pmh: dc:date
+    property_uri: https://dbpedia.org/ontology/publicationDate
     range: http://www.w3.org/2001/XMLSchema#date
     requirement: optional
+    sample_values:
+    - '1999'
     syntax: EDTF
   date_other:
     available_on:
@@ -1176,10 +1274,10 @@ properties:
       - CompoundObject
       - Newspaper
     cardinality:
-      maximum: 2
+      maximum: 1
       minimum: 0
     controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#date
+      format: http://www.w3.org/2001/XMLSchema#string
       sources:
       - 'null'
     definition:
@@ -1195,6 +1293,38 @@ properties:
       qualified_dc_pmh: dcterms:date
       simple_dc_pmh: dc:date
     property_uri: http://purl.org/dc/terms/date
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+  date_other_d:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#date
+      sources:
+      - 'null'
+    definition:
+      default: Machine readable date for a date that is neither a publication nor
+        creation date.
+    display_label:
+      default: Unclassified Machine Readable Date
+    indexing:
+    - ''
+    mappings:
+      mods_oai_pmh: mods:originInfo/mods:dateOther
+      qualified_dc_pmh: dcterms:date
+      simple_dc_pmh: dc:date
+    property_uri: https://dbpedia.org/ontology/date
     range: http://www.w3.org/2001/XMLSchema#date
     requirement: optional
     syntax: EDTF
@@ -1215,7 +1345,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -1254,7 +1384,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -1294,7 +1424,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -1334,12 +1464,12 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
-      default: Enter the name of a person (last, first) or organization that has exclusive
-        or shared marketing rights for a resource.
+      default: Enter the name of a person or organization that has exclusive or shared
+        marketing rights for a resource.
     display_label:
       default: Distributor
     index_documentation: displayable, searchable
@@ -1373,7 +1503,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -1400,12 +1530,11 @@ properties:
       class:
       - Audio
       - Video
-      - FileSet
     cardinality:
       maximum: 1
       minimum: 0
     controlled_values:
-      format: ''
+      format: http://www.w3.org/2001/XMLSchema#string
       sources:
       - 'null'
     definition:
@@ -1422,9 +1551,11 @@ properties:
     - stored_searchable
     mappings: {}
     property_uri: http://id.loc.gov/ontologies/bibframe/duration
+    range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     sample_values:
     - '0:57:15.904000'
+    syntax: W3C Media Fragments (4.2.1)
   editor:
     available_on:
       class:
@@ -1442,7 +1573,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -1482,7 +1613,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -1523,7 +1654,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -1592,7 +1723,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
-      - N
+      - 'null'
     definition:
       default: Use for sheet music that has lyrics. Enter the first complete phrase
         of the lyrics. Note that the phrase may exceed or fall short of the first
@@ -1622,15 +1753,45 @@ properties:
     cardinality:
       minimum: 0
     controlled_values:
-      format: ''
+      format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Art and Architecture Thesaurus
-      - LCGFT
+      - aat
+      - lcsh
+      - lcgft
+    display_label:
+      default: Form
+    indexing:
+    - ''
+    mappings:
+      mods_oai_pmh: mods:physicalDescription/mods:form
+      qualified_dc_pmh: dcterms:medium
+      simple_dc_pmh: dc:format
+    property_uri: http://purl.org/dc/terms/format
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+  form_local:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
     definition:
       default: Enter a term that describes the type of work, including the physical
         form or medium of material for the work.
     display_label:
-      default: Form
+      default: Local Form
     index_documentation: displayable, searchable, form facet
     indexing:
     - displayable
@@ -1641,6 +1802,7 @@ properties:
       qualified_dc_pmh: dcterms:medium
       simple_dc_pmh: dc:format
     property_uri: http://www.europeana.eu/schemas/edm/hasType
+    range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     sample_values:
     - photographs
@@ -1661,7 +1823,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -1700,7 +1862,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -1740,7 +1902,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -1780,7 +1942,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -1822,7 +1984,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -1856,7 +2018,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
-      - N
+      - 'null'
     definition:
       default: 'Enter the voices and external instruments used to perform a piece
         of music along with the number of each (e.g. "For piccolo, 2 flutes, 2 oboes,
@@ -1920,14 +2082,12 @@ properties:
       maximum: 1
       minimum: 0
     controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#anyURI
+      format: http://www.w3.org/2001/XMLSchema#string
       sources:
-      - naf
       - 'null'
     definition:
-      default: Enter the name of the institution that owns or has provided access
-        to the digitized resource. When possible, use the Library of Congress Name
-        Authority File.
+      default: 'Enter the controlled form of the name of the institution that owns
+        or has provided access to the digitized resource. '
     display_label:
       default: Intermediate Provider
     index_documentation: displayable, searchable, intermediate provider facet
@@ -1940,7 +2100,7 @@ properties:
       qualified_dc_pmh: dcterms:publisher
       simple_dc_pmh: dc:publisher
     property_uri: http://www.europeana.eu/schemas/edm/dataProvider
-    range: http://www.w3.org/2001/XMLSchema#anyURI
+    range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     sample_values:
     - Langston Hughes Library (Children's Defense Fund Haley Farm)
@@ -1961,7 +2121,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -2003,7 +2163,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -2042,7 +2202,7 @@ properties:
       maximum: 1
       minimum: 0
     controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#string
+      format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
       - 'null'
     definition:
@@ -2059,8 +2219,8 @@ properties:
       mods_oai_pmh: mods:relatedItem[@type="host"][@displayLabel="Collection"]/mods:location/mods:url
       qualified_dc_pmh: dcterms:isPartOf
       simple_dc_pmh: dc:source
-    property_uri: http://purl.org/dc/terms/isPartOf
-    range: http://www.w3.org/2001/XMLSchema#string
+    property_uri: http://dbpedia.org/ontology/isPartOf
+    range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
     - https://n2t.net/ark:/87290/v8pz5703
@@ -2147,7 +2307,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -2172,14 +2332,26 @@ properties:
   keyword:
     available_on:
       class:
-      - ''
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
     cardinality:
       minimum: 0
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
-      - dots
-      - local
+      - 'null'
+    definition:
+      default: Enter an uncontrolled term for a topic covered by the resource or that
+        the resource is about. Topics include broad concepts (e.g. "Agriculture")
+        and the names of people (last, first) depicted in or written about in the
+        resource.
     display_label:
       default: Keyword
     index_documentation: displayable, searchable, subject facet
@@ -2189,6 +2361,9 @@ properties:
     - facetable
     mappings:
       blacklight: subject_sim
+      mods_oai_pmh: mods:subject/mods:topic
+      qualified_dc_pmh: dcterms:subject
+      simple_dc_pmh: dc:subject
     property_uri: https://w3id.org/idsa/core/keyword
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
@@ -2207,7 +2382,7 @@ properties:
     cardinality:
       minimum: 1
     controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#string
+      format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
       - iso639-2b
     definition:
@@ -2227,8 +2402,47 @@ properties:
       qualified_dc_pmh: dcterms:language
       simple_dc_pmh: dc:language
     property_uri: http://purl.org/dc/terms/language
-    range: http://www.w3.org/2001/XMLSchema#string
+    range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
+  license:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      maximum: 1
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - creativecommons
+    definition:
+      default: 'If applicable, enter the Creative Commons license that applies to
+        the resource. '
+    display_label:
+      default: License
+    index_documentation: displayable, searchable, rights facet
+    indexing:
+    - displayable
+    - stored_searchable
+    - facetable
+    mappings:
+      blacklight: rights_sim
+      mods_oai_pmh: mods:accessCondition[@type="use and reproduction"]
+      qualified_dc_pmh: dcterms:license
+      simple_dc_pmh: dc:rights
+    property_uri: http://purl.org/dc/terms/license
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - https://creativecommons.org/licenses/by-nd/4.0/
   lithographer:
     available_on:
       class:
@@ -2246,7 +2460,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -2326,7 +2540,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -2366,7 +2580,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -2405,7 +2619,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -2463,40 +2677,6 @@ properties:
     property_uri: http://www.w3.org/2004/02/skos/core#note
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
-  object_link:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Collection
-      - Audio
-      - PDF
-      - Book
-      - CompoundObject
-      - Newspaper
-    cardinality:
-      maximum: 1
-      minimum: 1
-    controlled_values:
-      format: ''
-      sources:
-      - 'null'
-    definition:
-      default: Should not appear in metadata form. This value is generated upon ingest.
-    display_label:
-      default: Object Link
-    index_documentation: displayable, searchable
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      metatags: og:url, twitter:image
-      mods_oai_pmh: mods:location/mods:url[access="object in context"]
-      qualified_dc_pmh: dcterms:identifier
-      simple_dc_pmh: dc:identifier
-    property_uri: http://purl.org/dc/terms/identifier
-    requirement: optional
   oclc:
     available_on:
       class:
@@ -2551,7 +2731,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -2590,7 +2770,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -2667,7 +2847,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -2706,7 +2886,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -2748,7 +2928,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -2788,7 +2968,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -2828,7 +3008,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -2867,7 +3047,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -2909,7 +3089,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -2932,6 +3112,40 @@ properties:
     sample_values:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
+  properties.[property]:
+    available_on:
+      class:
+      - properties.[property].available_on.class
+    cardinality:
+      maximum: 1
+      minimum: 1
+    controlled_values:
+      format: properties.[property].controlled_values.format
+      sources:
+      - properties.[property].controlled_values.sources
+    definition:
+      default: properties.[property].definition.default
+    display_label:
+      default: properties.[property].displayLabel
+    index_documentation: properties.[property].index_documentation
+    indexing:
+    - properties.[property].indexing
+    mappings:
+      blacklight: properties.[property].mappings.blacklight
+      metatags: properties.[property].mappings.metatags
+      mods_oai_pmh: properties.[property].mappings.mods_oai_pmh
+      qualified_dc_pmh: properties.[property].mappings.qualified_dc_pmh
+      simple_dc_pmh: properties.[property].mappings.simple_dc_pmh
+    property_uri: properties.[property].property_uri
+    range: properties.[property].controlled_values.format
+    requirement: required
+    sample_values:
+    - properties.[property].sample_values
+    syntax: properties.[property].syntax
+    usage_guidelines:
+      default: properties.[property].usage_guidelines.default
+    validations:
+      match_regex: properties.[property].validations.match_regex
   provider:
     available_on:
       class:
@@ -2940,9 +3154,8 @@ properties:
       maximum: 1
       minimum: 1
     controlled_values:
-      format: ''
+      format: http://www.w3.org/2001/XMLSchema#string
       sources:
-      - naf
       - 'null'
     definition:
       default: Enter the name of the institution hosting the content online.
@@ -2957,6 +3170,7 @@ properties:
       qualified_dc_pmh: dcterms:publisher
       simple_dc_pmh: dc:publisher
     property_uri: http://www.europeana.eu/schemas/edm/provider
+    range: http://www.w3.org/2001/XMLSchema#string
     requirement: required
   publication_place:
     available_on:
@@ -3009,7 +3223,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -3049,7 +3263,6 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
-      - naf
       - 'null'
     definition:
       default: Enter the name of the institution that physically holds the materials.
@@ -3062,6 +3275,41 @@ properties:
     mappings: {}
     property_uri: http://id.loc.gov/vocabulary/relators/rps
     range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+  resource_link:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      maximum: 1
+      minimum: 1
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - 'null'
+    definition:
+      default: Should not appear in metadata form. This value is generated upon ingest.
+    display_label:
+      default: Resource Link
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: og:url, twitter:image
+      mods_oai_pmh: mods:location/mods:url[access="object in context"]
+      qualified_dc_pmh: dcterms:identifier
+      simple_dc_pmh: dc:identifier
+    property_uri: http://purl.org/dc/terms/identifier
+    range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
   resource_type:
     available_on:
@@ -3080,7 +3328,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - ''
+      - resourceTypes
     definition:
       default: Enter broad term(s) that describe the general format of the resource
         (Text, Cartographic, Notated music, Audio non-musical, Audio, Still image,
@@ -3117,7 +3365,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -3141,7 +3389,7 @@ properties:
     sample_values:
     - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
-  rights:
+  rights_statement:
     available_on:
       class:
       - GenericWork
@@ -3154,30 +3402,31 @@ properties:
       - CompoundObject
       - Newspaper
     cardinality:
+      maximum: 1
       minimum: 1
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
       - rightsstatements
-      - Creative Commons
     definition:
-      default: Enter the rights statement and/or license that applies to the resource.
-        Every resource needs a rights statement. Some resources may have both a rights
-        statement and a Creative Commons license.
+      default: Enter the rights statement that applies to the resource.
     display_label:
-      default: Rights
+      default: Rights Statement
     index_documentation: displayable, searchable, rights facet
     indexing:
     - displayable
     - stored_searchable
     - facetable
     mappings:
+      blacklight: rights_sim
       mods_oai_pmh: mods:accessCondition[@type="use and reproduction"]
       qualified_dc_pmh: dcterms:rights
       simple_dc_pmh: dc:rights
     property_uri: http://www.europeana.eu/schemas/edm/rights
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: required
+    sample_values:
+    - http://rightsstatements.org/vocab/InC/1.0/
   set_designer:
     available_on:
       class:
@@ -3195,7 +3444,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -3266,7 +3515,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -3308,10 +3557,8 @@ properties:
       sources:
       - geonames
       - naf
-      - coordinates
     definition:
-      default: Enter the name and/or coordinates of a place with which the resource
-        is associated. Coordinates and names should be entered in separate fields.
+      default: Enter the controlled name of a place with which the resource is associated.
     display_label:
       default: Spatial Coverage
     index_documentation: displayable, searchable, spatial facet
@@ -3325,6 +3572,37 @@ properties:
       simple_dc_pmh: dc:coverage
     property_uri: http://purl.org/dc/terms/spatial
     range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+  spatial_local:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Collection
+      - Audio
+      - PDF
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter the uncontrolled name of a place with which the resource is associated.
+    display_label:
+      default: Local Spatial Coverage
+    indexing:
+    - ''
+    mappings:
+      mods_oai_pmh: mods:subject/mods:geographic
+      qualified_dc_pmh: dcterms:spatial
+      simple_dc_pmh: dc:coverage
+    property_uri: http://id.loc.gov/ontologies/bibframe/geographicCoverage
+    range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
   speaker:
     available_on:
@@ -3343,7 +3621,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -3382,7 +3660,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -3421,7 +3699,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -3461,7 +3739,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -3501,16 +3779,17 @@ properties:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
       - naf
+      - ulan
       - agrovoc
       - fast
-      - geonames
       - lcsh
       - tgm
       - wikidata
     definition:
-      default: Enter a topic covered by the resource or that the resource is about.
-        Topics include broad concepts (e.g. "Agriculture") and the names of people
-        (last, first) depicted in or written about in the resource.
+      default: Enter a controlled term for a topic covered by the resource or that
+        the resource is about. Topics include broad concepts (e.g. "Agriculture")
+        and the names of people (last, first) depicted in or written about in the
+        resource.
     display_label:
       default: Subject
     index_documentation: displayable, searchable, subject facet
@@ -3542,7 +3821,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -3687,7 +3966,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -5763,7 +6042,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -5805,7 +6084,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-      - Wikidata
+      - wikidata
       - naf
       - ulan
     definition:
@@ -6153,3 +6432,4 @@ properties:
     property_uri: http://www.w3.org/2003/12/exif/ns#xResolution
     range: http://www.w3.org/2001/XMLSchema#integer
     requirement: optional
+
