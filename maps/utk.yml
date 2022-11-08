@@ -955,7 +955,8 @@ properties:
     display_label:
       default: Coordinates
     indexing:
-    - ''
+    - displayable
+    - stored_searchable
     mappings:
       mods_oai_pmh: mods:subject/mods:cartographics/mods:coordinates
     property_uri: https://www.w3.org/2003/01/geo/wgs84_pos#lat_long
@@ -1183,7 +1184,8 @@ properties:
     display_label:
       default: Machine Readable Creation Date
     indexing:
-    - ''
+    - displayable
+    - stored_searchable
     mappings:
       mods_oai_pmh: mods:originInfo/mods:dateCreated
       qualified_dc_pmh: dcterms:created
@@ -1253,7 +1255,8 @@ properties:
     display_label:
       default: Machine Readable Publication Date
     indexing:
-    - ''
+    - displayable
+    - stored_searchable
     mappings:
       mods_oai_pmh: mods:originInfo/mods:dateIssued
       qualified_dc_pmh: dcterms:issued
@@ -1322,7 +1325,8 @@ properties:
     display_label:
       default: Unclassified Machine Readable Date
     indexing:
-    - ''
+    - displayable
+    - stored_searchable
     mappings:
       mods_oai_pmh: mods:originInfo/mods:dateOther
       qualified_dc_pmh: dcterms:date
@@ -1764,7 +1768,8 @@ properties:
     display_label:
       default: Form
     indexing:
-    - ''
+    - displayable
+    - stored_searchable
     mappings:
       mods_oai_pmh: mods:physicalDescription/mods:form
       qualified_dc_pmh: dcterms:medium
@@ -3565,7 +3570,8 @@ properties:
     display_label:
       default: Local Spatial Coverage
     indexing:
-    - ''
+    - displayable
+    - stored_searchable
     mappings:
       mods_oai_pmh: mods:subject/mods:geographic
       qualified_dc_pmh: dcterms:spatial
