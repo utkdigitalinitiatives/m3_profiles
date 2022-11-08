@@ -257,4 +257,4 @@ vocabs:
     dereferenceable_ontology: http://id.loc.gov/vocabulary/resourceTypes
     label_property: http://www.w3.org/2004/02/skos/core#prefLabel
     properties:
-    - resource_type
+      - resource_type
