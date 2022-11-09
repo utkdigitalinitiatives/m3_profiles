@@ -3744,7 +3744,13 @@ properties:
   table_of_contents:
     available_on:
       class:
-      - AllButImage
+      - GenericWork
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
     cardinality:
       maximum: 1
       minimum: 0
