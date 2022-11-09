@@ -56,7 +56,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -94,7 +94,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -163,7 +163,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -233,7 +233,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -268,7 +268,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -343,7 +343,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -383,7 +383,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -424,7 +424,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -463,7 +463,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -506,7 +506,7 @@ properties:
       - Book
       - Compound Object
       - Image
-      - PDF
+      - Pdf
     cardinality:
       minimum: 0
     controlled_values:
@@ -541,7 +541,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -726,7 +726,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -764,7 +764,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -804,7 +804,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -844,7 +844,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -883,7 +883,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -924,7 +924,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -953,7 +953,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -994,7 +994,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1032,7 +1032,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1071,7 +1071,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1111,7 +1111,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1146,7 +1146,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1181,7 +1181,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1215,7 +1215,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1250,7 +1250,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1283,7 +1283,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1316,7 +1316,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1354,7 +1354,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1393,7 +1393,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1432,7 +1432,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1470,7 +1470,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1539,7 +1539,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1578,7 +1578,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1618,7 +1618,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1657,7 +1657,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1717,7 +1717,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1748,7 +1748,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1784,7 +1784,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1822,7 +1822,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1861,7 +1861,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1900,7 +1900,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1941,7 +1941,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2008,7 +2008,7 @@ properties:
     available_on:
       class:
       - Book
-      - PDF
+      - Pdf
     cardinality:
       minimum: 0
     controlled_values:
@@ -2039,7 +2039,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2076,7 +2076,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2117,7 +2117,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2156,7 +2156,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2191,7 +2191,7 @@ properties:
     available_on:
       class:
       - Book
-      - PDF
+      - Pdf
     cardinality:
       maximum: 1
       minimum: 0
@@ -2224,7 +2224,7 @@ properties:
       class:
       - Book
       - Newspaper
-      - PDF
+      - Pdf
     cardinality:
       maximum: 1
       minimum: 0
@@ -2259,7 +2259,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2297,7 +2297,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2334,7 +2334,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2370,7 +2370,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2408,7 +2408,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2448,7 +2448,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2486,7 +2486,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2525,7 +2525,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2563,7 +2563,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2602,7 +2602,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2636,7 +2636,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2672,7 +2672,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2710,7 +2710,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2750,7 +2750,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2785,7 +2785,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2823,7 +2823,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2864,7 +2864,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2903,7 +2903,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2942,7 +2942,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2980,7 +2980,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3021,7 +3021,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3086,7 +3086,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3119,7 +3119,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3157,7 +3157,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3187,7 +3187,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3221,7 +3221,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3257,7 +3257,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3297,7 +3297,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3334,7 +3334,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3374,7 +3374,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3403,7 +3403,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3442,7 +3442,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3476,7 +3476,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3507,7 +3507,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3545,7 +3545,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3583,7 +3583,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3622,7 +3622,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3660,7 +3660,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3702,7 +3702,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3773,7 +3773,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3807,7 +3807,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3844,7 +3844,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3963,7 +3963,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3996,7 +3996,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4028,7 +4028,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4060,7 +4060,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4092,7 +4092,7 @@ properties:
       - Book
       - Compound Object
       - Image
-      - PDF
+      - Pdf
     cardinality:
       minimum: 0
     controlled_values:
@@ -4223,7 +4223,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4255,7 +4255,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4287,7 +4287,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4320,7 +4320,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4352,7 +4352,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4384,7 +4384,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4416,7 +4416,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4448,7 +4448,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4480,7 +4480,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4513,7 +4513,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4545,7 +4545,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4577,7 +4577,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4610,7 +4610,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4642,7 +4642,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4674,7 +4674,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4706,7 +4706,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4738,7 +4738,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4771,7 +4771,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4803,7 +4803,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4835,7 +4835,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4867,7 +4867,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4900,7 +4900,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4932,7 +4932,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4965,7 +4965,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4997,7 +4997,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5029,7 +5029,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5062,7 +5062,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5095,7 +5095,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5127,7 +5127,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5159,7 +5159,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5191,7 +5191,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5223,7 +5223,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5255,7 +5255,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5288,7 +5288,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5321,7 +5321,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5351,7 +5351,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5383,7 +5383,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5415,7 +5415,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5447,7 +5447,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5479,7 +5479,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5511,7 +5511,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5543,7 +5543,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5575,7 +5575,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5607,7 +5607,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5639,7 +5639,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5671,7 +5671,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5703,7 +5703,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5735,7 +5735,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5767,7 +5767,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5799,7 +5799,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5832,7 +5832,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5864,7 +5864,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5905,7 +5905,7 @@ properties:
       - Image
       - Video
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
