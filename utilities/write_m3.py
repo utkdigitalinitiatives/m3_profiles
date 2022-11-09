@@ -127,7 +127,7 @@ class RDFProperty:
 
     @staticmethod
     def __get_classes(data):
-        types = ("GenericWork", "Image", "Video", "Collection", "Audio", "PDF", "Book", "CompoundObject", "Newspaper")
+        types = ("GenericWork", "Image", "Video", "Audio", "Pdf", "Book", "CompoundObject", "Newspaper")
         available_on = []
         for value in data.split(','):
             if value == "All":
