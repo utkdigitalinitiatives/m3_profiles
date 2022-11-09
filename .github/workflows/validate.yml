@@ -22,3 +22,11 @@ jobs:
         run: poetry install
       - name: Validate our m3 profile
         run: poetry run python utilities/validate.py
+      - name: Lint Yamls for Consistency
+        uses: karancode/yamllint-github-action@master
+        with:
+          yamllint_file_or_dir: 'maps'
+          yamllint_strict: false
+          yamllint_comment: true
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
