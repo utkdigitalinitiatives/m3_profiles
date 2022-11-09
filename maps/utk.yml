@@ -55,7 +55,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -94,7 +93,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -164,7 +162,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -235,7 +232,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -271,7 +267,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -347,7 +342,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -388,7 +382,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -430,7 +423,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -470,7 +462,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -549,7 +540,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -735,7 +725,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -774,7 +763,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -815,7 +803,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -856,7 +843,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -896,7 +882,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -938,7 +923,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -968,7 +952,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1010,7 +993,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1049,7 +1031,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1089,7 +1070,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1130,7 +1110,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1166,7 +1145,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1202,7 +1180,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1237,7 +1214,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1273,7 +1249,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1307,7 +1282,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1341,7 +1315,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1380,7 +1353,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1420,7 +1392,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1460,7 +1431,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1499,7 +1469,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1569,7 +1538,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1609,7 +1577,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1650,7 +1617,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1690,7 +1656,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1751,7 +1716,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1783,7 +1747,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1820,7 +1783,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1859,7 +1821,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1899,7 +1860,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1939,7 +1899,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -1981,7 +1940,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2080,7 +2038,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2118,7 +2075,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2160,7 +2116,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2200,7 +2155,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2304,7 +2258,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2343,7 +2296,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2381,7 +2333,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2418,7 +2369,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2457,7 +2407,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2498,7 +2447,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2537,7 +2485,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2577,7 +2524,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2616,7 +2562,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2656,7 +2601,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2691,7 +2635,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2728,7 +2671,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2767,7 +2709,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2808,7 +2749,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2844,7 +2784,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2883,7 +2822,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2925,7 +2863,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -2965,7 +2902,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3005,7 +2941,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3044,7 +2979,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3086,7 +3020,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3152,7 +3085,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3186,7 +3118,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3225,7 +3156,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3256,7 +3186,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3291,7 +3220,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3328,7 +3256,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3369,7 +3296,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3407,7 +3333,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3448,7 +3373,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3478,7 +3402,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3518,7 +3441,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3553,7 +3475,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3585,7 +3506,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3624,7 +3544,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3663,7 +3582,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3703,7 +3621,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3742,7 +3659,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3785,7 +3701,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3857,7 +3772,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3892,7 +3806,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -3930,7 +3843,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4050,7 +3962,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4084,7 +3995,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4117,7 +4027,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4150,7 +4059,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4314,7 +4222,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4347,7 +4254,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4380,7 +4286,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4414,7 +4319,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4447,7 +4351,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4480,7 +4383,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4513,7 +4415,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4546,7 +4447,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4579,7 +4479,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4613,7 +4512,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4646,7 +4544,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4679,7 +4576,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4713,7 +4609,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4746,7 +4641,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4779,7 +4673,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4812,7 +4705,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4845,7 +4737,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4879,7 +4770,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4912,7 +4802,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4945,7 +4834,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -4978,7 +4866,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5012,7 +4899,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5045,7 +4931,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5079,7 +4964,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5112,7 +4996,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5145,7 +5028,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5179,7 +5061,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5213,7 +5094,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5246,7 +5126,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5279,7 +5158,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5312,7 +5190,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5345,7 +5222,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5378,7 +5254,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5412,7 +5287,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5446,7 +5320,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5477,7 +5350,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5510,7 +5382,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5543,7 +5414,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5576,7 +5446,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5609,7 +5478,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5642,7 +5510,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5675,7 +5542,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5708,7 +5574,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5741,7 +5606,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5774,7 +5638,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5807,7 +5670,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5840,7 +5702,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5873,7 +5734,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5906,7 +5766,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5939,7 +5798,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -5973,7 +5831,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -6006,7 +5863,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
@@ -6048,7 +5904,6 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
       - PDF
       - Book
