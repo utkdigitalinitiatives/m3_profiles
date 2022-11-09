@@ -1777,6 +1777,9 @@ properties:
     property_uri: http://purl.org/dc/terms/format
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
+    sample_values:
+      - http://vocab.getty.edu/aat/300046300
+      - http://id.loc.gov/authorities/genreForms/gf2014026151
   form_local:
     available_on:
       class:
@@ -2412,6 +2415,8 @@ properties:
     property_uri: http://purl.org/dc/terms/language
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
+    sample_values:
+      - English
   license:
     available_on:
       class:
