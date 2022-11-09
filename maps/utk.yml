@@ -55,9 +55,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -94,9 +93,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -130,7 +128,7 @@ properties:
     available_on:
       class:
       - Book
-      - Compound Object
+      - CompoundObject
     cardinality:
       minimum: 0
     controlled_values:
@@ -163,9 +161,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -233,9 +230,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -271,9 +267,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -346,9 +341,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -386,9 +380,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -427,9 +420,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -466,9 +458,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -508,9 +499,9 @@ properties:
     available_on:
       class:
       - Book
-      - Compound Object
+      - CompoundObject
       - Image
-      - PDF
+      - Pdf
     cardinality:
       minimum: 0
     controlled_values:
@@ -543,9 +534,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -727,9 +717,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -765,9 +754,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -805,9 +793,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -845,9 +832,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -884,9 +870,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -925,9 +910,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -957,9 +941,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -998,9 +981,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1036,9 +1018,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1075,9 +1056,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1115,9 +1095,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1151,9 +1130,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1187,9 +1165,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1222,9 +1199,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1258,9 +1234,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1292,9 +1267,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1326,9 +1300,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1364,9 +1337,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1403,9 +1375,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1442,9 +1413,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1480,9 +1450,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1549,9 +1518,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1588,9 +1556,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1628,9 +1595,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1667,9 +1633,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1732,9 +1697,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1767,9 +1731,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1804,9 +1767,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1842,9 +1804,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1881,9 +1842,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1920,9 +1880,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -1961,9 +1920,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2031,7 +1989,7 @@ properties:
     available_on:
       class:
       - Book
-      - PDF
+      - Pdf
     cardinality:
       minimum: 0
     controlled_values:
@@ -2063,9 +2021,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2101,9 +2058,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2140,9 +2096,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2179,9 +2134,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2216,7 +2170,7 @@ properties:
     available_on:
       class:
       - Book
-      - PDF
+      - Pdf
     cardinality:
       maximum: 1
       minimum: 0
@@ -2249,7 +2203,7 @@ properties:
       class:
       - Book
       - Newspaper
-      - PDF
+      - Pdf
     cardinality:
       maximum: 1
       minimum: 0
@@ -2283,9 +2237,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2321,9 +2274,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2362,9 +2314,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2401,9 +2352,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2440,9 +2390,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2480,9 +2429,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2519,9 +2467,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2558,9 +2505,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2596,9 +2542,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2635,9 +2580,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2670,9 +2614,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2707,9 +2650,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2745,9 +2687,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2785,9 +2726,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2819,9 +2759,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2857,9 +2796,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2898,9 +2836,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2937,9 +2874,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -2976,9 +2912,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3014,9 +2949,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3055,9 +2989,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3094,9 +3027,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3130,9 +3062,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3164,9 +3095,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3202,9 +3132,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3233,9 +3162,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3268,9 +3196,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3305,9 +3232,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3345,9 +3271,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3383,9 +3308,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3423,9 +3347,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3453,9 +3376,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3492,9 +3414,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3532,9 +3453,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3568,9 +3488,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3606,9 +3525,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3644,9 +3562,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3683,9 +3600,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3721,9 +3637,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3770,9 +3685,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3806,7 +3720,13 @@ properties:
   table_of_contents:
     available_on:
       class:
-      - AllButImage
+      - GenericWork
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
     cardinality:
       maximum: 1
       minimum: 0
@@ -3841,9 +3761,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3878,9 +3797,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3916,9 +3834,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -3953,7 +3870,7 @@ properties:
     available_on:
       class:
       - Book
-      - Compound Object
+      - CompoundObject
     cardinality:
       minimum: 0
     controlled_values:
@@ -4035,9 +3952,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4069,9 +3985,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4102,9 +4017,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4135,9 +4049,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4167,9 +4080,9 @@ properties:
     available_on:
       class:
       - Book
-      - Compound Object
+      - CompoundObject
       - Image
-      - PDF
+      - Pdf
     cardinality:
       minimum: 0
     controlled_values:
@@ -4299,9 +4212,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4332,9 +4244,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4365,9 +4276,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4399,9 +4309,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4432,9 +4341,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4465,9 +4373,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4498,9 +4405,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4531,9 +4437,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4564,9 +4469,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4598,9 +4502,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4631,9 +4534,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4664,9 +4566,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4698,9 +4599,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4731,9 +4631,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4764,9 +4663,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4797,9 +4695,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4830,9 +4727,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4864,9 +4760,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4897,9 +4792,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4930,9 +4824,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4963,9 +4856,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -4997,9 +4889,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5030,9 +4921,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5064,9 +4954,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5097,9 +4986,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5130,9 +5018,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5164,9 +5051,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5198,9 +5084,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5231,9 +5116,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5264,9 +5148,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5297,9 +5180,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5330,9 +5212,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5363,9 +5244,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5397,9 +5277,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5431,9 +5310,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5462,9 +5340,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5495,9 +5372,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5528,9 +5404,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5561,9 +5436,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5594,9 +5468,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5627,9 +5500,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5660,9 +5532,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5693,9 +5564,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5726,9 +5596,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5759,9 +5628,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5792,9 +5660,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5825,9 +5692,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5858,9 +5724,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5891,9 +5756,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5924,9 +5788,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5958,9 +5821,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -5991,9 +5853,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -6032,9 +5893,8 @@ properties:
       - GenericWork
       - Image
       - Video
-      - Collection
       - Audio
-      - PDF
+      - Pdf
       - Book
       - CompoundObject
       - Newspaper
@@ -6390,4 +6250,3 @@ properties:
     property_uri: http://www.w3.org/2003/12/exif/ns#xResolution
     range: http://www.w3.org/2001/XMLSchema#integer
     requirement: optional
-

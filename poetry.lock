@@ -40,6 +40,14 @@ format = ["fqdn", "idna", "isoduration", "jsonpointer (>1.13)", "rfc3339-validat
 format-nongpl = ["fqdn", "idna", "isoduration", "jsonpointer (>1.13)", "rfc3339-validator", "rfc3986-validator (>0.1.0)", "uri-template", "webcolors (>=1.11)"]
 
 [[package]]
+name = "pathspec"
+version = "0.10.1"
+description = "Utility library for gitignore style pattern matching of file paths."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "pyrsistent"
 version = "0.19.2"
 description = "Persistent/Functional/Immutable data structures"
@@ -74,15 +82,28 @@ category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 
+[[package]]
+name = "yamllint"
+version = "1.28.0"
+description = "A linter for YAML files."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+pathspec = ">=0.5.3"
+pyyaml = "*"
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "c17180f3a529471bbf4f3845f3039fd3a41aa09c32c8fb6e602184117130b87e"
+content-hash = "15820957880c71f7eba215923034c47a5594862e6337be66eb35b3932fbfdee1"
 
 [metadata.files]
 arrow = []
 attrs = []
 jsonschema = []
+pathspec = []
 pyrsistent = []
 python-dateutil = [
     {file = "python-dateutil-2.8.2.tar.gz", hash = "sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"},
@@ -127,3 +148,4 @@ six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
 ]
+yamllint = []
