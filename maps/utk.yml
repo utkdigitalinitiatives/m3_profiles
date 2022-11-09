@@ -128,7 +128,7 @@ properties:
     available_on:
       class:
       - Book
-      - Compound Object
+      - CompoundObject
     cardinality:
       minimum: 0
     controlled_values:
@@ -504,7 +504,7 @@ properties:
     available_on:
       class:
       - Book
-      - Compound Object
+      - CompoundObject
       - Image
       - Pdf
     cardinality:
@@ -3880,7 +3880,7 @@ properties:
     available_on:
       class:
       - Book
-      - Compound Object
+      - CompoundObject
     cardinality:
       minimum: 0
     controlled_values:
@@ -4090,7 +4090,7 @@ properties:
     available_on:
       class:
       - Book
-      - Compound Object
+      - CompoundObject
       - Image
       - Pdf
     cardinality:
