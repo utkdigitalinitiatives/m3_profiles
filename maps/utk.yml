@@ -3056,7 +3056,14 @@ properties:
   provider:
     available_on:
       class:
-      - ''
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
     cardinality:
       maximum: 1
       minimum: 1
