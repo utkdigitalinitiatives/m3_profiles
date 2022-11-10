@@ -30,7 +30,7 @@ class AdditionalChecks:
             pass
 
 
-schema = json.load(open('schemas/schema.json'))
+schema = json.load(open('schemas/flex_schema.json'))
 for path, directories, files in os.walk('maps'):
     for file in files:
         current_map = yaml.safe_load(open(f'maps/{file}'))
