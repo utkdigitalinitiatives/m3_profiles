@@ -6,21 +6,21 @@
 m3_version: 1.0.beta2
 
 profile:
-  date_modified: '2022-11-08'
+  date_modified: '2022-11-10'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: base
-  version: 0.6
+  type: no more collections
+  version: 15.0
 
 classes:
+  Attachment:
+    display_label: Attachment
   Audio:
     display_label: Audio
   Book:
     display_label: Book
   CompoundObject:
     display_label: Compound Object
-  FileSet:
-    display_label: File Set
   GenericWork:
     display_label: Generic Work
   Image:
@@ -60,7 +60,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
-      - FileSet
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3321,6 +3321,7 @@ properties:
       default: Rights Statement
     index_documentation: displayable, searchable, rights facet
     indexing:
+    - admin_only
     - displayable
     - stored_searchable
     - facetable
@@ -5952,7 +5953,7 @@ properties:
   behavior:
     available_on:
       class:
-      - FileSet
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5973,7 +5974,7 @@ properties:
   bits_per_sample:
     available_on:
       class:
-      - FileSet
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -5997,7 +5998,7 @@ properties:
   capture_software:
     available_on:
       class:
-      - FileSet
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -6020,7 +6021,7 @@ properties:
   color_profile:
     available_on:
       class:
-      - FileSet
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -6042,7 +6043,7 @@ properties:
   color_space:
     available_on:
       class:
-      - FileSet
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -6066,7 +6067,7 @@ properties:
   compression_scheme:
     available_on:
       class:
-      - FileSet
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -6090,7 +6091,7 @@ properties:
   file_language:
     available_on:
       class:
-      - FileSet
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 1
@@ -6115,7 +6116,7 @@ properties:
   file_size:
     available_on:
       class:
-      - FileSet
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -6137,7 +6138,7 @@ properties:
   format_name:
     available_on:
       class:
-      - FileSet
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -6159,7 +6160,7 @@ properties:
   frame_height:
     available_on:
       class:
-      - FileSet
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 1
@@ -6183,7 +6184,7 @@ properties:
   frame_width:
     available_on:
       class:
-      - FileSet
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 1
@@ -6207,7 +6208,7 @@ properties:
   hash_value:
     available_on:
       class:
-      - FileSet
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -6229,7 +6230,7 @@ properties:
   rdf_type:
     available_on:
       class:
-      - FileSet
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -6255,7 +6256,7 @@ properties:
   xresolution:
     available_on:
       class:
-      - FileSet
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
