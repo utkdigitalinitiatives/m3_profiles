@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/m3_json_schema.json",
   "type": "object",
   "title": "The M3 JSON Schema",
   "comment": "profile, classes and properties are required; contexts and mappings are not",
@@ -32,17 +33,6 @@
         "date_modified"
       ],
       "properties": {
-        "date_modified": {
-          "$id": "#/properties/profile/date_modified",
-          "title": "Date Modified",
-          "description": "the date the profile was last altered",
-          "type": "string",
-          "format": "date",
-          "comment": "In YAML, dates must be wrapped in quotes to be validated by json schema",
-          "examples": [
-            "2019-07-03"
-          ]
-        },
         "responsibility": {
           "$id": "#/properties/profile/responsibility",
           "title": "Responsiblity",
@@ -60,6 +50,17 @@
           "type": "string",
           "examples": [
             "Samvera Metadata Interest Group"
+          ]
+        },
+        "date_modified": {
+          "$id": "#/properties/profile/date_modified",
+          "title": "Date Modified",
+          "description": "the date the profile was last altered",
+          "type": "string",
+          "format": "date",
+          "comment": "In YAML, dates must be wrapped in quotes to be validated by json schema",
+          "examples": [
+            "2019-07-03"
           ]
         },
         "type": {
@@ -84,6 +85,40 @@
         }
       }
     },
+    "mappings": {
+      "$id": "#/properties/mappings",
+      "type": "object",
+      "title": "Mapping Definitions",
+      "description": "Definition of the mappings to different services or target schemas referenced in the profile.",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "propertyNames": {
+        "pattern": "^[a-z_]*$"
+      },
+      "examples": [
+        {
+          "dpla": {
+            "name": "Digital Public Library of America"
+          }
+        },
+        {
+          "datacite": {
+            "name": "DataCite"
+          }
+        },
+        {
+          "dc": {
+            "name": "Dublin Core"
+          }
+        }
+      ]
+    },
     "classes": {
       "$id": "#/properties/classes",
       "type": "object",
@@ -94,6 +129,11 @@
         "type": "object",
         "required": ["display_label"],
         "properties": {
+          "schema_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URI for the class, from a local or shared ontology."
+          },
           "display_label": {
             "type": "string",
             "description": "Human-readable label for the class.",
@@ -101,11 +141,6 @@
             "examples": [
               "Generic Work"
             ]
-          },
-          "schema_url": {
-            "type": "string",
-            "format": "uri",
-            "description": "URI for the class, from a local or shared ontology."
           },
           "contexts": {
             "type": "array",
@@ -121,7 +156,7 @@
         }
       },
       "propertyNames": {
-        "pattern": "[A-Z]+[A-Z]?[a-z]*$"
+        "pattern": "^[a-zA-Z]*$"
       },
       "examples": [
         {
@@ -207,87 +242,6 @@
               }
             ]
           },
-          "available_on": {
-            "type": "object",
-            "description": "The classes (objects and/or work types) or contexts this property is available on (defined in 'classes' or 'contexts' section.)",
-            "properties": {
-              "class": {
-                "comment": "Listed values must match a class defined in the classes block.",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "context": {
-                "comment": "Listed values must match a context defined in the contexts block.",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            },
-            "examples": [
-              {
-                "class": [
-                  "Collection",
-                  "MyCustomWorkType"
-                ],
-                "context": [
-                  "chem"
-                ]
-              }
-            ]
-          },
-          "cardinality": {
-            "type": "object",
-            "description": "System cardinality and obligation.",
-            "properties": {
-              "minimum": {
-                "type": "integer",
-                "description": "Minimum number of values the property must have.  If there is no value provided, the assumed default minimum is 0. A minimum of 1 means the property is required.",
-                "default": 0,
-                "examples": [
-                  1
-                ]
-              },
-              "maximum": {
-                "type": "integer",
-                "description": "Maximum number of values the property may have.  If there is no value provided, the assumed default maximum is unlimited.",
-                "examples": [
-                  5
-                ]
-              }
-            },
-            "examples": [
-              {
-                "cardinality": {
-                  "minimum": 0,
-                  "maximum": 100
-                }
-              }
-            ]
-          },
-          "indexing": {
-            "type": "array",
-            "description": "a list of dynamic field names, taken from a controlled list; commonly used values are _tesim (stored searchable text), _teim (searchable text), _sim (string facetable), _ssm (string displayable)",
-            "items": {
-              "type": "string",
-              "enum": [
-                "admin_only",
-                "displayable",
-                "facetable",
-                "searchable",
-                "sortable",
-                "stored_searchable",
-                "stored_sortable",
-                "symbol",
-                "fulltext_searchable"
-              ]
-            },
-            "examples": [
-              ["_tesim", "_sim"]
-            ]
-          },
           "definition": {
             "type": "object",
             "description": "The definition for the metadata property being described.",
@@ -328,7 +282,7 @@
           },
           "requirement": {
             "type": "string",
-            "description": "Whether the property is required, optional, recommended, etc. from a best practices standpoint. Please use cardinality - minimum to programmatically set a property to be required.",
+            "description": "Whether the property is required, optional, recommended, etc. from a best practices standpoint.",
             "examples": [
               "recommended, if applicable"
             ]
@@ -383,6 +337,37 @@
               "http://purl.org/dc/elements/1.1/creator"
             ]
           },
+          "available_on": {
+            "type": "object",
+            "description": "The classes (objects and/or work types) or contexts this property is available on (defined in 'classes' or 'contexts' section.)",
+            "properties": {
+              "class": {
+                "comment": "Listed values must match a class defined in the classes block.",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "context": {
+                "comment": "Listed values must match a context defined in the contexts block.",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "examples": [
+              {
+                "class": [
+                  "Collection",
+                  "MyCustomWorkType"
+                ],
+                "context": [
+                  "chem"
+                ]
+              }
+            ]
+          },
           "range": {
             "type": "string",
             "format": "uri",
@@ -408,11 +393,69 @@
               "edtf"
             ]
           },
+          "cardinality": {
+            "type": "object",
+            "description": "System cardinality and obligation.",
+            "properties": {
+              "minimum": {
+                "type": "integer",
+                "description": "Minimum number of values the property must have.  If there is no value provided, the assumed default minimum is 0.",
+                "default": 0,
+                "examples": [
+                  1
+                ]
+              },
+              "maximum": {
+                "type": "integer",
+                "description": "Maximum number of values the property may have.  If there is no value provided, the assumed default maximum is unlimited.",
+                "examples": [
+                  5
+                ]
+              }
+            },
+            "examples": [
+              {
+                "cardinality": {
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              }
+            ]
+          },
+          "multi_value": {
+            "type": "boolean",
+            "description": "Set whether the property is singular or multiple. Singular treats this property as a String; multiple treats it as an Array",
+            "default": "true",
+            "examples": [
+              true
+            ]
+          },
           "index_documentation": {
             "type": "string",
             "description": "Free text documentation field about whether a property should be faceted, searchable, displayable, treated as text, etc.",
             "examples": [
               "searchable, displayable, creator facet"
+            ]
+          },
+          "indexing": {
+            "type": "array",
+            "description": "a list of dynamic field names, taken from a controlled list; commonly used values are _tesim (stored searchable text), _teim (searchable text), _sim (string facetable), _ssm (string displayable)",
+            "items": {
+              "type": "string",
+              "enum": [
+                "admin_only",
+                "displayable",
+                "facetable",
+                "searchable",
+                "sortable",
+                "stored_searchable",
+                "stored_sortable",
+                "symbol",
+                "fulltext_searchable"
+              ]
+            },
+            "examples": [
+              ["_tesim", "_sim"]
             ]
           },
           "validations": {
@@ -452,40 +495,6 @@
           }
         }
       }
-    },
-    "mappings": {
-      "$id": "#/properties/mappings",
-      "type": "object",
-      "title": "Mapping Definitions",
-      "description": "Definition of the mappings to different services or target schemas referenced in the profile.",
-      "additionalProperties": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          }
-        }
-      },
-      "propertyNames": {
-        "pattern": "^[a-z_]*$"
-      },
-      "examples": [
-        {
-          "dpla": {
-            "name": "Digital Public Library of America"
-          }
-        },
-        {
-          "datacite": {
-            "name": "DataCite"
-          }
-        },
-        {
-          "dc": {
-            "name": "Dublin Core"
-          }
-        }
-      ]
     }
   }
 }
