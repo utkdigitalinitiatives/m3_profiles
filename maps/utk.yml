@@ -900,7 +900,7 @@ properties:
       qualified_dc_pmh: dcterms:contributor
       simple_dc_pmh: dc:contributor
     property_uri: http://id.loc.gov/vocabulary/relators/ctb
-    range: http://www.w3.org/2001/XMLSchema#string
+    range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
     - http://id.loc.gov/authorities/names/n2017180154
