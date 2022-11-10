@@ -154,7 +154,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   alternative_title:
     available_on:
@@ -224,7 +223,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   archival_collection:
     available_on:
@@ -261,6 +259,8 @@ properties:
     property_uri: http://dbpedia.org/ontology/collection
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
+    sample_values:
+    - Virginia P. Moore Collection
   ark:
     available_on:
       class:
@@ -297,7 +297,7 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - '[http://path/]ark:/NAAN/Name[Qualifier]'
+    - ark:/87290/v8pv6hjx
     syntax: IETF ARK 18
   arranger:
     available_on:
@@ -334,7 +334,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   artist:
     available_on:
@@ -374,7 +373,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   associated_name:
     available_on:
@@ -415,7 +413,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   attributed_name:
     available_on:
@@ -454,7 +451,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   author:
     available_on:
@@ -498,7 +494,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   autographer:
     available_on:
@@ -532,7 +527,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   bibliographic_citation:
     available_on:
@@ -563,6 +557,8 @@ properties:
     property_uri: http://purl.org/dc/terms/bibliographicCitation
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
+    sample_values:
+    - The Arrow, Volume 27, Number 1
   binding_designer:
     available_on:
       class:
@@ -593,7 +589,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   call_number:
     available_on:
@@ -653,7 +648,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   censor:
     available_on:
@@ -685,7 +679,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   choreographer:
     available_on:
@@ -717,7 +710,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   client:
     available_on:
@@ -755,7 +747,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   compiler:
     available_on:
@@ -795,7 +786,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   composer:
     available_on:
@@ -835,7 +825,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   contractor:
     available_on:
@@ -874,7 +863,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   contributor:
     available_on:
@@ -890,7 +878,7 @@ properties:
     cardinality:
       minimum: 0
     controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#string
+      format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
       - wikidata
       - naf
@@ -912,10 +900,9 @@ properties:
       qualified_dc_pmh: dcterms:contributor
       simple_dc_pmh: dc:contributor
     property_uri: http://id.loc.gov/vocabulary/relators/ctb
-    range: http://www.w3.org/2001/XMLSchema#string
+    range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   coordinates:
     available_on:
@@ -946,6 +933,8 @@ properties:
     property_uri: https://www.w3.org/2003/01/geo/wgs84_pos#lat_long
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
+    sample_values:
+    - 35.71453, -83.51189
   copyright_holder:
     available_on:
       class:
@@ -985,7 +974,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   correspondent:
     available_on:
@@ -1023,7 +1011,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   costumer_designer:
     available_on:
@@ -1062,7 +1049,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   creator:
     available_on:
@@ -1102,7 +1088,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   date_created:
     available_on:
@@ -1345,7 +1330,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   depicted:
     available_on:
@@ -1384,7 +1368,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   designer:
     available_on:
@@ -1423,7 +1406,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   distributor:
     available_on:
@@ -1461,7 +1443,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   donor:
     available_on:
@@ -1499,7 +1480,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   duration:
     available_on:
@@ -1569,7 +1549,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   editor_of_compilation:
     available_on:
@@ -1609,7 +1588,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   engraver:
     available_on:
@@ -1648,7 +1626,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   extent:
     available_on:
@@ -1685,6 +1662,8 @@ properties:
     property_uri: http://rdaregistry.info/Elements/u/P60550
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
+    sample_values:
+    - 25 pages
   first_line:
     available_on:
       class:
@@ -1710,6 +1689,8 @@ properties:
     property_uri: http://opaquenamespace.org/ns/sheetmusic_firstLine
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
+    sample_values:
+    - On the other hand with regard to
   form:
     available_on:
       class:
@@ -1741,6 +1722,9 @@ properties:
     property_uri: http://purl.org/dc/terms/format
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
+    sample_values:
+    - http://vocab.getty.edu/aat/300046300
+    - http://id.loc.gov/authorities/genreForms/gf2014026151
   form_local:
     available_on:
       class:
@@ -1813,7 +1797,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   honoree:
     available_on:
@@ -1852,7 +1835,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   host_institution:
     available_on:
@@ -1891,7 +1873,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   illustrator:
     available_on:
@@ -1932,7 +1913,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   instrumentalist:
     available_on:
@@ -1970,7 +1950,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   instrumentation:
     available_on:
@@ -2004,6 +1983,10 @@ properties:
     property_uri: http://opaquenamespace.org/ns/sheetmusic_instrumentation
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
+    sample_values:
+    - For piccolo, 2 flutes, 2 oboes, 2 bassoons, contrabassoon, 3 clarinets, bass clarinet,
+      contrabass clarinet, 2 alto saxophones, tenor saxophone, baritone saxophone, 3 trumpets,
+      4 horns, 3 trombones, baritone, tuba, timpani, and percussion.
   intended_audience:
     available_on:
       class:
@@ -2032,6 +2015,8 @@ properties:
     property_uri: http://id.loc.gov/ontologies/bibframe/IntendedAudience
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
+    sample_values:
+    - Second Grade
   intermediate_provider:
     available_on:
       class:
@@ -2091,9 +2076,7 @@ properties:
     definition:
       default: 'Enter the name of a person (last, first), family or organization responsible
         for creating or contributing to a resource by responding to an interviewer,
-        usually a reporter, pollster, or some other information gathering agent.
-
-        '
+        usually a reporter, pollster, or some other information gathering agent.'
     display_label:
       default: Interviewee
     index_documentation: displayable, searchable, creator facet
@@ -2108,7 +2091,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   interviewer:
     available_on:
@@ -2147,7 +2129,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   is_part_of:
     available_on:
@@ -2288,7 +2269,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   keyword:
     available_on:
@@ -2327,6 +2307,9 @@ properties:
     property_uri: https://w3id.org/idsa/core/keyword
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
+    sample_values:
+    - Board of Aid to Land Ownership
+    - Farming and Agriculture.
   language:
     available_on:
       class:
@@ -2345,9 +2328,9 @@ properties:
       sources:
       - iso639-2b
     definition:
-      default: Enter a language used in the resource as text (e.g. English). When
-        multiple languages are present, use multiple fields. If no language is present,
-        enter "No linguistic content."
+      default: Enter a language used in the resource. When multiple languages
+        are present, use multiple fields. If no language is present, use "No
+        linguistic content."
     display_label:
       default: Language
     index_documentation: displayable, searchable, language facet
@@ -2363,6 +2346,8 @@ properties:
     property_uri: http://purl.org/dc/terms/language
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
+    sample_values:
+    - http://id.loc.gov/vocabulary/iso639-2/eng
   license:
     available_on:
       class:
@@ -2439,7 +2424,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   local_identifier:
     available_on:
@@ -2516,7 +2500,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   music_copyist:
     available_on:
@@ -2554,7 +2537,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   musical_director:
     available_on:
@@ -2593,7 +2575,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   note:
     available_on:
@@ -2701,7 +2682,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   originator:
     available_on:
@@ -2741,7 +2721,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   other_version:
     available_on:
@@ -2776,8 +2755,6 @@ properties:
     property_uri: http://purl.org/dc/terms/hasVersion
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
-    sample_values:
-    - Links to Arrowmont scrapbooks from individual photos
   owner:
     available_on:
       class:
@@ -2814,7 +2791,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   performer:
     available_on:
@@ -2855,7 +2831,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   photographer:
     available_on:
@@ -2894,7 +2869,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   printer:
     available_on:
@@ -2933,7 +2907,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   printer_of_plates:
     available_on:
@@ -2971,7 +2944,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   producer:
     available_on:
@@ -3012,7 +2984,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   production_company:
     available_on:
@@ -3051,7 +3022,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   provider:
     available_on:
@@ -3086,6 +3056,8 @@ properties:
     property_uri: http://www.europeana.eu/schemas/edm/provider
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: required
+    sample_values:
+    - University of Tennessee, Knoxville. Libraries
   publication_place:
     available_on:
       class:
@@ -3155,7 +3127,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   repository:
     available_on:
@@ -3218,7 +3189,7 @@ properties:
       mods_oai_pmh: mods:location/mods:url[access="object in context"]
       qualified_dc_pmh: dcterms:identifier
       simple_dc_pmh: dc:identifier
-    property_uri: http://purl.org/dc/terms/identifier
+    property_uri: http://www.europeana.eu/schemas/edm/isShownAt
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
   resource_type:
@@ -3295,7 +3266,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   rights_statement:
     available_on:
@@ -3372,7 +3342,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   sheetmusic_hostitem:
     available_on:
@@ -3440,7 +3409,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   spatial:
     available_on:
@@ -3460,6 +3428,7 @@ properties:
       sources:
       - geonames
       - naf
+      - lcsh
     definition:
       default: Enter the controlled name of a place with which the resource is associated.
     display_label:
@@ -3476,6 +3445,10 @@ properties:
     property_uri: http://purl.org/dc/terms/spatial
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
+    sample_values:
+    - http://id.loc.gov/authorities/names/n80040520
+    - http://id.loc.gov/authorities/names/n79109786
+    - http://id.loc.gov/authorities/subjects/sh94001975
   spatial_local:
     available_on:
       class:
@@ -3507,6 +3480,10 @@ properties:
     property_uri: http://id.loc.gov/ontologies/bibframe/geographicCoverage
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
+    sample_values:
+    - pa0056.
+    - Walker Sisters Cabin
+    - The House That Jack Built
   speaker:
     available_on:
       class:
@@ -3543,7 +3520,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   stage_director:
     available_on:
@@ -3581,7 +3557,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   stage_manager:
     available_on:
@@ -3620,7 +3595,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   standards_body:
     available_on:
@@ -3658,7 +3632,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   subject:
     available_on:
@@ -3677,7 +3650,6 @@ properties:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
       - naf
-      - ulan
       - agrovoc
       - fast
       - lcsh
@@ -3702,6 +3674,13 @@ properties:
     property_uri: http://purl.org/dc/terms/subject
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
+    sample_values:
+    - http://aims.fao.org/aos/agrovoc/c_10266
+    - http://id.loc.gov/authorities/names/n2002029392
+    - http://id.loc.gov/authorities/subjects/sh97004247
+    - http://id.loc.gov/vocabulary/graphicMaterials/tgm009950
+    - http://sws.geonames.org/6180926
+    - http://www.wikidata.org/entity/Q108903133
   surveyor:
     available_on:
       class:
@@ -3739,7 +3718,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   table_of_contents:
     available_on:
@@ -3813,6 +3791,8 @@ properties:
     property_uri: http://purl.org/dc/terms/temporal
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
+    sample_values:
+    - Founding of Pi Beta Phi Settlement School, Gatlinburg, Tennessee, 1909-1927
   title:
     available_on:
       class:
@@ -3887,7 +3867,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   utk_addressee:
     available_on:
@@ -5909,7 +5888,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   witness:
     available_on:
@@ -5947,7 +5925,6 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
-    - Browder, Boyd
     - http://id.loc.gov/authorities/names/n2017180154
   behavior:
     available_on:
