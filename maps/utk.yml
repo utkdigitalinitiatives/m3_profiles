@@ -1984,8 +1984,8 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     sample_values:
-    - For piccolo, 2 flutes, 2 oboes, 2 bassoons, contrabassoon, 3 clarinets, bass clarinet, 
-      contrabass clarinet, 2 alto saxophones, tenor saxophone, baritone saxophone, 3 trumpets, 
+    - For piccolo, 2 flutes, 2 oboes, 2 bassoons, contrabassoon, 3 clarinets, bass clarinet,
+      contrabass clarinet, 2 alto saxophones, tenor saxophone, baritone saxophone, 3 trumpets,
       4 horns, 3 trombones, baritone, tuba, timpani, and percussion.
   intended_audience:
     available_on:
@@ -2328,8 +2328,8 @@ properties:
       sources:
       - iso639-2b
     definition:
-      default: Enter a language used in the resource. When multiple languages 
-        are present, use multiple fields. If no language is present, use "No 
+      default: Enter a language used in the resource. When multiple languages
+        are present, use multiple fields. If no language is present, use "No
         linguistic content."
     display_label:
       default: Language
