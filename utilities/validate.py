@@ -11,6 +11,7 @@ class AdditionalChecks:
         self.unique_classes = self.find_unique_classes()
         self.all_exceptions = []
         self.validate_available_on()
+        self.check_for_maximum_one()
         self.raise_exceptions()
 
     def find_unique_classes(self):
@@ -21,6 +22,13 @@ class AdditionalChecks:
             for work_type in self.m3['properties'][property]['available_on']['class']:
                 if work_type not in self.unique_classes:
                     self.all_exceptions.append(f'Unknown worktype {work_type} in {property} in {self.path}.')
+
+    def check_for_maximum_one(self):
+        for property, value in self.m3['properties'].items():
+            if 'maximum' in value['cardinality'] and 'minimum' in value['cardinality']:
+                if value['cardinality']['maximum'] == 1 and value['cardinality']['minimum'] == 1:
+                    if 'multi_value' not in value:
+                        self.all_exceptions.append(f'{property} has obligation 1 but no multi_value property in {self.path}.')
 
     def raise_exceptions(self):
         separator = '\n'
