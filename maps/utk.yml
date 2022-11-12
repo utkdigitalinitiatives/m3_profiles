@@ -3291,7 +3291,6 @@ properties:
       default: Rights Statement
     index_documentation: displayable, searchable, rights facet
     indexing:
-    - admin_only
     - displayable
     - stored_searchable
     - facetable
