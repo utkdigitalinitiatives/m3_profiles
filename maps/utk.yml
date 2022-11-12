@@ -9,8 +9,8 @@ profile:
   date_modified: '2022-11-10'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: no more collections
-  version: 15.0
+  type: Ensure multi-values
+  version: 16.0
 
 classes:
   Attachment:
@@ -275,6 +275,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 1
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
@@ -3037,6 +3038,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 1
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -3172,6 +3174,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 1
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
@@ -3281,6 +3284,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 1
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
@@ -6072,6 +6076,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 1
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -6141,6 +6146,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 1
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#integer
       sources:
@@ -6165,6 +6171,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 1
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#integer
       sources:
