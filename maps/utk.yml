@@ -6211,7 +6211,7 @@ properties:
     property_uri: http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#hashValue
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
-  rdf_type:
+  utk_type:
     available_on:
       class:
       - Attachment
@@ -6231,7 +6231,7 @@ properties:
     indexing:
     - displayable
     mappings: {}
-    property_uri: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+    property_uri: https://ontology.lib.utk.edu/works#hasType
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
