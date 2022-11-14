@@ -2323,7 +2323,7 @@ properties:
       - CompoundObject
       - Newspaper
     cardinality:
-      minimum: 1
+      minimum: 0
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
@@ -2438,7 +2438,7 @@ properties:
       - CompoundObject
       - Newspaper
     cardinality:
-      minimum: 1
+      minimum: 0
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
