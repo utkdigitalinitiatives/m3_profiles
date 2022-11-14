@@ -68,7 +68,7 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter a summary of the resource. End this field with a period.
+      default: Summary of the resource.
     display_label:
       default: Abstract
     index_documentation: displayable, searchable
@@ -87,6 +87,8 @@ properties:
     - Prosecutor John Keker gives his closing statement to the jury, explaining Col.
       John North's involvement in the Iran-Contra affair even though the majority
       of his statement is censored due to classified information.
+    usage_guidelines:
+      default: Enter a summary of the resource. End this field with a period.
   acquisition_identifier:
     available_on:
       class:
@@ -106,8 +108,7 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter an identifier assigned by a museum for acquisition. Values typically
-        start with a year (e.g. 1996.10.1)
+      default: An identifier assigned by a museum during acquisition.
     display_label:
       default: Acquisition Identifier
     index_documentation: displayable, searchable
@@ -124,6 +125,9 @@ properties:
     requirement: optional
     sample_values:
     - 1996.10.1
+    usage_guidelines:
+      default: Enter an identifier assigned by a museum for acquisition. Values typically
+        start with a year (e.g. 1996.10.1)
   addressee:
     available_on:
       class:
