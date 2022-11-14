@@ -12,6 +12,7 @@ class AdditionalChecks:
         self.all_exceptions = []
         self.validate_available_on()
         self.check_for_maximum_one()
+        self.check_for_excess_multi_values()
         self.raise_exceptions()
 
     def find_unique_classes(self):
@@ -29,6 +30,18 @@ class AdditionalChecks:
                 if value['cardinality']['maximum'] == 1 and value['cardinality']['minimum'] == 1:
                     if 'multi_value' not in value:
                         self.all_exceptions.append(f'{property} has obligation 1 but no multi_value property in {self.path}.')
+
+    def check_for_excess_multi_values(self):
+        for property, value in self.m3['properties'].items():
+            if 'multi_value' in value:
+                if 'maximum' not in value['cardinality'] or 'minimum' not in value['cardinality']:
+                    self.all_exceptions.append(
+                        f'{property} has multi_value property but missing maximum and / or minimum property(s).'
+                    )
+                elif value['cardinality']['maximum'] != 1 or value['cardinality']['minimum'] != 1:
+                    self.all_exceptions.append(
+                        f'{property} has multi_value property but cardinality is not 1.'
+                    )
 
     def raise_exceptions(self):
         separator = '\n'
