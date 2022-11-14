@@ -108,8 +108,7 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter an identifier assigned by a museum for acquisition. Values typically
-        start with a year (e.g. 1996.10.1)
+      default: An identifier assigned by a museum during acquisition.
     display_label:
       default: Acquisition Identifier
     index_documentation: displayable, searchable
@@ -126,6 +125,9 @@ properties:
     requirement: optional
     sample_values:
     - 1996.10.1
+    usage_guidelines:
+      default: Enter an identifier assigned by a museum for acquisition. Values typically
+        start with a year (e.g. 1996.10.1)
   addressee:
     available_on:
       class:
