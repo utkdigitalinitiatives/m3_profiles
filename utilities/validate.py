@@ -36,11 +36,11 @@ class AdditionalChecks:
             if 'multi_value' in value:
                 if 'maximum' not in value['cardinality']:
                     self.all_exceptions.append(
-                        f'{property} has multi_value property but missing maximum minimum property.'
+                        f'{property} has multi_value property but missing maximum property.'
                     )
                 elif value['cardinality']['maximum'] != 1:
                     self.all_exceptions.append(
-                        f'{property} has multi_value property but cardinality is not 1.'
+                        f'{property} has multi_value property but cardinality is not a maximum of 1.'
                     )
 
     def raise_exceptions(self):
