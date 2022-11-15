@@ -26,21 +26,21 @@ class AdditionalChecks:
 
     def check_for_maximum_one(self):
         for property, value in self.m3['properties'].items():
-            if 'maximum' in value['cardinality'] and 'minimum' in value['cardinality']:
-                if value['cardinality']['maximum'] == 1 and value['cardinality']['minimum'] == 1:
+            if 'maximum' in value['cardinality']:
+                if value['cardinality']['maximum'] == 1:
                     if 'multi_value' not in value:
                         self.all_exceptions.append(f'{property} has obligation 1 but no multi_value property in {self.path}.')
 
     def check_for_excess_multi_values(self):
         for property, value in self.m3['properties'].items():
             if 'multi_value' in value:
-                if 'maximum' not in value['cardinality'] or 'minimum' not in value['cardinality']:
+                if 'maximum' not in value['cardinality']:
                     self.all_exceptions.append(
-                        f'{property} has multi_value property but missing maximum and / or minimum property(s).'
+                        f'{property} has multi_value property but missing maximum property.'
                     )
-                elif value['cardinality']['maximum'] != 1 or value['cardinality']['minimum'] != 1:
+                elif value['cardinality']['maximum'] != 1:
                     self.all_exceptions.append(
-                        f'{property} has multi_value property but cardinality is not 1.'
+                        f'{property} has multi_value property but cardinality is not a maximum of 1.'
                     )
 
     def raise_exceptions(self):

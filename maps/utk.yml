@@ -6,11 +6,11 @@
 m3_version: 1.0.beta2
 
 profile:
-  date_modified: '2022-11-12'
+  date_modified: '2022-11-15'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: Ensure multi-values
-  version: 16.0
+  type: Maximum 1 should always be an array
+  version: 21
 
 classes:
   Attachment:
@@ -103,6 +103,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -242,6 +243,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -279,6 +281,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
@@ -601,6 +604,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -1107,6 +1111,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -1142,6 +1147,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#date
       sources:
@@ -1177,6 +1183,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -1211,6 +1218,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#date
       sources:
@@ -1246,6 +1254,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -1493,6 +1502,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -1675,6 +1685,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -1964,6 +1975,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -2035,6 +2047,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -2148,6 +2161,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
@@ -2180,6 +2194,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2000/01/rdf-schema#Literal
       sources:
@@ -2213,6 +2228,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2000/01/rdf-schema#Literal
       sources:
@@ -2366,6 +2382,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
@@ -2628,6 +2645,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2000/01/rdf-schema#Literal
       sources:
@@ -3147,6 +3165,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -3176,7 +3195,7 @@ properties:
       - Newspaper
     cardinality:
       maximum: 1
-      minimum: 1
+      minimum: 0
     multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
@@ -3739,6 +3758,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -5962,6 +5982,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -5986,6 +6007,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -6009,6 +6031,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -6031,6 +6054,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -6055,6 +6079,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -6105,6 +6130,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -6127,6 +6153,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -6148,7 +6175,7 @@ properties:
       - Attachment
     cardinality:
       maximum: 1
-      minimum: 1
+      minimum: 0
     multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#integer
@@ -6173,7 +6200,7 @@ properties:
       - Attachment
     cardinality:
       maximum: 1
-      minimum: 1
+      minimum: 0
     multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#integer
@@ -6199,6 +6226,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -6214,7 +6242,7 @@ properties:
     property_uri: http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#hashValue
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
-  utk_type:
+  rdf_type:
     available_on:
       class:
       - Attachment
@@ -6247,6 +6275,7 @@ properties:
     cardinality:
       maximum: 1
       minimum: 0
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#integer
       sources:
