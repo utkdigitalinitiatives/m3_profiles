@@ -3831,6 +3831,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 1
