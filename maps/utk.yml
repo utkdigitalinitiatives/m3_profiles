@@ -9,8 +9,8 @@ profile:
   date_modified: '2022-11-15'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: Maximum 1 should always be an array
-  version: 21
+  type: UTK Digital Collections v23
+  version: 23
 
 classes:
   Attachment:
@@ -1072,7 +1072,7 @@ properties:
     cardinality:
       minimum: 0
     controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#string
+      format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
       - wikidata
       - naf
@@ -1093,7 +1093,7 @@ properties:
       qualified_dc_pmh: dcterms:creator
       simple_dc_pmh: dc:creator
     property_uri: http://id.loc.gov/vocabulary/relators/cre
-    range: http://www.w3.org/2001/XMLSchema#string
+    range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
     sample_values:
     - http://id.loc.gov/authorities/names/n2017180154
