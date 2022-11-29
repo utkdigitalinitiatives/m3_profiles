@@ -2053,8 +2053,8 @@ properties:
       sources:
       - 'null'
     definition:
-      default: 'Enter the controlled form of the name of the institution that owns
-        or has provided access to the digitized resource. '
+      default: 'The name of the organization who contributes data indirectly to
+        an aggregation service.'
     display_label:
       default: Intermediate Provider
     index_documentation: displayable, searchable, intermediate provider facet
@@ -3065,7 +3065,8 @@ properties:
       sources:
       - 'null'
     definition:
-      default: Enter the name of the institution hosting the content online.
+      default: "The name of the organization (typically UT) who delivers data
+        directly to an aggregation service."
     display_label:
       default: Provider
     index_documentation: displayable, searchable
