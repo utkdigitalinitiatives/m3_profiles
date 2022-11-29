@@ -5959,14 +5959,14 @@ properties:
   work_type:
     available_on:
       class:
-        - GenericWork
-        - Image
-        - Video
-        - Audio
-        - Pdf
-        - Book
-        - CompoundObject
-        - Newspaper
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
     cardinality:
       minimum: 1
       maximum: 1
@@ -5974,20 +5974,20 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
-        - utk
+      - utk
     definition:
       default: Describes the local work type of the work.
     display_label:
       default: Work Type
     index_documentation: displayable, searchable
     indexing:
-      - displayable
-      - stored_searchable
+    - displayable
+    - stored_searchable
     property_uri: https://ontology.lib.utk.edu/works#hasWorkType
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: required
     sample_values:
-      - https://ontology.lib.utk.edu/works#ImageWork
+    - https://ontology.lib.utk.edu/works#ImageWork
   behavior:
     available_on:
       class:
