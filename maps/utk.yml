@@ -1833,7 +1833,7 @@ properties:
       default: Describes the work type of a pcdmworks:Work.
     display_label:
       default: Has Work Type
-    index_documentation:
+    index_documentation: not displayed
     indexing:
       - admin_only
     property_uri: https://ontology.lib.utk.edu/files#hasWorkType
