@@ -1813,6 +1813,33 @@ properties:
     requirement: optional
     sample_values:
     - http://id.loc.gov/authorities/names/n2017180154
+  hasWorkType:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 1
+      maximum: 1
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+    definition:
+      default: Describes the work type of a pcdmworks:Work.
+    display_label:
+      default: Has Work Type
+    index_documentation:
+    indexing:
+      - admin_only
+    property_uri: https://ontology.lib.utk.edu/files#hasWorkType
+    range: https://ontology.lib.utk.edu/files#WorkType
+    requirement: required
+    sample_values:
   honoree:
     available_on:
       class:
