@@ -1813,7 +1813,7 @@ properties:
     requirement: optional
     sample_values:
     - http://id.loc.gov/authorities/names/n2017180154
-  hasWorkType:
+  has_work_type:
     available_on:
       class:
       - GenericWork
