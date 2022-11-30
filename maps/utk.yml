@@ -5979,10 +5979,9 @@ properties:
       default: Describes the local work type of the work.
     display_label:
       default: Work Type
-    index_documentation: displayable, searchable
+    index_documentation: admin_only
     indexing:
-    - displayable
-    - stored_searchable
+    - admin_only
     property_uri: https://ontology.lib.utk.edu/works#hasWorkType
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: required
