@@ -9,8 +9,8 @@ profile:
   date_modified: '2022-11-15'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v23
-  version: 23
+  type: UTK Digital Collections v24
+  version: 24
 
 classes:
   Attachment:
