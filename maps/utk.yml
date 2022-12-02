@@ -9,8 +9,8 @@ profile:
   date_modified: '2022-11-15'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v26 -- switch to has_work_type
-  version: 26
+  type: UTK Digital Collections v27 -- Duration on Attachment
+  version: 27
 
 classes:
   Attachment:
@@ -1499,6 +1499,7 @@ properties:
       class:
       - Audio
       - Video
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -1525,6 +1526,7 @@ properties:
     requirement: optional
     sample_values:
     - '0:57:15.904000'
+    - '3435.904000'
     syntax: W3C Media Fragments (4.2.1)
   editor:
     available_on:
