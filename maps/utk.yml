@@ -1499,6 +1499,7 @@ properties:
       class:
       - Audio
       - Video
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -1525,6 +1526,7 @@ properties:
     requirement: optional
     sample_values:
     - '0:57:15.904000'
+    - '3435.904000'
     syntax: W3C Media Fragments (4.2.1)
   editor:
     available_on:
