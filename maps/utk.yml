@@ -9,8 +9,8 @@ profile:
   date_modified: '2022-11-15'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v27 -- Duration on Attachment
-  version: 27
+  type: UTK Digital Collections v28 -- Call Number Allowed on Image
+  version: 28
 
 classes:
   Attachment:
@@ -601,6 +601,7 @@ properties:
     available_on:
       class:
       - Book
+      - Image
     cardinality:
       maximum: 1
       minimum: 0
