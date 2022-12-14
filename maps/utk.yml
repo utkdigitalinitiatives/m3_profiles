@@ -9,8 +9,8 @@ profile:
   date_modified: '2022-11-15'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v28 -- Call Number Allowed on Image
-  version: 28
+  type: UTK Digital Collections v29 -- Types on Files
+  version: 29
 
 classes:
   Attachment:
@@ -6283,7 +6283,7 @@ properties:
       class:
       - Attachment
     cardinality:
-      minimum: 0
+      minimum: 1
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#anyURI
       sources:
@@ -6300,7 +6300,7 @@ properties:
     mappings: {}
     property_uri: https://ontology.lib.utk.edu/works#hasType
     range: http://www.w3.org/2001/XMLSchema#anyURI
-    requirement: optional
+    requirement: required
     sample_values:
     - http://pcdm.org/use#PreservationFile
     - http://pcdm.org/use#IntermediateFile
