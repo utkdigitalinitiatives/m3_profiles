@@ -6147,7 +6147,7 @@ properties:
       - 'null'
     definition:
       default: The language associated with a specific file or fileset. If present, should be none
-        or combination of subtag and prefix defined in the iana registry 
+        or combination of subtag and prefix defined in the iana registry
         (https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry).
         Must be present for files that correlate to IIIF manifests like caption / subtitle
         files.
