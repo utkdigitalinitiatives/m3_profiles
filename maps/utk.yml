@@ -9,8 +9,8 @@ profile:
   date_modified: '2022-11-15'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v29 -- Types on Files
-  version: 29
+  type: UTK Digital Collections v30 -- File Language Not Required
+  version: 30
 
 classes:
   Attachment:
@@ -6139,14 +6139,18 @@ properties:
       - Attachment
     cardinality:
       maximum: 1
-      minimum: 1
+      minimum: 0
     multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
       - 'null'
     definition:
-      default: The language associated with a specific file or fileset.
+      default: The language associated with a specific file or fileset. If present, should be none
+        or combination of subtag and prefix defined in the iana registry
+        (https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry).
+        Must be present for files that correlate to IIIF manifests like caption / subtitle
+        files.
     display_label:
       default: Language
     index_documentation: displayable
@@ -6157,7 +6161,10 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     sample_values:
-    - https://gist.github.com/markpbaggett/763205cd38d382eff3d0db20a265fe0e
+    - none
+    - en
+    - es
+    - en-CA-newfound
     syntax: BCP-47
   file_size:
     available_on:
