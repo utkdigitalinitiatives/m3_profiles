@@ -2946,7 +2946,9 @@ properties:
       - CompoundObject
       - Newspaper
     cardinality:
-      minimum: 0
+      minimum: 1
+      maximum: 1
+    multi_value: true
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
@@ -2972,7 +2974,8 @@ properties:
     usage_guidelines:
       default: This is the primary identifier of a work. For migrated resources,
         this should be the original PID. For new resources, this may follow
-        another pattern.
+        another pattern. This was added because the original pid is not always
+        in the MODS record and source_identifier isn't inlcluded in Solr.
   printer_of_plates:
     available_on:
       class:
