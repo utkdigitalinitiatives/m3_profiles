@@ -6,11 +6,11 @@
 m3_version: 1.0.beta2
 
 profile:
-  date_modified: '2023-02-28'
+  date_modified: '2023-05-02'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v32 -- Addressee on Pdfs
-  version: 32
+  type: UTK Digital Collections v33 - Adding Local Fields for URI Only Fields
+  version: 33
 
 classes:
   Attachment:
@@ -2934,6 +2934,45 @@ properties:
     requirement: optional
     sample_values:
     - http://id.loc.gov/authorities/names/n2017180154
+  primary_identifier:
+    available_on:
+      class:
+        - GenericWork
+        - Image
+        - Video
+        - Audio
+        - Pdf
+        - Book
+        - CompoundObject
+        - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+        - 'null'
+    definition:
+      default: Enter the primary identifier.
+    display_label:
+      default: Primary Identifier
+    index_documentation: displayable, searchable
+    indexing:
+      - displayable
+      - stored_searchable
+    mappings:
+      blacklight: primary_identifier_ssi
+      mods_oai_pmh: mods:identifier[@type='primary']
+      qualified_dc_pmh: dcterms:identifier
+      simple_dc_pmh: dc:identifier
+    property_uri: http://purl.org/dc/terms/identifier
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+      - csboyd:0014
+    usage_guidelines:
+      default: This is the primary identifier of a work. For migrated resources,
+        this should be the original PID. For new resources, this may follow
+        another pattern.
   printer_of_plates:
     available_on:
       class:
