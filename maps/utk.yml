@@ -3297,6 +3297,41 @@ properties:
     property_uri: http://purl.org/dc/terms/type
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
+  resource_type_local:
+    available_on:
+      class:
+        - GenericWork
+        - Image
+        - Video
+        - Audio
+        - Pdf
+        - Book
+        - CompoundObject
+        - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+        - resourceTypes
+    definition:
+      default: Enter broad term(s) that describe the general format of the resource
+        (Text, Cartographic, Notated music, Audio non-musical, Audio, Still image,
+        Moving image, Artifact, Collection). Note that more than one term can be used
+        if the resource is dominated by more than one resource type.
+    display_label:
+      default: Resource Type
+    index_documentation: displayable, searchable, resource type facet
+    indexing:
+      - displayable
+      - stored_searchable
+    mappings:
+      mods_oai_pmh: mods:typeOfResource
+      qualified_dc_pmh: dcterms:type
+      simple_dc_pmh: dc:type
+    property_uri: http://purl.org/dc/elements/1.1/type
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
   restorationist:
     available_on:
       class:
