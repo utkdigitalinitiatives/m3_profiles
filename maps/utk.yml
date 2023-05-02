@@ -2937,14 +2937,14 @@ properties:
   primary_identifier:
     available_on:
       class:
-        - GenericWork
-        - Image
-        - Video
-        - Audio
-        - Pdf
-        - Book
-        - CompoundObject
-        - Newspaper
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
     cardinality:
       minimum: 0
     controlled_values:
@@ -2957,8 +2957,8 @@ properties:
       default: Primary Identifier
     index_documentation: displayable, searchable
     indexing:
-      - displayable
-      - stored_searchable
+    - displayable
+    - stored_searchable
     mappings:
       blacklight: primary_identifier_ssi
       mods_oai_pmh: mods:identifier[@type='primary']
@@ -2968,7 +2968,7 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     sample_values:
-      - csboyd:0014
+    - csboyd:0014
     usage_guidelines:
       default: This is the primary identifier of a work. For migrated resources,
         this should be the original PID. For new resources, this may follow
@@ -3300,20 +3300,20 @@ properties:
   resource_type_local:
     available_on:
       class:
-        - GenericWork
-        - Image
-        - Video
-        - Audio
-        - Pdf
-        - Book
-        - CompoundObject
-        - Newspaper
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
     cardinality:
       minimum: 0
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
-        - resourceTypes
+      - resourceTypes
     definition:
       default: Enter broad term(s) that describe the general format of the resource
         (Text, Cartographic, Notated music, Audio non-musical, Audio, Still image,
@@ -3323,8 +3323,8 @@ properties:
       default: Resource Type
     index_documentation: displayable, searchable, resource type facet
     indexing:
-      - displayable
-      - stored_searchable
+    - displayable
+    - stored_searchable
     mappings:
       mods_oai_pmh: mods:typeOfResource
       qualified_dc_pmh: dcterms:type
