@@ -2375,14 +2375,14 @@ properties:
   language_local:
     available_on:
       class:
-        - GenericWork
-        - Image
-        - Video
-        - Audio
-        - Pdf
-        - Book
-        - CompoundObject
-        - Newspaper
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
     cardinality:
       minimum: 0
     controlled_values:
