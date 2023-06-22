@@ -2388,7 +2388,7 @@ properties:
     controlled_values:
       format: http://www.w3.org/2001/XMLSchema#string
       sources:
-        - iso639-2b
+      - iso639-2b
     definition:
       default: Enter a language used in the resource. When multiple languages
         are present, use multiple fields. If no language is present, use "No
@@ -2397,9 +2397,9 @@ properties:
       default: Language
     index_documentation: displayable, searchable, language facet
     indexing:
-      - displayable
-      - stored_searchable
-      - facetable
+    - displayable
+    - stored_searchable
+    - facetable
     mappings:
       metatags: og:locale
       mods_oai_pmh: mods:language/mods:languageTerm
@@ -2409,7 +2409,7 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     sample_values:
-      - http://id.loc.gov/vocabulary/iso639-2/eng
+    - http://id.loc.gov/vocabulary/iso639-2/eng
   license:
     available_on:
       class:
