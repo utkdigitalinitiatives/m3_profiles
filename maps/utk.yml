@@ -6,11 +6,11 @@
 m3_version: 1.0.beta2
 
 profile:
-  date_modified: '2023-05-02'
+  date_modified: '2023-05-04'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v33 - Adding Local Fields for URI Only Fields
-  version: 33
+  type: UTK Digital Collections v34 - Add Local Languages and Remove Local from Display Labels
+  version: 34
 
 classes:
   Attachment:
@@ -1765,7 +1765,7 @@ properties:
       default: Enter a term that describes the type of work, including the physical
         form or medium of material for the work.
     display_label:
-      default: Local Form
+      default: Form
     index_documentation: displayable, searchable, form facet
     indexing:
     - displayable
@@ -2369,6 +2369,44 @@ properties:
       simple_dc_pmh: dc:language
     property_uri: http://purl.org/dc/terms/language
     range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - http://id.loc.gov/vocabulary/iso639-2/eng
+  language_local:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - iso639-2b
+    definition:
+      default: Enter a language used in the resource. When multiple languages
+        are present, use multiple fields. If no language is present, use "No
+        linguistic content."
+    display_label:
+      default: Language
+    index_documentation: displayable, searchable, language facet
+    indexing:
+    - displayable
+    - stored_searchable
+    - facetable
+    mappings:
+      metatags: og:locale
+      mods_oai_pmh: mods:language/mods:languageTerm
+      qualified_dc_pmh: dcterms:language
+      simple_dc_pmh: dc:language
+    property_uri: http://purl.org/dc/terms/language
+    range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     sample_values:
     - http://id.loc.gov/vocabulary/iso639-2/eng
@@ -3577,7 +3615,7 @@ properties:
     definition:
       default: Enter the uncontrolled name of a place with which the resource is associated.
     display_label:
-      default: Local Spatial Coverage
+      default: Spatial Coverage
     indexing:
     - displayable
     - stored_searchable
@@ -3992,7 +4030,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Addressee
+      default: Addressee
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4018,7 +4056,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Architect
+      default: Architect
     index_documentation: displayable, searchable, creator facet
     indexing:
     - displayable
@@ -4046,7 +4084,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Arranger
+      default: Arranger
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4078,7 +4116,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Artist
+      default: Artist
     index_documentation: displayable, searchable, creator facet
     indexing:
     - displayable
@@ -4111,7 +4149,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Associated Name
+      default: Associated Name
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4143,7 +4181,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Attributed Name
+      default: Attributed Name
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4175,7 +4213,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Author
+      default: Author
     index_documentation: displayable, searchable, creator facet
     indexing:
     - displayable
@@ -4204,7 +4242,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Autographer
+      default: Autographer
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4229,7 +4267,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Binding Designer
+      default: Binding Designer
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4254,7 +4292,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Cartographer
+      default: Cartographer
     index_documentation: displayable, searchable, creator facet
     indexing:
     - displayable
@@ -4280,7 +4318,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Censor
+      default: Censor
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4306,7 +4344,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Choreographer
+      default: Choreographer
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4338,7 +4376,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Client
+      default: Client
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4370,7 +4408,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Compiler
+      default: Compiler
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4402,7 +4440,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Composer
+      default: Composer
     index_documentation: displayable, searchable, creator facet
     indexing:
     - displayable
@@ -4435,7 +4473,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Contractor
+      default: Contractor
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4467,7 +4505,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Contributor
+      default: Contributor
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4499,7 +4537,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Copyright Holder
+      default: Copyright Holder
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4531,7 +4569,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Correspondent
+      default: Correspondent
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4563,7 +4601,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Costume Designer
+      default: Costume Designer
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4595,7 +4633,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Creator
+      default: Creator
     index_documentation: displayable, searchable, creator facet
     indexing:
     - displayable
@@ -4628,7 +4666,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Dedicatee
+      default: Dedicatee
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4660,7 +4698,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Depicted
+      default: Depicted
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4692,7 +4730,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Designer
+      default: Designer
     index_documentation: displayable, searchable, creator facet
     indexing:
     - displayable
@@ -4725,7 +4763,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Distributor
+      default: Distributor
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4757,7 +4795,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Donor
+      default: Donor
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4789,7 +4827,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Editor
+      default: Editor
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4821,7 +4859,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Editor of Compilation
+      default: Editor of Compilation
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4853,7 +4891,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Engraver
+      default: Engraver
     index_documentation: displayable, searchable, creator facet
     indexing:
     - displayable
@@ -4886,7 +4924,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Former Owner
+      default: Former Owner
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4918,7 +4956,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Honoree
+      default: Honoree
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4950,7 +4988,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Host Institution
+      default: Host Institution
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -4982,7 +5020,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Illustrator
+      default: Illustrator
     index_documentation: displayable, searchable, creator facet
     indexing:
     - displayable
@@ -5015,7 +5053,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Instrumentalist
+      default: Instrumentalist
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5047,7 +5085,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Interviewee
+      default: Interviewee
     index_documentation: displayable, searchable, creator facet
     indexing:
     - displayable
@@ -5080,7 +5118,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Interviewer
+      default: Interviewer
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5112,7 +5150,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Issuing Body
+      default: Issuing Body
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5144,7 +5182,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Lithographer
+      default: Lithographer
     index_documentation: displayable, searchable, creator facet
     indexing:
     - displayable
@@ -5177,7 +5215,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Lyricist
+      default: Lyricist
     index_documentation: displayable, searchable, creator facet
     indexing:
     - displayable
@@ -5210,7 +5248,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Music Copyist
+      default: Music Copyist
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5242,7 +5280,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Musical Director
+      default: Musical Director
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5274,7 +5312,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Organizer
+      default: Organizer
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5306,7 +5344,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Originator
+      default: Originator
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5338,7 +5376,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Owner
+      default: Owner
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5370,7 +5408,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Performer
+      default: Performer
     index_documentation: displayable, searchable, creator facet
     indexing:
     - displayable
@@ -5403,7 +5441,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Photographer
+      default: Photographer
     index_documentation: displayable, searchable, creator facet
     indexing:
     - displayable
@@ -5436,7 +5474,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Publication Place
+      default: Publication Place
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5466,7 +5504,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Printer
+      default: Printer
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5498,7 +5536,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Printer of Plates
+      default: Printer of Plates
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5530,7 +5568,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Producer
+      default: Producer
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5562,7 +5600,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Production Company
+      default: Production Company
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5594,7 +5632,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Publisher
+      default: Publisher
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5626,7 +5664,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Restorationist
+      default: Restorationist
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5658,7 +5696,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Set Designer
+      default: Set Designer
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5690,7 +5728,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Signer
+      default: Signer
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5722,7 +5760,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Speaker
+      default: Speaker
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5754,7 +5792,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Stage Director
+      default: Stage Director
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5786,7 +5824,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Stage Manager
+      default: Stage Manager
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5818,7 +5856,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Standards Body
+      default: Standards Body
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5850,7 +5888,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Surveyor
+      default: Surveyor
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5882,7 +5920,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Translator
+      default: Translator
     index_documentation: displayable, searchable
     indexing:
     - displayable
@@ -5914,7 +5952,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Videographer
+      default: Videographer
     index_documentation: displayable, searchable, creator facet
     indexing:
     - displayable
@@ -5947,7 +5985,7 @@ properties:
       sources:
       - 'null'
     display_label:
-      default: Local Witness
+      default: Witness
     index_documentation: displayable, searchable
     indexing:
     - displayable
