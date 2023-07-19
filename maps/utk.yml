@@ -6,11 +6,11 @@
 m3_version: 1.0.beta2
 
 profile:
-  date_modified: '2023-05-04'
+  date_modified: '2023-07-19'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v34 - Add Local Languages and Remove Local from Display Labels
-  version: 34
+  type: UTK Digital Collections v35 - Alter Local Language Property
+  version: 35
 
 classes:
   Attachment:
