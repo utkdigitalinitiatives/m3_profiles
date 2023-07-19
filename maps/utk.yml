@@ -2390,7 +2390,7 @@ properties:
       sources:
       - iso639-2b
     definition:
-      default: Enter a language used in the resource. When multiple languages
+      default: Enter a language used in the resource as text. When multiple languages
         are present, use multiple fields. If no language is present, use "No
         linguistic content."
     display_label:
@@ -2405,11 +2405,11 @@ properties:
       mods_oai_pmh: mods:language/mods:languageTerm
       qualified_dc_pmh: dcterms:language
       simple_dc_pmh: dc:language
-    property_uri: http://purl.org/dc/terms/language
+    property_uri: http://dbpedia.org/ontology/language
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     sample_values:
-    - http://id.loc.gov/vocabulary/iso639-2/eng
+    - English
   license:
     available_on:
       class:
