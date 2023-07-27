@@ -9,8 +9,8 @@ profile:
   date_modified: '2023-07-19'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v35 - Alter Local Language Property
-  version: 35
+  type: UTK Digital Collections v36 - Add Attachment as Class to resource_type
+  version: 36
 
 classes:
   Attachment:
@@ -3305,6 +3305,7 @@ properties:
   resource_type:
     available_on:
       class:
+      - Attachment
       - GenericWork
       - Image
       - Video
