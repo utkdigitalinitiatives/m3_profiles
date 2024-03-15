@@ -6,11 +6,11 @@
 m3_version: 1.0.beta2
 
 profile:
-  date_modified: '2024-03-12'
+  date_modified: '2024-03-15'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v37 - Add Attachment as Class to resource_type
-  version: 37
+  type: UTK Digital Collections v38 - Apparently PDFs can have call numbers
+  version: 38
 
 classes:
   Attachment:
@@ -603,6 +603,7 @@ properties:
       class:
       - Book
       - Image
+      - Pdf
     cardinality:
       maximum: 1
       minimum: 0
