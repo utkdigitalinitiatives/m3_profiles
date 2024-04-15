@@ -3456,28 +3456,28 @@ properties:
     - http://rightsstatements.org/vocab/InC/1.0/
   sequence:
     available_on:
-            class:
-            - Attachment
-            - GenericWork
-            - Image
-            - Video
-            - Audio
-            - Pdf
-            - Book
-            - CompoundObject
-            - Newspaper
+      class:
+      - Attachment
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
     cardinality:
-            maximum: 1
-            minimum: 0
+      maximum: 1
+      minimum: 0
     multi_value: true
     controlled_values:
-            format: http://www.w3.org/2001/XMLSchema#integer
-            sources:
-            - 'null'
+    format: http://www.w3.org/2001/XMLSchema#integer
+    sources:
+    - 'null'
     definition:
-           default: Numberic order in which to display pages or other items
+      default: Numeric order in which to display pages or other items
     display_label:
-            default: Sequence
+      default: Sequence
     index_documentation: displayable, stored_searchable
     indexing:
     - displayable
