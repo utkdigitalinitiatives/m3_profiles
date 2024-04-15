@@ -3482,7 +3482,6 @@ properties:
     indexing:
     - displayable
     - stored_searchable
-    mappings: {}
     property_uri: http://www.w3.org/2003/12/exif/ns#xResolution
     range: http://www.w3.org/2001/XMLSchema#integer
     requirement: optional
