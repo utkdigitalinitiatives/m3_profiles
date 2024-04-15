@@ -3486,11 +3486,10 @@ properties:
     range: http://www.w3.org/2001/XMLSchema#integer
     requirement: optional
     mappings:
-            blacklight: sequence_sim
-            mods_oai_pmh: mods:sequence
-            qualified_dc_pmh: dcterms:sequence
-            simple_dc_pmh: dc:sequence
-
+      blacklight: sequence_sim
+      mods_oai_pmh: mods:sequence
+      qualified_dc_pmh: dcterms:sequence
+      simple_dc_pmh: dc:sequence
   set_designer:
     available_on:
       class:
