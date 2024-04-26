@@ -10,7 +10,7 @@ profile:
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
   type: UTK Digital Collections v38 - Add sequence to works
-  version: 39
+  version: 40
 
 classes:
   Attachment:
@@ -2060,8 +2060,8 @@ properties:
       sources:
       - 'null'
     definition:
-      default: 'The name of the organization who contributes data indirectly to
-        an aggregation service.'
+      default: The name of the organization who contributes data indirectly to
+        an aggregation service.
     display_label:
       default: Intermediate Provider
     index_documentation: displayable, searchable, intermediate provider facet
@@ -2098,9 +2098,9 @@ properties:
       - naf
       - ulan
     definition:
-      default: 'Enter the name of a person (last, first), family or organization responsible
+      default: Enter the name of a person (last, first), family or organization responsible
         for creating or contributing to a resource by responding to an interviewer,
-        usually a reporter, pollster, or some other information gathering agent.'
+        usually a reporter, pollster, or some other information gathering agent.
     display_label:
       default: Interviewee
     index_documentation: displayable, searchable, creator facet
@@ -2259,7 +2259,7 @@ properties:
     sample_values:
     - 2687-9875
     validations:
-      match_regex: ^[0-9]{4}-[0-9]{3}[0-9xX]$.
+      match_regex: "^[0-9]{4}-[0-9]{3}[0-9xX]$."
   issuing_body:
     available_on:
       class:
@@ -2356,8 +2356,7 @@ properties:
       - iso639-2b
     definition:
       default: Enter a language used in the resource. When multiple languages
-        are present, use multiple fields. If no language is present, use "No
-        linguistic content."
+        are present, use multiple fields. If no language is present, use "No linguistic content."
     display_label:
       default: Language
     index_documentation: displayable, searchable, language facet
@@ -2394,8 +2393,7 @@ properties:
       - iso639-2b
     definition:
       default: Enter a language used in the resource as text. When multiple languages
-        are present, use multiple fields. If no language is present, use "No
-        linguistic content."
+        are present, use multiple fields. If no language is present, use "No linguistic content."
     display_label:
       default: Language
     index_documentation: displayable, searchable, language facet
@@ -2433,8 +2431,8 @@ properties:
       sources:
       - creativecommons
     definition:
-      default: 'If applicable, enter the Creative Commons license that applies to
-        the resource. '
+      default: If applicable, enter the Creative Commons license that applies to
+        the resource.
     display_label:
       default: License
     index_documentation: displayable, searchable, rights facet
@@ -3456,40 +3454,41 @@ properties:
     - http://rightsstatements.org/vocab/InC/1.0/
   sequence:
     available_on:
-      class:
-      - Attachment
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
+            class:
+            - Attachment
+            - GenericWork
+            - Image
+            - Video
+            - Audio
+            - Pdf
+            - Book
+            - CompoundObject
+            - Newspaper
     cardinality:
-      maximum: 1
-      minimum: 0
+            maximum: 1
+            minimum: 0
     multi_value: true
     controlled_values:
-    format: http://www.w3.org/2001/XMLSchema#integer
-    sources:
-    - 'null'
+            format: http://www.w3.org/2001/XMLSchema#integer
+            sources:
+            - 'null'
     definition:
-      default: Numeric order in which to display pages or other items
+           default: Numberic order in which to display pages or other items
     display_label:
-      default: Sequence
+            default: Sequence
     index_documentation: displayable, stored_searchable
     indexing:
     - displayable
     - stored_searchable
+    mappings: {}
     property_uri: http://www.w3.org/2003/12/exif/ns#xResolution
     range: http://www.w3.org/2001/XMLSchema#integer
     requirement: optional
     mappings:
-      blacklight: sequence_sim
-      mods_oai_pmh: mods:sequence
-      qualified_dc_pmh: dcterms:sequence
-      simple_dc_pmh: dc:sequence
+            blacklight: sequence_sim
+            mods_oai_pmh: mods:sequence
+            qualified_dc_pmh: dcterms:sequence
+            simple_dc_pmh: dc:sequence
   set_designer:
     available_on:
       class:
@@ -3962,8 +3961,8 @@ properties:
       sources:
       - 'null'
     definition:
-      default: 'Enter a date range or phrase that captures the time period the resource
-        is about. '
+      default: Enter a date range or phrase that captures the time period the resource
+        is about.
     display_label:
       default: Temporal Coverage
     index_documentation: displayable, searchable, temporal facet
