@@ -10,7 +10,7 @@ profile:
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
   type: UTK Digital Collections v40 - Change "Spatial Coverage" label to "Location"
-  version: 40
+  version: 41
 
 classes:
   Attachment:
@@ -3655,7 +3655,7 @@ properties:
     definition:
       default: Enter the uncontrolled name of a place with which the resource is associated.
     display_label:
-      default: Spatial Coverage
+      default: Location
     indexing:
     - displayable
     - stored_searchable
