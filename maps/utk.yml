@@ -9,8 +9,8 @@ profile:
   date_modified: '2024-03-15'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v38 - Add sequence to works
-  version: 39
+  type: UTK Digital Collections v40 - Change "Spatial Coverage" label to "Location"
+  version: 40
 
 classes:
   Attachment:
@@ -3618,7 +3618,7 @@ properties:
     definition:
       default: Enter the controlled name of a place with which the resource is associated.
     display_label:
-      default: Spatial Coverage
+      default: Location
     index_documentation: displayable, searchable, spatial facet
     indexing:
     - displayable
