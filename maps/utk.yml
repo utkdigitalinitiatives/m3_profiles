@@ -3655,7 +3655,7 @@ properties:
     definition:
       default: Enter the uncontrolled name of a place with which the resource is associated.
     display_label:
-      default: Spatial Coverage
+      default: Location
     indexing:
     - displayable
     - stored_searchable
