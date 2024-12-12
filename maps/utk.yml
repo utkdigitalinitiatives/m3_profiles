@@ -135,6 +135,7 @@ properties:
       - Book
       - CompoundObject
       - Pdf
+      - Image
     cardinality:
       minimum: 0
     controlled_values:
