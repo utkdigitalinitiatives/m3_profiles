@@ -9,8 +9,8 @@ profile:
   date_modified: '2024-09-10'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v43 - Add Book class to cartographer property
-  version: 43
+  type: UTK Digital Collections v44 - Add Image class to addressee property
+  version: 44
 
 classes:
   Attachment:
