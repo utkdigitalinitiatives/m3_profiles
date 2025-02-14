@@ -6,11 +6,11 @@
 m3_version: 1.0.beta2
 
 profile:
-  date_modified: '2024-09-10'
+  date_modified: '2025-02-14'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v44 - Add Image class to addressee property
-  version: 44
+  type: UTK Digital Collections v45 - Fix incorrect property URI (crp) for utk_addressee
+  version: 45
 
 classes:
   Attachment:
@@ -4081,7 +4081,7 @@ properties:
       mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Addressee')]]/mods:namePart
       qualified_dc_pmh: dcterms:contributor
       simple_dc_pmh: dc:contributor
-    property_uri: https://ontology.lib.utk.edu/roles#crp
+    property_uri: https://ontology.lib.utk.edu/roles#rcp
     range: http://www.w3.org/2001/XMLSchema#string
     requirement: optional
     sample_values:
