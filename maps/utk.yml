@@ -3856,6 +3856,7 @@ properties:
     - stored_searchable
     - facetable
     mappings:
+      subject: subject_sim
       mods_oai_pmh: mods:subject/mods:topic
       qualified_dc_pmh: dcterms:subject
       simple_dc_pmh: dc:subject
