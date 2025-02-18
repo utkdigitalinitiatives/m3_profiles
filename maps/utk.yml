@@ -9,8 +9,8 @@ profile:
   date_modified: '2025-02-14'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v45 - Fix incorrect property URI (crp) for utk_addressee
-  version: 45
+  type: UTK Digital Collections v46 - Add blacklight config to subject
+  version: 46
 
 classes:
   Attachment:
@@ -3856,6 +3856,7 @@ properties:
     - stored_searchable
     - facetable
     mappings:
+      blacklight: subject_sim
       mods_oai_pmh: mods:subject/mods:topic
       qualified_dc_pmh: dcterms:subject
       simple_dc_pmh: dc:subject
