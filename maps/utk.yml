@@ -6,11 +6,11 @@
 m3_version: 1.0.beta2
 
 profile:
-  date_modified: '2025-02-14'
+  date_modified: '2025-02-19'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v46 - Add blacklight config to subject
-  version: 46
+  type: UTK Digital Collections v47 - Add blacklight config to spatials
+  version: 47
 
 classes:
   Attachment:
@@ -3627,6 +3627,7 @@ properties:
     - stored_searchable
     - facetable
     mappings:
+      blacklight: spatial_sim
       mods_oai_pmh: mods:subject/mods:geographic
       qualified_dc_pmh: dcterms:spatial
       simple_dc_pmh: dc:coverage
@@ -3662,6 +3663,7 @@ properties:
     - displayable
     - stored_searchable
     mappings:
+      blacklight: spatial_sim
       mods_oai_pmh: mods:subject/mods:geographic
       qualified_dc_pmh: dcterms:spatial
       simple_dc_pmh: dc:coverage
