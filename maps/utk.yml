@@ -9,8 +9,8 @@ profile:
   date_modified: '2025-02-19'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v47 - Add blacklight config to spatials
-  version: 47
+  type: UTK Digital Collections v48 - Fix typo in costumer_designer
+  version: 48
 
 classes:
   Attachment:
@@ -1025,7 +1025,7 @@ properties:
     requirement: optional
     sample_values:
     - http://id.loc.gov/authorities/names/n2017180154
-  costumer_designer:
+  costume_designer:
     available_on:
       class:
       - GenericWork
