@@ -6,11 +6,11 @@
 m3_version: 1.0.beta2
 
 profile:
-  date_modified: '2025-02-19'
+  date_modified: '2025-04-02'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v48 - Fix typo in costumer_designer
-  version: 48
+  type: UTK Digital Collections v49 - Add Attachment as a class to descriptive metadata fields
+  version: 49
 
 classes:
   Attachment:
@@ -100,6 +100,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -136,6 +137,7 @@ properties:
       - CompoundObject
       - Pdf
       - Image
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -173,6 +175,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -242,6 +245,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -280,6 +284,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -355,6 +360,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -394,6 +400,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -434,6 +441,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -472,6 +480,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -511,6 +520,7 @@ properties:
       - CompoundObject
       - Image
       - Pdf
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -548,6 +558,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -635,6 +646,7 @@ properties:
       class:
       - Image
       - Book
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -698,6 +710,7 @@ properties:
       class:
       - Book
       - Video
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -735,6 +748,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -772,6 +786,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -811,6 +826,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -850,6 +866,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -888,6 +905,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -928,6 +946,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -959,6 +978,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -999,6 +1019,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1036,6 +1057,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1074,6 +1096,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1113,6 +1136,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -1149,6 +1173,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -1187,6 +1212,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -1222,6 +1248,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -1258,6 +1285,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -1292,6 +1320,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1325,6 +1354,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1362,6 +1392,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1400,6 +1431,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1438,6 +1470,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1475,6 +1508,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1546,6 +1580,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1584,6 +1619,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1623,6 +1659,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1661,6 +1698,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1691,6 +1729,7 @@ properties:
     available_on:
       class:
       - Book
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -1726,6 +1765,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1760,6 +1800,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1796,6 +1837,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1833,6 +1875,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1871,6 +1914,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1909,6 +1953,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -1949,6 +1994,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2053,6 +2099,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -2091,6 +2138,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2129,6 +2177,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2167,6 +2216,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -2273,6 +2323,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2310,6 +2361,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2350,6 +2402,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2388,6 +2441,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2426,6 +2480,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -2465,6 +2520,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2504,6 +2560,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2542,6 +2599,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2580,6 +2638,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2617,6 +2676,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2655,6 +2715,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2689,6 +2750,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -2726,6 +2788,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2763,6 +2826,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2802,6 +2866,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2835,6 +2900,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2872,6 +2938,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2912,6 +2979,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2950,6 +3018,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -2988,6 +3057,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 1
       maximum: 1
@@ -3030,6 +3100,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3067,6 +3138,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3107,6 +3179,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3145,6 +3218,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 1
@@ -3182,6 +3256,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3215,6 +3290,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3252,6 +3328,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -3283,6 +3360,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -3319,6 +3397,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3355,6 +3434,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3390,6 +3470,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3429,6 +3510,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 1
@@ -3503,6 +3585,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3542,6 +3625,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3571,6 +3655,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3609,6 +3694,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3649,6 +3735,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3685,6 +3772,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3722,6 +3810,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3759,6 +3848,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3797,6 +3887,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3834,6 +3925,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3883,6 +3975,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -3920,6 +4013,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       maximum: 1
       minimum: 0
@@ -3960,6 +4054,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4035,6 +4130,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4068,6 +4164,7 @@ properties:
       - Book
       - CompoundObject
       - Pdf
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4154,6 +4251,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4187,6 +4285,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4219,6 +4318,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4251,6 +4351,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4280,6 +4381,7 @@ properties:
       - CompoundObject
       - Image
       - Pdf
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4414,6 +4516,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4446,6 +4549,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4478,6 +4582,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4511,6 +4616,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4543,6 +4649,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4575,6 +4682,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4607,6 +4715,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4639,6 +4748,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4671,6 +4781,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4704,6 +4815,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4736,6 +4848,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4768,6 +4881,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4801,6 +4915,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4833,6 +4948,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4865,6 +4981,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4897,6 +5014,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4929,6 +5047,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4962,6 +5081,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -4994,6 +5114,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5026,6 +5147,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5058,6 +5180,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5091,6 +5214,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5123,6 +5247,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5156,6 +5281,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5188,6 +5314,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5220,6 +5347,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5253,6 +5381,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5286,6 +5415,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5318,6 +5448,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5350,6 +5481,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5382,6 +5514,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5414,6 +5547,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5446,6 +5580,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5478,6 +5613,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5511,6 +5647,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5544,6 +5681,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5574,6 +5712,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5606,6 +5745,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5638,6 +5778,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5670,6 +5811,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5702,6 +5844,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5734,6 +5877,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5766,6 +5910,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5798,6 +5943,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5830,6 +5976,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5862,6 +6009,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5894,6 +6042,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5926,6 +6075,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5958,6 +6108,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -5990,6 +6141,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -6022,6 +6174,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -6055,6 +6208,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -6087,6 +6241,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
@@ -6127,6 +6282,7 @@ properties:
       - Book
       - CompoundObject
       - Newspaper
+      - Attachment
     cardinality:
       minimum: 0
     controlled_values:
