@@ -9,8 +9,8 @@ profile:
   date_modified: '2025-04-02'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v49 - Add Attachment as a class to descriptive metadata fields
-  version: 49
+  type: UTK Digital Collections v50 - Nest license and rights_statement under blacklight rights_statement_sim
+  version: 50
 
 classes:
   Attachment:
@@ -2498,9 +2498,8 @@ properties:
     indexing:
     - displayable
     - stored_searchable
-    - facetable
     mappings:
-      blacklight: rights_sim
+      blacklight: rights_statement_sim
       mods_oai_pmh: mods:accessCondition[@type="use and reproduction"]
       qualified_dc_pmh: dcterms:license
       simple_dc_pmh: dc:rights
@@ -3522,14 +3521,13 @@ properties:
     definition:
       default: Enter the rights statement that applies to the resource.
     display_label:
-      default: Rights Statement
+      default: Rights
     index_documentation: displayable, searchable, rights facet
     indexing:
     - displayable
     - stored_searchable
-    - facetable
     mappings:
-      blacklight: rights_sim
+      blacklight: rights_statement_sim
       mods_oai_pmh: mods:accessCondition[@type="use and reproduction"]
       qualified_dc_pmh: dcterms:rights
       simple_dc_pmh: dc:rights
