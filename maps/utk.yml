@@ -6,11 +6,11 @@
 m3_version: 1.0.beta2
 
 profile:
-  date_modified: '2025-04-02'
+  date_modified: '2025-05-23'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v50 - Nest license and rights_statement under blacklight rights_statement_sim
-  version: 50
+  type: UTK Digital Collections v51 - Remove keyword from facet
+  version: 51
 
 classes:
   Attachment:
@@ -2379,7 +2379,6 @@ properties:
     indexing:
     - displayable
     - stored_searchable
-    - facetable
     mappings:
       blacklight: subject_sim
       mods_oai_pmh: mods:subject/mods:topic
