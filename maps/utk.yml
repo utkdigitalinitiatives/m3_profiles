@@ -6,11 +6,11 @@
 m3_version: 1.0.beta2
 
 profile:
-  date_modified: '2025-05-23'
+  date_modified: '2026-01-06'
   responsibility: https://www.lib.utk.edu
   responsibility_statement: University of Tennessee Libraries
-  type: UTK Digital Collections v51 - Remove keyword from facet
-  version: 51
+  type: UTK Digital Collections v54 - Reorder metadata fields 
+  version: 54
 
 classes:
   Attachment:
@@ -49,6 +49,82 @@ mappings:
     name: Simple DC OAI PMH
 
 properties:
+  title:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      maximum: 1
+      minimum: 1
+    multi_value: true
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter a standardized title for display. If only one title is needed,
+        transcribe the title from the source itself.
+    display_label:
+      default: Title
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      metatags: twitter:title, og:title
+      mods_oai_pmh: mods:titleInfo/mods:title
+      qualified_dc_pmh: dcterms:title
+      simple_dc_pmh: dc:title
+    property_uri: http://purl.org/dc/terms/title
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: required
+    sample_values:
+    - Pencil drawn portrait study of woman
+  alternative_title:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter any alternate titles used to identify the source. If the source
+        is a serial publication, this could include a transcribed title. If the title
+        is written in more than one language, this title could include a foreign language
+        (parallel) title.
+    display_label:
+      default: Alternative Title
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      mods_oai_pmh: modstitleInfo[@type="alternative"]/mods:title
+      qualified_dc_pmh: dcterms:alternative
+    property_uri: http://purl.org/dc/terms/alternative
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - 'Swimming 1969: The University of Tennessee'
   abstract:
     available_on:
       class:
@@ -89,6 +165,838 @@ properties:
       of his statement is censored due to classified information.
     usage_guidelines:
       default: Enter a summary of the resource. End this field with a period.
+  creator:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - wikidata
+      - naf
+      - ulan
+    definition:
+      default: Enter the name of a person (last, first) or organization responsible
+        for the intellectual or artistic content of a resource. Use when a suitable
+        more granular term cannot be identified.
+    display_label:
+      default: Creator
+    index_documentation: displayable, searchable, creator facet
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: creator_sim
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Creator')]]/mods:namePart
+      qualified_dc_pmh: dcterms:creator
+      simple_dc_pmh: dc:creator
+    property_uri: http://id.loc.gov/vocabulary/relators/cre
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - http://id.loc.gov/authorities/names/n2017180154
+  contributor:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - wikidata
+      - naf
+      - ulan
+    definition:
+      default: Enter the name of a person (last, first), family or organization responsible
+        for making contributions to the resource. This includes those whose work has
+        been contributed to a larger work, such as an anthology, serial publication,
+        or other compilation of individual works. If a more specific role is available,
+        prefer that, e.g. editor, compiler, illustrator.
+    display_label:
+      default: Contributor
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Contributor')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/ctb
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - http://id.loc.gov/authorities/names/n2017180154
+  date_created:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      maximum: 1
+      minimum: 0
+    multi_value: true
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter the date a work was created. If this is a published work, use
+        "Date Issued."
+    display_label:
+      default: Date Created
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      mods_oai_pmh: mods:originInfo/mods:dateCreated
+      qualified_dc_pmh: dcterms:created
+      simple_dc_pmh: dc:date
+    property_uri: http://purl.org/dc/terms/created
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - '"approximately between 1940 and 1950", "1940~/1950"'
+  date_created_d:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      maximum: 1
+      minimum: 0
+    multi_value: false
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#date
+      sources:
+      - 'null'
+    definition:
+      default: Machine readable date for creation date.
+    display_label:
+      default: Machine Readable Creation Date
+    index_documentation: displayable, searchable, date created facet
+    indexing:
+    - displayable
+    - stored_searchable
+    - facetable
+    mappings:
+      mods_oai_pmh: mods:originInfo/mods:dateCreated
+      qualified_dc_pmh: dcterms:created
+      simple_dc_pmh: dc:date
+    property_uri: https://dbpedia.org/ontology/completionDate
+    range: http://www.w3.org/2001/XMLSchema#date
+    requirement: optional
+    sample_values:
+    - '1999-09-09'
+    syntax: EDTF
+  date_issued:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      maximum: 1
+      minimum: 0
+    multi_value: true
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter the date a work was published as a string.
+    display_label:
+      default: Date Issued
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      mods_oai_pmh: mods:originInfo/mods:dateIssued
+      qualified_dc_pmh: dcterms:issued
+      simple_dc_pmh: dc:date
+    property_uri: http://purl.org/dc/terms/issued
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - '1999'
+  date_issued_d:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      maximum: 1
+      minimum: 0
+    multi_value: false
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#date
+      sources:
+      - 'null'
+    definition:
+      default: Machine readable date for publication date.
+    display_label:
+      default: Machine Readable Publication Date
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      mods_oai_pmh: mods:originInfo/mods:dateIssued
+      qualified_dc_pmh: dcterms:issued
+      simple_dc_pmh: dc:date
+    property_uri: https://dbpedia.org/ontology/publicationDate
+    range: http://www.w3.org/2001/XMLSchema#date
+    requirement: optional
+    sample_values:
+    - '1999'
+    syntax: EDTF
+  date_other:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      maximum: 1
+      minimum: 0
+    multi_value: true
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter a date of importance to the work that is neither the date it
+        was created nor the date it was published.
+    display_label:
+      default: Date Other
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      mods_oai_pmh: mods:originInfo/mods:dateOther
+      qualified_dc_pmh: dcterms:date
+      simple_dc_pmh: dc:date
+    property_uri: http://purl.org/dc/terms/date
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+  date_other_d:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#date
+      sources:
+      - 'null'
+    definition:
+      default: Machine readable date for a date that is neither a publication nor
+        creation date.
+    display_label:
+      default: Unclassified Machine Readable Date
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      mods_oai_pmh: mods:originInfo/mods:dateOther
+      qualified_dc_pmh: dcterms:date
+      simple_dc_pmh: dc:date
+    property_uri: https://dbpedia.org/ontology/date
+    range: http://www.w3.org/2001/XMLSchema#date
+    requirement: optional
+    syntax: EDTF
+  spatial:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - geonames
+      - naf
+      - lcsh
+    definition:
+      default: Enter the controlled name of a place with which the resource is associated.
+    display_label:
+      default: Location
+    index_documentation: displayable, searchable, spatial facet
+    indexing:
+    - displayable
+    - stored_searchable
+    - facetable
+    mappings:
+      blacklight: spatial_sim
+      mods_oai_pmh: mods:subject/mods:geographic
+      qualified_dc_pmh: dcterms:spatial
+      simple_dc_pmh: dc:coverage
+    property_uri: http://purl.org/dc/terms/spatial
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - http://id.loc.gov/authorities/names/n80040520
+    - http://id.loc.gov/authorities/names/n79109786
+    - http://id.loc.gov/authorities/subjects/sh94001975  
+  subject:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - naf
+      - agrovoc
+      - fast
+      - lcsh
+      - tgm
+      - wikidata
+    definition:
+      default: Enter a controlled term for a topic covered by the resource or that
+        the resource is about. Topics include broad concepts (e.g. "Agriculture")
+        and the names of people (last, first) depicted in or written about in the
+        resource.
+    display_label:
+      default: Subject
+    index_documentation: displayable, searchable, subject facet
+    indexing:
+    - displayable
+    - stored_searchable
+    - facetable
+    mappings:
+      blacklight: subject_sim
+      mods_oai_pmh: mods:subject/mods:topic
+      qualified_dc_pmh: dcterms:subject
+      simple_dc_pmh: dc:subject
+    property_uri: http://purl.org/dc/terms/subject
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - http://aims.fao.org/aos/agrovoc/c_10266
+    - http://id.loc.gov/authorities/names/n2002029392
+    - http://id.loc.gov/authorities/subjects/sh97004247
+    - http://id.loc.gov/vocabulary/graphicMaterials/tgm009950
+    - http://sws.geonames.org/6180926
+    - http://www.wikidata.org/entity/Q108903133
+  language:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - iso639-2b
+    definition:
+      default: Enter a language used in the resource. When multiple languages
+        are present, use multiple fields. If no language is present, use "No
+        linguistic content."
+    display_label:
+      default: Language
+    index_documentation: displayable, searchable, language facet
+    indexing:
+    - displayable
+    - stored_searchable
+    - facetable
+    mappings:
+      metatags: og:locale
+      mods_oai_pmh: mods:language/mods:languageTerm
+      qualified_dc_pmh: dcterms:language
+      simple_dc_pmh: dc:language
+    property_uri: http://purl.org/dc/terms/language
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - http://id.loc.gov/vocabulary/iso639-2/eng
+  form:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - aat
+      - lcsh
+      - lcgft
+    display_label:
+      default: Form
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      mods_oai_pmh: mods:physicalDescription/mods:form
+      qualified_dc_pmh: dcterms:medium
+      simple_dc_pmh: dc:format
+    property_uri: http://purl.org/dc/terms/format
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - http://vocab.getty.edu/aat/300046300
+    - http://id.loc.gov/authorities/genreForms/gf2014026151
+  extent:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter the dimensions (if a photograph, artwork, etc.), the total number
+        of digital pages of the resource, or time duration (if audiovisual content)
+        of the resource. Units should be included as text within the field (e.g. "8x10
+        inches", "6 pages", or "1 hour, 2 minutes").
+    display_label:
+      default: Extent
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      mods_oai_pmh: mods:physicalDescription/mods:extent
+      qualified_dc_pmh: dcterms:extent
+      simple_dc_pmh: dc:format
+    property_uri: http://rdaregistry.info/Elements/u/P60550
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - 25 pages
+  resource_type:
+    available_on:
+      class:
+      - Attachment
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - resourceTypes
+    definition:
+      default: Enter broad term(s) that describe the general format of the resource
+        (Text, Cartographic, Notated music, Audio non-musical, Audio, Still image,
+        Moving image, Artifact, Collection). Note that more than one term can be used
+        if the resource is dominated by more than one resource type.
+    display_label:
+      default: Resource Type
+    index_documentation: displayable, searchable, resource type facet
+    indexing:
+    - displayable
+    - stored_searchable
+    - facetable
+    mappings:
+      mods_oai_pmh: mods:typeOfResource
+      qualified_dc_pmh: dcterms:type
+      simple_dc_pmh: dc:type
+    property_uri: http://purl.org/dc/terms/type
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+  publisher:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - wikidata
+      - naf
+      - ulan
+    definition:
+      default: Enter the name of a person (last, first) or organization responsible
+        for publishing, releasing, or issuing a resource.
+    display_label:
+      default: Publisher
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Publisher')]]/mods:namePart
+      qualified_dc_pmh: dcterms:contributor
+      simple_dc_pmh: dc:contributor
+    property_uri: http://id.loc.gov/vocabulary/relators/pbl
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - http://id.loc.gov/authorities/names/n2017180154
+  publication_place:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - naf
+    definition:
+      default: For published works, enter the place of publication. This should be
+        a city (with state/country info).
+    display_label:
+      default: Publication Place
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      mods_oai_pmh: mods:originInfo/place/placeTerm
+    property_uri: https://id.loc.gov/vocabulary/relators/pup
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: optional
+    sample_values:
+    - http://id.loc.gov/authorities/names/n79109786
+  provider:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      maximum: 1
+      minimum: 1
+    multi_value: true
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: "The name of the organization (typically UT) who delivers data
+        directly to an aggregation service."
+    display_label:
+      default: Provider
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      mods_oai_pmh: mods:location/mods:physicalLocation
+      qualified_dc_pmh: dcterms:publisher
+      simple_dc_pmh: dc:publisher
+    property_uri: http://www.europeana.eu/schemas/edm/provider
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: required
+    sample_values:
+    - University of Tennessee, Knoxville. Libraries
+  repository:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      maximum: 1
+      minimum: 0
+    multi_value: true
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter the name of the institution that physically holds the materials.
+    display_label:
+      default: Repository
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings: {}
+    property_uri: http://id.loc.gov/vocabulary/relators/rps
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+  rights_statement:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      maximum: 1
+      minimum: 1
+    multi_value: true
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#anyURI
+      sources:
+      - rightsstatements
+    definition:
+      default: Enter the rights statement that applies to the resource.
+    display_label:
+      default: Rights
+    index_documentation: displayable, searchable, rights facet
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: rights_statement_sim
+      mods_oai_pmh: mods:accessCondition[@type="use and reproduction"]
+      qualified_dc_pmh: dcterms:rights
+      simple_dc_pmh: dc:rights
+    property_uri: http://www.europeana.eu/schemas/edm/rights
+    range: http://www.w3.org/2001/XMLSchema#anyURI
+    requirement: required
+    sample_values:
+    - http://rightsstatements.org/vocab/InC/1.0/
+  call_number:
+    available_on:
+      class:
+      - Book
+      - Image
+      - Pdf
+    cardinality:
+      maximum: 1
+      minimum: 0
+    multi_value: true
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter the base call number of cataloged resources (written on resource
+        or present in the catalog). Do not include the year or author (e.g. for "LD5296
+        .W6 2001" should be "LD5296 .W6").
+    display_label:
+      default: Library of Congress Classification
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      mods_oai_pmh: mods:classification[@authority="lcc"]
+    property_uri: http://id.loc.gov/vocabulary/classSchemes/lcc
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - LD5296 .W6
+  primary_identifier:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      minimum: 1
+      maximum: 1
+    multi_value: true
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter the primary identifier.
+    display_label:
+      default: Primary Identifier
+    index_documentation: displayable, searchable
+    indexing:
+    - displayable
+    - stored_searchable
+    mappings:
+      blacklight: primary_identifier_ssi
+      mods_oai_pmh: mods:identifier[@type='primary']
+      qualified_dc_pmh: dcterms:identifier
+      simple_dc_pmh: dc:identifier
+    property_uri: http://purl.org/dc/terms/identifier
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - csboyd:0014
+    usage_guidelines:
+      default: This is the primary identifier of a work. For migrated resources,
+        this should be the original PID. For new resources, this may follow
+        another pattern. This was added because the original pid is not always
+        in the MODS record and source_identifier isn't inlcluded in Solr.
+  local_identifier:
+    available_on:
+      class:
+      - GenericWork
+      - Image
+      - Video
+      - Audio
+      - Pdf
+      - Book
+      - CompoundObject
+      - Newspaper
+      - Attachment
+    cardinality:
+      minimum: 0
+    controlled_values:
+      format: http://www.w3.org/2001/XMLSchema#string
+      sources:
+      - 'null'
+    definition:
+      default: Enter a local identifier.
+    display_label:
+      default: Local Identifier
+    index_documentation: searchable
+    indexing:
+    - stored_searchable
+    mappings:
+      blacklight: identifier_ssi
+      mods_oai_pmh: mods:identifier[@type='local']
+      qualified_dc_pmh: dcterms:identifier
+      simple_dc_pmh: dc:identifier
+    property_uri: http://id.loc.gov/vocabulary/identifiers/local
+    range: http://www.w3.org/2001/XMLSchema#string
+    requirement: optional
+    sample_values:
+    - csboyd_0014
+    usage_guidelines:
+      default: This can be the identifier created by Digital Production or another
+        identifier found on the source (but not the ISSN, ISBN, or OCLC number).
   acquisition_identifier:
     available_on:
       class:
@@ -164,43 +1072,6 @@ properties:
     requirement: optional
     sample_values:
     - http://id.loc.gov/authorities/names/n2017180154
-  alternative_title:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      minimum: 0
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#string
-      sources:
-      - 'null'
-    definition:
-      default: Enter any alternate titles used to identify the source. If the source
-        is a serial publication, this could include a transcribed title. If the title
-        is written in more than one language, this title could include a foreign language
-        (parallel) title.
-    display_label:
-      default: Alternative Title
-    index_documentation: displayable, searchable
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      mods_oai_pmh: modstitleInfo[@type="alternative"]/mods:title
-      qualified_dc_pmh: dcterms:alternative
-    property_uri: http://purl.org/dc/terms/alternative
-    range: http://www.w3.org/2001/XMLSchema#string
-    requirement: optional
-    sample_values:
-    - 'Swimming 1969: The University of Tennessee'
   architect:
     available_on:
       class:
@@ -610,37 +1481,6 @@ properties:
     requirement: optional
     sample_values:
     - http://id.loc.gov/authorities/names/n2017180154
-  call_number:
-    available_on:
-      class:
-      - Book
-      - Image
-      - Pdf
-    cardinality:
-      maximum: 1
-      minimum: 0
-    multi_value: true
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#string
-      sources:
-      - 'null'
-    definition:
-      default: Enter the base call number of cataloged resources (written on resource
-        or present in the catalog). Do not include the year or author (e.g. for "LD5296
-        .W6 2001" should be "LD5296 .W6").
-    display_label:
-      default: Library of Congress Classification
-    index_documentation: displayable, searchable
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      mods_oai_pmh: mods:classification[@authority="lcc"]
-    property_uri: http://id.loc.gov/vocabulary/classSchemes/lcc
-    range: http://www.w3.org/2001/XMLSchema#string
-    requirement: optional
-    sample_values:
-    - LD5296 .W6
   cartographer:
     available_on:
       class:
@@ -894,47 +1734,6 @@ properties:
     requirement: optional
     sample_values:
     - http://id.loc.gov/authorities/names/n2017180154
-  contributor:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      minimum: 0
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#anyURI
-      sources:
-      - wikidata
-      - naf
-      - ulan
-    definition:
-      default: Enter the name of a person (last, first), family or organization responsible
-        for making contributions to the resource. This includes those whose work has
-        been contributed to a larger work, such as an anthology, serial publication,
-        or other compilation of individual works. If a more specific role is available,
-        prefer that, e.g. editor, compiler, illustrator.
-    display_label:
-      default: Contributor
-    index_documentation: displayable, searchable
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Contributor')]]/mods:namePart
-      qualified_dc_pmh: dcterms:contributor
-      simple_dc_pmh: dc:contributor
-    property_uri: http://id.loc.gov/vocabulary/relators/ctb
-    range: http://www.w3.org/2001/XMLSchema#anyURI
-    requirement: optional
-    sample_values:
-    - http://id.loc.gov/authorities/names/n2017180154
   coordinates:
     available_on:
       class:
@@ -1085,264 +1884,6 @@ properties:
     requirement: optional
     sample_values:
     - http://id.loc.gov/authorities/names/n2017180154
-  creator:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      minimum: 0
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#anyURI
-      sources:
-      - wikidata
-      - naf
-      - ulan
-    definition:
-      default: Enter the name of a person (last, first) or organization responsible
-        for the intellectual or artistic content of a resource. Use when a suitable
-        more granular term cannot be identified.
-    display_label:
-      default: Creator
-    index_documentation: displayable, searchable, creator facet
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      blacklight: creator_sim
-      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Creator')]]/mods:namePart
-      qualified_dc_pmh: dcterms:creator
-      simple_dc_pmh: dc:creator
-    property_uri: http://id.loc.gov/vocabulary/relators/cre
-    range: http://www.w3.org/2001/XMLSchema#anyURI
-    requirement: optional
-    sample_values:
-    - http://id.loc.gov/authorities/names/n2017180154
-  date_created:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      maximum: 1
-      minimum: 0
-    multi_value: true
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#string
-      sources:
-      - 'null'
-    definition:
-      default: Enter the date a work was created. If this is a published work, use
-        "Date Issued."
-    display_label:
-      default: Date Created
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      mods_oai_pmh: mods:originInfo/mods:dateCreated
-      qualified_dc_pmh: dcterms:created
-      simple_dc_pmh: dc:date
-    property_uri: http://purl.org/dc/terms/created
-    range: http://www.w3.org/2001/XMLSchema#string
-    requirement: optional
-    sample_values:
-    - '"approximately between 1940 and 1950", "1940~/1950"'
-  date_created_d:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      maximum: 1
-      minimum: 0
-    multi_value: false
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#date
-      sources:
-      - 'null'
-    definition:
-      default: Machine readable date for creation date.
-    display_label:
-      default: Machine Readable Creation Date
-    index_documentation: displayable, searchable, date created facet
-    indexing:
-    - displayable
-    - stored_searchable
-    - facetable
-    mappings:
-      mods_oai_pmh: mods:originInfo/mods:dateCreated
-      qualified_dc_pmh: dcterms:created
-      simple_dc_pmh: dc:date
-    property_uri: https://dbpedia.org/ontology/completionDate
-    range: http://www.w3.org/2001/XMLSchema#date
-    requirement: optional
-    sample_values:
-    - '1999-09-09'
-    syntax: EDTF
-  date_issued:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      maximum: 1
-      minimum: 0
-    multi_value: true
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#string
-      sources:
-      - 'null'
-    definition:
-      default: Enter the date a work was published as a string.
-    display_label:
-      default: Date Issued
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      mods_oai_pmh: mods:originInfo/mods:dateIssued
-      qualified_dc_pmh: dcterms:issued
-      simple_dc_pmh: dc:date
-    property_uri: http://purl.org/dc/terms/issued
-    range: http://www.w3.org/2001/XMLSchema#string
-    requirement: optional
-    sample_values:
-    - '1999'
-  date_issued_d:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      maximum: 1
-      minimum: 0
-    multi_value: false
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#date
-      sources:
-      - 'null'
-    definition:
-      default: Machine readable date for publication date.
-    display_label:
-      default: Machine Readable Publication Date
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      mods_oai_pmh: mods:originInfo/mods:dateIssued
-      qualified_dc_pmh: dcterms:issued
-      simple_dc_pmh: dc:date
-    property_uri: https://dbpedia.org/ontology/publicationDate
-    range: http://www.w3.org/2001/XMLSchema#date
-    requirement: optional
-    sample_values:
-    - '1999'
-    syntax: EDTF
-  date_other:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      maximum: 1
-      minimum: 0
-    multi_value: true
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#string
-      sources:
-      - 'null'
-    definition:
-      default: Enter a date of importance to the work that is neither the date it
-        was created nor the date it was published.
-    display_label:
-      default: Date Other
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      mods_oai_pmh: mods:originInfo/mods:dateOther
-      qualified_dc_pmh: dcterms:date
-      simple_dc_pmh: dc:date
-    property_uri: http://purl.org/dc/terms/date
-    range: http://www.w3.org/2001/XMLSchema#string
-    requirement: optional
-  date_other_d:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      minimum: 0
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#date
-      sources:
-      - 'null'
-    definition:
-      default: Machine readable date for a date that is neither a publication nor
-        creation date.
-    display_label:
-      default: Unclassified Machine Readable Date
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      mods_oai_pmh: mods:originInfo/mods:dateOther
-      qualified_dc_pmh: dcterms:date
-      simple_dc_pmh: dc:date
-    property_uri: https://dbpedia.org/ontology/date
-    range: http://www.w3.org/2001/XMLSchema#date
-    requirement: optional
-    syntax: EDTF
   dedicatee:
     available_on:
       class:
@@ -1687,44 +2228,6 @@ properties:
     requirement: optional
     sample_values:
     - http://id.loc.gov/authorities/names/n2017180154
-  extent:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      minimum: 0
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#string
-      sources:
-      - 'null'
-    definition:
-      default: Enter the dimensions (if a photograph, artwork, etc.), the total number
-        of digital pages of the resource, or time duration (if audiovisual content)
-        of the resource. Units should be included as text within the field (e.g. "8x10
-        inches", "6 pages", or "1 hour, 2 minutes").
-    display_label:
-      default: Extent
-    index_documentation: displayable, searchable
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      mods_oai_pmh: mods:physicalDescription/mods:extent
-      qualified_dc_pmh: dcterms:extent
-      simple_dc_pmh: dc:format
-    property_uri: http://rdaregistry.info/Elements/u/P60550
-    range: http://www.w3.org/2001/XMLSchema#string
-    requirement: optional
-    sample_values:
-    - 25 pages
   first_line:
     available_on:
       class:
@@ -1754,41 +2257,6 @@ properties:
     requirement: optional
     sample_values:
     - On the other hand with regard to
-  form:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      minimum: 0
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#anyURI
-      sources:
-      - aat
-      - lcsh
-      - lcgft
-    display_label:
-      default: Form
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      mods_oai_pmh: mods:physicalDescription/mods:form
-      qualified_dc_pmh: dcterms:medium
-      simple_dc_pmh: dc:format
-    property_uri: http://purl.org/dc/terms/format
-    range: http://www.w3.org/2001/XMLSchema#anyURI
-    requirement: optional
-    sample_values:
-    - http://vocab.getty.edu/aat/300046300
-    - http://id.loc.gov/authorities/genreForms/gf2014026151
   form_local:
     available_on:
       class:
@@ -2390,45 +2858,6 @@ properties:
     sample_values:
     - Board of Aid to Land Ownership
     - Farming and Agriculture.
-  language:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      minimum: 0
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#anyURI
-      sources:
-      - iso639-2b
-    definition:
-      default: Enter a language used in the resource. When multiple languages
-        are present, use multiple fields. If no language is present, use "No
-        linguistic content."
-    display_label:
-      default: Language
-    index_documentation: displayable, searchable, language facet
-    indexing:
-    - displayable
-    - stored_searchable
-    - facetable
-    mappings:
-      metatags: og:locale
-      mods_oai_pmh: mods:language/mods:languageTerm
-      qualified_dc_pmh: dcterms:language
-      simple_dc_pmh: dc:language
-    property_uri: http://purl.org/dc/terms/language
-    range: http://www.w3.org/2001/XMLSchema#anyURI
-    requirement: optional
-    sample_values:
-    - http://id.loc.gov/vocabulary/iso639-2/eng
   language_local:
     available_on:
       class:
@@ -2547,45 +2976,6 @@ properties:
     requirement: optional
     sample_values:
     - http://id.loc.gov/authorities/names/n2017180154
-  local_identifier:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      minimum: 0
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#string
-      sources:
-      - 'null'
-    definition:
-      default: Enter a local identifier.
-    display_label:
-      default: Local Identifier
-    index_documentation: displayable, searchable
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      blacklight: identifier_ssi
-      mods_oai_pmh: mods:identifier[@type='local']
-      qualified_dc_pmh: dcterms:identifier
-      simple_dc_pmh: dc:identifier
-    property_uri: http://id.loc.gov/vocabulary/identifiers/local
-    range: http://www.w3.org/2001/XMLSchema#string
-    requirement: optional
-    sample_values:
-    - csboyd_0014
-    usage_guidelines:
-      default: This can be the identifier created by Digital Production or another
-        identifier found on the source (but not the ISSN, ISBN, or OCLC number).
   lyricist:
     available_on:
       class:
@@ -3044,49 +3434,6 @@ properties:
     requirement: optional
     sample_values:
     - http://id.loc.gov/authorities/names/n2017180154
-  primary_identifier:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      minimum: 1
-      maximum: 1
-    multi_value: true
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#string
-      sources:
-      - 'null'
-    definition:
-      default: Enter the primary identifier.
-    display_label:
-      default: Primary Identifier
-    index_documentation: displayable, searchable
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      blacklight: primary_identifier_ssi
-      mods_oai_pmh: mods:identifier[@type='primary']
-      qualified_dc_pmh: dcterms:identifier
-      simple_dc_pmh: dc:identifier
-    property_uri: http://purl.org/dc/terms/identifier
-    range: http://www.w3.org/2001/XMLSchema#string
-    requirement: optional
-    sample_values:
-    - csboyd:0014
-    usage_guidelines:
-      default: This is the primary identifier of a work. For migrated resources,
-        this should be the original PID. For new resources, this may follow
-        another pattern. This was added because the original pid is not always
-        in the MODS record and source_identifier isn't inlcluded in Solr.
   printer_of_plates:
     available_on:
       class:
@@ -3205,148 +3552,6 @@ properties:
     requirement: optional
     sample_values:
     - http://id.loc.gov/authorities/names/n2017180154
-  provider:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      maximum: 1
-      minimum: 1
-    multi_value: true
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#string
-      sources:
-      - 'null'
-    definition:
-      default: "The name of the organization (typically UT) who delivers data
-        directly to an aggregation service."
-    display_label:
-      default: Provider
-    index_documentation: displayable, searchable
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      mods_oai_pmh: mods:location/mods:physicalLocation
-      qualified_dc_pmh: dcterms:publisher
-      simple_dc_pmh: dc:publisher
-    property_uri: http://www.europeana.eu/schemas/edm/provider
-    range: http://www.w3.org/2001/XMLSchema#string
-    requirement: required
-    sample_values:
-    - University of Tennessee, Knoxville. Libraries
-  publication_place:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      minimum: 0
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#anyURI
-      sources:
-      - naf
-    definition:
-      default: For published works, enter the place of publication. This should be
-        a city (with state/country info).
-    display_label:
-      default: Publication Place
-    index_documentation: displayable, searchable
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      mods_oai_pmh: mods:originInfo/place/placeTerm
-    property_uri: https://id.loc.gov/vocabulary/relators/pup
-    range: http://www.w3.org/2001/XMLSchema#anyURI
-    requirement: optional
-    sample_values:
-    - http://id.loc.gov/authorities/names/n79109786
-  publisher:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      minimum: 0
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#anyURI
-      sources:
-      - wikidata
-      - naf
-      - ulan
-    definition:
-      default: Enter the name of a person (last, first) or organization responsible
-        for publishing, releasing, or issuing a resource.
-    display_label:
-      default: Publisher
-    index_documentation: displayable, searchable
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      mods_oai_pmh: mods:name[mods:role/mods:roleTerm[contains(.,'Publisher')]]/mods:namePart
-      qualified_dc_pmh: dcterms:contributor
-      simple_dc_pmh: dc:contributor
-    property_uri: http://id.loc.gov/vocabulary/relators/pbl
-    range: http://www.w3.org/2001/XMLSchema#anyURI
-    requirement: optional
-    sample_values:
-    - http://id.loc.gov/authorities/names/n2017180154
-  repository:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      maximum: 1
-      minimum: 0
-    multi_value: true
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#string
-      sources:
-      - 'null'
-    definition:
-      default: Enter the name of the institution that physically holds the materials.
-    display_label:
-      default: Repository
-    index_documentation: displayable, searchable
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings: {}
-    property_uri: http://id.loc.gov/vocabulary/relators/rps
-    range: http://www.w3.org/2001/XMLSchema#string
-    requirement: optional
   resource_link:
     available_on:
       class:
@@ -3381,44 +3586,6 @@ properties:
       qualified_dc_pmh: dcterms:identifier
       simple_dc_pmh: dc:identifier
     property_uri: http://www.europeana.eu/schemas/edm/isShownAt
-    range: http://www.w3.org/2001/XMLSchema#anyURI
-    requirement: optional
-  resource_type:
-    available_on:
-      class:
-      - Attachment
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      minimum: 0
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#anyURI
-      sources:
-      - resourceTypes
-    definition:
-      default: Enter broad term(s) that describe the general format of the resource
-        (Text, Cartographic, Notated music, Audio non-musical, Audio, Still image,
-        Moving image, Artifact, Collection). Note that more than one term can be used
-        if the resource is dominated by more than one resource type.
-    display_label:
-      default: Resource Type
-    index_documentation: displayable, searchable, resource type facet
-    indexing:
-    - displayable
-    - stored_searchable
-    - facetable
-    mappings:
-      mods_oai_pmh: mods:typeOfResource
-      qualified_dc_pmh: dcterms:type
-      simple_dc_pmh: dc:type
-    property_uri: http://purl.org/dc/terms/type
     range: http://www.w3.org/2001/XMLSchema#anyURI
     requirement: optional
   resource_type_local:
@@ -3497,44 +3664,6 @@ properties:
     requirement: optional
     sample_values:
     - http://id.loc.gov/authorities/names/n2017180154
-  rights_statement:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      maximum: 1
-      minimum: 1
-    multi_value: true
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#anyURI
-      sources:
-      - rightsstatements
-    definition:
-      default: Enter the rights statement that applies to the resource.
-    display_label:
-      default: Rights
-    index_documentation: displayable, searchable, rights facet
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      blacklight: rights_statement_sim
-      mods_oai_pmh: mods:accessCondition[@type="use and reproduction"]
-      qualified_dc_pmh: dcterms:rights
-      simple_dc_pmh: dc:rights
-    property_uri: http://www.europeana.eu/schemas/edm/rights
-    range: http://www.w3.org/2001/XMLSchema#anyURI
-    requirement: required
-    sample_values:
-    - http://rightsstatements.org/vocab/InC/1.0/
   sequence:
     available_on:
       class:
@@ -3680,47 +3809,6 @@ properties:
     requirement: optional
     sample_values:
     - http://id.loc.gov/authorities/names/n2017180154
-  spatial:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      minimum: 0
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#anyURI
-      sources:
-      - geonames
-      - naf
-      - lcsh
-    definition:
-      default: Enter the controlled name of a place with which the resource is associated.
-    display_label:
-      default: Location
-    index_documentation: displayable, searchable, spatial facet
-    indexing:
-    - displayable
-    - stored_searchable
-    - facetable
-    mappings:
-      blacklight: spatial_sim
-      mods_oai_pmh: mods:subject/mods:geographic
-      qualified_dc_pmh: dcterms:spatial
-      simple_dc_pmh: dc:coverage
-    property_uri: http://purl.org/dc/terms/spatial
-    range: http://www.w3.org/2001/XMLSchema#anyURI
-    requirement: optional
-    sample_values:
-    - http://id.loc.gov/authorities/names/n80040520
-    - http://id.loc.gov/authorities/names/n79109786
-    - http://id.loc.gov/authorities/subjects/sh94001975
   spatial_local:
     available_on:
       class:
@@ -3911,56 +3999,6 @@ properties:
     requirement: optional
     sample_values:
     - http://id.loc.gov/authorities/names/n2017180154
-  subject:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      minimum: 0
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#anyURI
-      sources:
-      - naf
-      - agrovoc
-      - fast
-      - lcsh
-      - tgm
-      - wikidata
-    definition:
-      default: Enter a controlled term for a topic covered by the resource or that
-        the resource is about. Topics include broad concepts (e.g. "Agriculture")
-        and the names of people (last, first) depicted in or written about in the
-        resource.
-    display_label:
-      default: Subject
-    index_documentation: displayable, searchable, subject facet
-    indexing:
-    - displayable
-    - stored_searchable
-    - facetable
-    mappings:
-      blacklight: subject_sim
-      mods_oai_pmh: mods:subject/mods:topic
-      qualified_dc_pmh: dcterms:subject
-      simple_dc_pmh: dc:subject
-    property_uri: http://purl.org/dc/terms/subject
-    range: http://www.w3.org/2001/XMLSchema#anyURI
-    requirement: optional
-    sample_values:
-    - http://aims.fao.org/aos/agrovoc/c_10266
-    - http://id.loc.gov/authorities/names/n2002029392
-    - http://id.loc.gov/authorities/subjects/sh97004247
-    - http://id.loc.gov/vocabulary/graphicMaterials/tgm009950
-    - http://sws.geonames.org/6180926
-    - http://www.wikidata.org/entity/Q108903133
   surveyor:
     available_on:
       class:
@@ -4077,45 +4115,6 @@ properties:
     requirement: optional
     sample_values:
     - Founding of Pi Beta Phi Settlement School, Gatlinburg, Tennessee, 1909-1927
-  title:
-    available_on:
-      class:
-      - GenericWork
-      - Image
-      - Video
-      - Audio
-      - Pdf
-      - Book
-      - CompoundObject
-      - Newspaper
-      - Attachment
-    cardinality:
-      maximum: 1
-      minimum: 1
-    multi_value: true
-    controlled_values:
-      format: http://www.w3.org/2001/XMLSchema#string
-      sources:
-      - 'null'
-    definition:
-      default: Enter a standardized title for display. If only one title is needed,
-        transcribe the title from the source itself.
-    display_label:
-      default: Title
-    index_documentation: displayable, searchable
-    indexing:
-    - displayable
-    - stored_searchable
-    mappings:
-      metatags: twitter:title, og:title
-      mods_oai_pmh: mods:titleInfo/mods:title
-      qualified_dc_pmh: dcterms:title
-      simple_dc_pmh: dc:title
-    property_uri: http://purl.org/dc/terms/title
-    range: http://www.w3.org/2001/XMLSchema#string
-    requirement: required
-    sample_values:
-    - Pencil drawn portrait study of woman
   translator:
     available_on:
       class:
